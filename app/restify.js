@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var restify = require('..');
 var userModel = require('./model/user')(mongoose);
-var siteModel = require('./model/site')(mongoose);
+var beatModel = require('./model/beat')(mongoose);
 
 function Restify(app, uri) {
     'use strict';
@@ -13,7 +13,7 @@ function Restify(app, uri) {
     function run() {
         mongoose.connect(uri);
         restify.serve(app, userModel);
-        restify.serve(app, siteModel);
+        restify.serve(app, beatModel);
     }
 }
 
