@@ -4,46 +4,33 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var restify = require('./restify');
 var log = require('./util/log');
+var applyControllers = require('./controller');
+var applyCorsMiddleWare = require('./util/cors-middle-ware');
 
 (function app() {
     'use strict';
-    var kiraAPI = express();
-    var dbURI = 'mongodb://localhost/jcBeats';
-    var kiraPort = 7788;
+    var api = express();
+    var db = 'mongodb://localhost/jcBeats';
+    var port = 7788;
 
-    run(kiraAPI, dbURI, kiraPort);
+    run();
 
     ///////////////////
 
-    function run(app,uri,port) {
-        app.use(bodyParser.urlencoded({extended: true}));
-        app.use(bodyParser.json());
-        app.use(methodOverride('X-HTTP-Method-Override'));
+    function run() {
+        api.use(bodyParser.urlencoded({extended: true}));
+        api.use(bodyParser.json());
+        api.use(methodOverride('X-HTTP-Method-Override'));
 
-        app.use(function (req, res, next) {
+        applyCorsMiddleWare(api);
+        applyControllers(api);
+        restify(api, db);
 
-            // Website you wish to allow to connect
-            res.setHeader('Access-Control-Allow-Origin', '*');
-
-            // Request methods you wish to allow
-            res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-
-            // Request headers you wish to allow
-            res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-
-            // Set to true if you need the website to include cookies in the requests sent
-            // to the API (e.g. in case you use sessions)
-            res.setHeader('Access-Control-Allow-Credentials', true);
-
-            // Pass to next layer of middleware
-            next();
-        });
-        restify(app, uri);
-        http.createServer(app).listen(port, successLog(port));
+        http.createServer(api)
+            .listen(port, successLog(port));
     }
 
     function successLog(port) {
         log.info('JuicyBeatsAPI @ ' + port);
     }
-
 })();

@@ -5,11 +5,8 @@ var beatModel = require('./model/beat')(mongoose);
 
 function Restify(app, uri) {
     'use strict';
-
     run();
-
     ///////////
-
     function run() {
         mongoose.connect(uri);
         restify.serve(app, userModel);
