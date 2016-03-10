@@ -1,12 +1,11 @@
-function UserSchema(mongoose) {
+function UserModel(mongoose) {
     'use strict';
     var userSchema = new mongoose.Schema({
         username: {type: String},
         password: {type: String}
     });
-    var user = mongoose.model('user', userSchema);
 
-    return user;
+    return mongoose.model('user', userSchema);
 }
 
-module.exports = UserSchema;
+module.exports = UserModel;

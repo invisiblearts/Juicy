@@ -1,12 +1,17 @@
-function beatsCtrl(api){
-    // home page route (http://localhost:8080)
-    api.get('/', function(req, res) {
-        res.send('write logic of /beats root');
-    });
+var beatsService = require('../../service/beatsService')();
+var Util = require('../../util')();
+var Promise = require('bluebird');
 
-    // about page route (http://localhost:8080/about)
-    api.get('/about', function(req, res) {
-        res.send('write logic of /beats/about');
+function beatsCtrl(api){
+    api.get('/yymm/:yymm/duration/:offset', function(req, res) {
+        var yymm = req.params.yymm;
+        var offset = req.params.offset;
+
+        var fromDate = Util.genDateByYYMM(yymm);
+        var toDate = Util.genDateByYYMM(yymm, offset);
+        beatsService.getInRange(fromDate, toDate).then(function(result){
+            res.json({time:yymm,beats:result});
+        });
     });
 }
 

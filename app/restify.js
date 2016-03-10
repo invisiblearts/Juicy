@@ -1,16 +1,13 @@
-var mongoose = require('mongoose');
 var restify = require('..');
-var userModel = require('./model/user')(mongoose);
-var beatModel = require('./model/beat')(mongoose);
-
-function Restify(app, uri) {
+var Models = require('./model')().getAll();
+function Restify(app) {
     'use strict';
     run();
     ///////////
     function run() {
-        mongoose.connect(uri);
-        restify.serve(app, userModel);
-        restify.serve(app, beatModel);
+        for (var key in Models) {
+            restify.serve(app, Models[key]);
+        }
     }
 }
 

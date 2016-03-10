@@ -1,7 +1,7 @@
 var beats = require('./beats');
 
 function applyControllers(api) {
-  api.use('/beats', beats);
+  api.use('/api/beats', beats);
 }
 
 module.exports = applyControllers;

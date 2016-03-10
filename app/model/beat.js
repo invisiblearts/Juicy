@@ -1,4 +1,4 @@
-function BeatSchema(mongoose) {
+function BeatModel(mongoose) {
     'use strict';
     var beatSchema = new mongoose.Schema({
         time: {type : Date, default: Date.now},
@@ -6,9 +6,8 @@ function BeatSchema(mongoose) {
         featured: {type: Boolean},
         safe:{type: Boolean}
     });
-    var beat = mongoose.model('beat', beatSchema);
-
-    return beat;
+    
+    return mongoose.model('beat', beatSchema);
 }
 
-module.exports = BeatSchema;
+module.exports = BeatModel;
