@@ -1,6 +1,7 @@
 function Util(){
     return {
-        genDateByYYMM : genDateByYYMM
+        genDateByYYMM : genDateByYYMM,
+        genYYMMByDate : genYYMMByDate
     };
 
     function genDateByYYMM(yymm, offset){
@@ -10,6 +11,13 @@ function Util(){
             month += parseInt(offset);
         }
         return new Date().setFullYear(year, month, 1);
+    }
+
+    function genYYMMByDate(date){
+        var month = (date.getMonth() + 1).toString();
+        month = month.length > 1 ? month : '0' + month;
+        var year =  date.getFullYear().toString().substring(2, 4);
+        return year + month;
     }
 
 }

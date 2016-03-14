@@ -2,9 +2,9 @@ var http = require('http');
 var express = require('express');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
-var restify = require('./restify');
+var restifyDB = require('./restify');
 var log = require('./util/log');
-var applyControllers = require('./controller');
+var applyCustomRestfulAPIs = require('./facade');
 var mongoose = require('mongoose');
 
 (function app() {
@@ -18,10 +18,10 @@ var mongoose = require('mongoose');
     ///////////////////
 
     function run() {
-        applyMiddleWares(api);
         mongoose.connect(db);
-        applyControllers(api);
-        restify(api);
+        applyMiddleWares(api);
+        applyCustomRestfulAPIs(api);
+        restifyDB(api);
         http.createServer(api)
             .listen(port, successLog(port));
     }

@@ -1,4 +1,6 @@
-function UserModel(mongoose) {
+var mongoose = require('mongoose');
+
+function UserModel() {
     'use strict';
     var userSchema = new mongoose.Schema({
         username: {type: String},
@@ -8,4 +10,4 @@ function UserModel(mongoose) {
     return mongoose.model('user', userSchema);
 }
 
-module.exports = UserModel;
+module.exports = UserModel();

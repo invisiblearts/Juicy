@@ -1,7 +1,5 @@
-var mongoose = require('mongoose');
-
-var userModel = require('./user')(mongoose);
-var beatModel = require('./beat')(mongoose);
+var userModel = require('./user/model');
+var beatModel = require('./beat/model');
 
 function Models(){
     var models = {
@@ -25,4 +23,4 @@ function Models(){
 
 }
 
-module.exports = Models;
+module.exports = Models();

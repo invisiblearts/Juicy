@@ -1,5 +1,5 @@
 var restify = require('..');
-var Models = require('./model')().getAll();
+var Models = require('./domain/models').getAll();
 function Restify(app) {
     'use strict';
     run();
