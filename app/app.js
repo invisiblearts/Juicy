@@ -20,8 +20,8 @@ var mongoose = require('mongoose');
     function run() {
         mongoose.connect(db);
         applyMiddleWares(api);
-        applyCustomRestfulAPIs(api);
         restifyDB(api);
+        applyCustomRestfulAPIs(api);
         http.createServer(api)
             .listen(port, successLog(port));
     }

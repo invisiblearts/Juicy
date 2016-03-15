@@ -6,13 +6,14 @@ function BeatModel() {
         time: {type : Date, default: Date.now},
         text: {type: String},
         featured: {type: Boolean},
+        images: {type: Array},
         safe:{type: Boolean}
     });
     var beatModel = mongoose.model('beat', beatSchema);
-    beatModel.prototype.set = setter;
+/*    beatModel.prototype.set = setter;
     function setter(beat){
 
-    }
+    }*/
     return beatModel;
 }
 
