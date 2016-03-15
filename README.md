@@ -1,3 +1,6 @@
-挖坑中...
-KIRAKIRA (将)是一个米那桑分享萌域名个站的地方。
-就个人而言是熟悉Mongoose + Node + Express + React的项目。
+JuicyBeats项目后端    
+目标是个人Tweet发布系统    
+开发中   
+Usage :     
+cd app    
+node app    
