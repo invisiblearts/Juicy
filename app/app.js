@@ -19,6 +19,7 @@ var mongoose = require('mongoose');
 
     function run() {
         mongoose.connect(db);
+        mongoose.Promise = global.Promise;
         applyMiddleWares(api);
         restifyDB(api);
         applyCustomRestfulAPIs(api);

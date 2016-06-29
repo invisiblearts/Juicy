@@ -1,5 +1,4 @@
 var Util = require('../../util')();
-var Promise = require('bluebird');
 
 function BeatAssembler(){
     return {
@@ -17,8 +16,8 @@ function BeatAssembler(){
     }
 
     function dateToYYMM(data){
-        var res = data.map(i=>Util.genYYMM(d._id.year,d._id.month));
-        
+        var res = data.map(i=>Util.genYYMM(i._id.year,i._id.month));
+        console.log(res);
         return res;
     }
 }
