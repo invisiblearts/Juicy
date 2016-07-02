@@ -7,7 +7,7 @@ var fs = require('fs');
 
 function userRest(api){
     api.post('/login', function(req, res) {
-         User.find({'username':req.body.username}).exec(r=>{
+         User.find({'username':req.body.username}).exec().then(r=>{
              if(!r)
         {
             return res.sendStatus(403);
