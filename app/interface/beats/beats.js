@@ -12,6 +12,7 @@ function beatsRest(api){
         Beats.getInRange(fromDate, toDate)
           .then(r => res.json(r))
     });
+    
     api.get('/months', function(req, res) {
         Beats.getAvailableMonth()
           .then(r => res.json(r))
