@@ -1,10 +1,12 @@
 var userModel = require('./user/model');
 var beatModel = require('./beat/model');
+var topicModel = require('./topic/model');
 
 function Models(){
     var models = {
         user: userModel,
-        beat: beatModel
+        beat: beatModel,
+        topic: topicModel
     };
 
     return {

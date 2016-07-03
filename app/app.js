@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var restifyDB = require('./restify');
 var log = require('./util/log');
-var applyCustomRestfulAPIs = require('./facade');
+var applyCustomRestfulAPIs = require('./interface');
 var mongoose = require('mongoose');
 var key= require('./key');
 var jwt = require('express-jwt');
@@ -31,7 +31,7 @@ var jwt = require('express-jwt');
 
     function applyMiddleWares(api){
         api.use(methodOverride('X-HTTP-Method-Override'));
-        api.use(jwt({ secret: key}));
+        api.use(jwt({ secret: key,  credentialsRequired: false}));
         applyCorsMiddleWare(api);
         applyBodyParsingMiddleWare(api);
     }

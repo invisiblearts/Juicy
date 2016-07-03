@@ -17,7 +17,6 @@ function BeatAssembler(){
 
     function dateToYYMM(data){
         var res = data.map(i=>Util.genYYMM(i._id.year,i._id.month));
-        console.log(res);
         return res;
     }
 }
