@@ -6,6 +6,8 @@ var restifyDB = require('./restify');
 var log = require('./util/log');
 var applyCustomRestfulAPIs = require('./facade');
 var mongoose = require('mongoose');
+var key= require('./key');
+var jwt = require('express-jwt');
 
 (function app() {
     'use strict';
@@ -29,6 +31,7 @@ var mongoose = require('mongoose');
 
     function applyMiddleWares(api){
         api.use(methodOverride('X-HTTP-Method-Override'));
+        api.use(jwt({ secret: key}));
         applyCorsMiddleWare(api);
         applyBodyParsingMiddleWare(api);
     }
@@ -37,7 +40,7 @@ var mongoose = require('mongoose');
         api.use(function (req, res, next) {
             res.setHeader('Access-Control-Allow-Origin', '*');
             res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-            res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+            res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type,Authorization');
             res.setHeader('Access-Control-Allow-Credentials', true);
             next();
         });

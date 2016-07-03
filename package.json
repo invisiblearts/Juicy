@@ -11,7 +11,8 @@
     "mongoose-detective": "~0.1.0",
     "moredots": "~0.1.0",
     "serialize-error": "~2.0.0",
-    "weedout": "~0.1.0"
+    "weedout": "~0.1.0",
+    "express-jwt": "^3.4.0"
   },
   "peerDependencies": {
     "mongoose": "^4.0.0"
