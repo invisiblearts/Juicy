@@ -40,44 +40,26 @@ function Restify(app) {
     var options = {
         findOneAndUpdate: false,
         preUpdate: function (req, res, next) {
-            if(req.header['Authorization']) {
-                var token = req.header['Authorization'].slice("bearer".length);
-                jwt.verify(token, 'shhhhh', function (err, decoded) {
-                    req.user = decoded.user;
-                });
-
-                if (!req.user.isAdmin) {
-                    return res.sendStatus(401)
-                }
-
+            if (!req.user.isAdmin) {
+                return res.sendStatus(401)
+            }
                 req.erm.document.set('lastRequestAt', new Date());
-            }else{
-                return res.sendStatus(401)
-            }
 
-            next()
+            next();
         },
-        findOneAndRemove: false,
+    //    findOneAndRemove: false,
         preDelete: function (req, res, next) {
-            if(req.header['Authorization']) {
-                var token = req.header['Authorization'].slice("bearer".length);
-                jwt.verify(token, 'shhhhh', function (err, decoded) {
-                    req.user = decoded.user;
-                });
 
                 if (!req.user.isAdmin) {
                     return res.sendStatus(401)
                 }
-            }else{
-                return res.sendStatus(401)
-            }
-
+/*
             req.erm.document.deletedAt = new Date();
             req.erm.document.save().then(function (doc) {
                 res.sendStatus(204)
             }, function (err) {
                 options.onError(err, req, res, next)
-            })
+            })*/
         }
     };
 
