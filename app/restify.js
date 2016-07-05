@@ -14,8 +14,6 @@ function Restify(app) {
                 return res.sendStatus(401)
             }
 
-            req.erm.document.set('lastRequestAt', new Date());
-
             next()
         },
         findOneAndRemove: false,
@@ -34,17 +32,18 @@ function Restify(app) {
             }, function (err) {
                 options.onError(err, req, res, next)
             })
+
+            next()
+
         }
     };
 
     var options = {
-        findOneAndUpdate: false,
+    //    findOneAndUpdate: true,
         preUpdate: function (req, res, next) {
             if (!req.user.isAdmin) {
                 return res.sendStatus(401)
             }
-                req.erm.document.set('lastRequestAt', new Date());
-
             next();
         },
     //    findOneAndRemove: false,
@@ -60,6 +59,7 @@ function Restify(app) {
             }, function (err) {
                 options.onError(err, req, res, next)
             })*/
+            next();
         }
     };
 
