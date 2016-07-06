@@ -7,7 +7,6 @@ function UserModel() {
         password: {type: String},
         isAdmin : Boolean
     });
-
     return mongoose.model('user', userSchema);
 }
 

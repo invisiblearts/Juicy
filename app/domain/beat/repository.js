@@ -9,7 +9,7 @@ function BeatRepository() {
         var crit = {
             'time': {'$gte': fromDate, '$lt': toDate}
         };
-        return BeatModel.find(crit).sort({time:1}).exec()
+        return BeatModel.find(crit).sort({time:1}).cache(3600).exec()
                .then(BeatAssembler.addYYMM);
     }
 
@@ -17,7 +17,7 @@ function BeatRepository() {
         var crit = {
           $group : {_id : { year: { $year : "$time" }, month: { $month : "$time" }}}
         };
-        return BeatModel.aggregate(crit).exec()
+        return BeatModel.aggregate(crit).cache(3600).exec()
               .then(BeatAssembler.dateToYYMM);
     }
 }

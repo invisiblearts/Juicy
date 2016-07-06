@@ -8,6 +8,8 @@ var applyCustomRestfulAPIs = require('./interface');
 var mongoose = require('mongoose');
 var key= require('./key');
 var jwt = require('express-jwt');
+var cachegoose = require('cachegoose');
+var promise = require('bluebird');
 
 (function app() {
     'use strict';
@@ -21,8 +23,15 @@ var jwt = require('express-jwt');
 
     function run() {
         mongoose.connect(db);
-        mongoose.Promise = global.Promise;
+        //mongoose.Promise = promise;
         applyMiddleWares(api);
+
+        cachegoose(mongoose, {
+            engine: 'redis',    /* If you don't specify the redis engine,      */
+            port: 6379,         /* the query results will be cached in memory. */
+            host: 'localhost'
+        });
+
         restifyDB(api);
         applyCustomRestfulAPIs(api);
         http.createServer(api)

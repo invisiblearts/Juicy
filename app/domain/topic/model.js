@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 function UserModel() {
   'use strict';
-  const topicSchema = new mongoose.Schema({
+  var topicSchema = new mongoose.Schema({
     title: {type: String},
     summary: {type: String},
     content: {type: String},
@@ -14,7 +14,6 @@ function UserModel() {
     thumbnail:{type:String,default:null},
     createdAt:{type:Date,default:new Date()}
   });
-
   return mongoose.model('topic', topicSchema);
 }
 
