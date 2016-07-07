@@ -11,6 +11,12 @@ function aboutCtrl () {
       featured: true
     },
     {
+      title: 'v2 alpha2',
+      time: 1467907913966,
+      text: 'Redis Cache , Links module',
+      featured: true
+    },
+    {
       title: 'v2 alpha1',
       time: 1467733803777,
       text: 'Image Uploading , Beats and Topics editing , bug fixes',
