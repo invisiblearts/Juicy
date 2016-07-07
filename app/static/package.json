@@ -1,0 +1,26 @@
+{
+  "name": "presquile",
+  "version": "1.0.0",
+  "description": "A website to display exported wechat beats of Mr.POJOa",
+  "private": true,
+  "scripts": {
+    "start": "./node_modules/.bin/http-server -a localhost -p 8000 -c-1"
+  },
+  "dependencies": {
+    "angular": "^1.5.0",
+    "angular-jwt": "^0.0.9",
+    "angular-materialize": "^0.1.9",
+    "angular-scroll": "^1.0.0",
+    "angular-ui-router": "1.0.0-alpha.3",
+    "http-server": "^0.9.0",
+    "jquery": "^2.2",
+    "karma": "^1.1.0",
+    "materialize-css": "^0.97.5",
+    "ng-flow": "^2.1.4",
+    "ng-infinite-scroll": "^1.2.1",
+    "ng-showdown": "^1.1.0"
+  },
+  "devDependencies": {
+    "http-server": "^0.8.5"
+  }
+}

@@ -10,6 +10,7 @@ var key= require('./key');
 var jwt = require('express-jwt');
 var cachegoose = require('cachegoose');
 var promise = require('bluebird');
+var path = require('path');
 
 (function app() {
     'use strict';
@@ -36,6 +37,8 @@ var promise = require('bluebird');
 
         restifyDB(api);
         applyCustomRestfulAPIs(api);
+        api.use(express.static(path.join(__dirname, 'static')));
+
         http.createServer(api)
             .listen(port, successLog(port));
     }
