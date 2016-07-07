@@ -31,6 +31,8 @@ var promise = require('bluebird');
             port: 6379,         /* the query results will be cached in memory. */
             host: 'localhost'
         });
+        
+      
 
         restifyDB(api);
         applyCustomRestfulAPIs(api);
