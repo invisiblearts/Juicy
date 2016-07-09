@@ -16,7 +16,7 @@ Showdown
 
 # Usage
 ## Run!
-First of allyYou need redis and mongodb set up.
+First of all you need redis and mongodb set up.
 then...
 ```
 npm install
