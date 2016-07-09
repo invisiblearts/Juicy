@@ -1,4 +1,5 @@
-angular.module('app.modules')
+(function() {
+  angular.module('app.modules')
   .directive('jcMasonryCards', jcMasonryCards);
 
 function jcMasonryCards($q) {
@@ -16,7 +17,7 @@ function jcMasonryCards($q) {
     bindToController: true
   };
   return directive;
-
+  /*@ngInject*/
   function masonryCardsCtrl($scope, $filter, angularGridInstance, appEvent) {
     var vm = this;
     // Defaults
@@ -131,3 +132,4 @@ function jcMasonryCards($q) {
     });
   }
 }
+})();

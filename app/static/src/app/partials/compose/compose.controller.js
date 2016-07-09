@@ -1,4 +1,5 @@
-angular.module('app.modules')
+(function() {
+  angular.module('app.modules')
   .controller('composeCtrl', composeCtrl);
 
 function composeCtrl($scope, $http, $state, $document, appEvent, appService, topicsService) {
@@ -34,3 +35,4 @@ function composeCtrl($scope, $http, $state, $document, appEvent, appService, top
 
 
 }
+})();

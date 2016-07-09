@@ -1,4 +1,5 @@
-angular.module('app.modules')
+(function () {
+  angular.module('app.modules')
   .service('loginService', loginService);
 
 function loginService($http, $state, $document, APP_CONST) {
@@ -37,3 +38,4 @@ function loginService($http, $state, $document, APP_CONST) {
     return $http.get(APP_CONST.api + 'evictCache');
   }
 }
+})();

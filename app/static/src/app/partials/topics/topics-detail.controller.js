@@ -1,4 +1,5 @@
-angular.module('app.modules')
+(function () {
+  angular.module('app.modules')
   .controller('topicsDetailCtrl', topicsDetailCtrl);
 
 function topicsDetailCtrl($scope, $http, $state, $document, appEvent, topicsService) {
@@ -24,3 +25,4 @@ function topicsDetailCtrl($scope, $http, $state, $document, appEvent, topicsServ
   appEvent.subscribe("editTopic", handleEditTopic, $scope);
 
 }
+})();

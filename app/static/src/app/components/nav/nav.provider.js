@@ -1,6 +1,7 @@
-angular.module('app')
+(function() {
+  angular.module('app')
   .provider('jcNav', jcNavProvider);
-
+  /*@ngInject*/
 function jcNavProvider() {
   var navConfig = [];
   this.$get = function () {
@@ -22,3 +23,4 @@ function jcNavProvider() {
     navConfig.push(nav);
   }
 }
+})();

@@ -1,4 +1,5 @@
-angular.module('app.components')
+(function() {
+  angular.module('app.components')
   .directive('resize', resize)
 
 function resize($window) {
@@ -15,3 +16,4 @@ function resize($window) {
     element.css('height', (w.height() - 20) + 'px');
   }
 }
+})();

@@ -1,4 +1,6 @@
-'use strict';
+(function() {
+
+  'use strict';
 
 angular.module('app')
   .filter('breakFilter', breakFilter);
@@ -15,3 +17,4 @@ function breakFilter() {
     return output;
   };
 }
+})();

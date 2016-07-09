@@ -1,4 +1,5 @@
-angular.module('app.components')
+(function() {
+  angular.module('app.components')
   .directive('jcNav', jcNav);
 
 function jcNav($state) {
@@ -9,7 +10,7 @@ function jcNav($state) {
     bindToController: true
   };
   return directive;
-
+  /*@ngInject*/
   function navCtrl(jcNav, $scope, $filter, appEvent, APP_CONST) {
     var vm = this;
     vm.appTitle = APP_CONST.title;
@@ -25,3 +26,4 @@ function jcNav($state) {
 
   }
 }
+})();

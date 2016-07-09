@@ -1,4 +1,5 @@
-angular.module('app')
+(function() {
+  angular.module('app')
   .service('appService', appService);
 
 function appService(jwtHelper, $http) {
@@ -22,3 +23,4 @@ function appService(jwtHelper, $http) {
     return false;
   }
 }
+})();

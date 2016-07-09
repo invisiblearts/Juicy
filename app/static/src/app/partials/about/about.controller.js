@@ -1,4 +1,5 @@
-angular.module('app.modules')
+(function() {
+  angular.module('app.modules')
   .controller('aboutCtrl', aboutCtrl);
 
 function aboutCtrl() {
@@ -120,3 +121,4 @@ function aboutCtrl() {
   ];
 
 }
+})();

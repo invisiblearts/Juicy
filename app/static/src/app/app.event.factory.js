@@ -1,5 +1,6 @@
+(function() {
 
-angular.module("app")
+	angular.module("app")
 
 	.factory('appEvent', ['$rootScope', function ($rootScope) {
 		// private notification messages
@@ -52,3 +53,4 @@ angular.module("app")
 			subscribe:        subscribe
 		};
 	}]);
+})();

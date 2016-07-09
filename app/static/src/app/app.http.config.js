@@ -1,4 +1,5 @@
-angular.module('app')
+(function() {
+  angular.module('app')
   .config(httpConfig);
 
 function httpConfig($httpProvider, jwtInterceptorProvider) {
@@ -18,3 +19,4 @@ function httpConfig($httpProvider, jwtInterceptorProvider) {
     return localStorage.getItem('juicy_token');
   }
 }
+})();

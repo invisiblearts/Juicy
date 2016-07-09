@@ -1,4 +1,5 @@
-angular.module('app.modules')
+(function () {
+  angular.module('app.modules')
   .controller('loginCtrl', loginCtrl);
 
 function loginCtrl($scope, $http, $state, $document, appEvent, loginService) {
@@ -24,3 +25,4 @@ function loginCtrl($scope, $http, $state, $document, appEvent, loginService) {
     loginService.evict();
   }
 }
+})();

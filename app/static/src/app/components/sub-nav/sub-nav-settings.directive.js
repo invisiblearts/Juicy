@@ -1,4 +1,5 @@
-angular.module('app.components')
+(function() {
+  angular.module('app.components')
   .directive('jcSubNavSettings', jcSubNavSettings);
 
 function jcSubNavSettings() {
@@ -15,7 +16,7 @@ function jcSubNavSettings() {
   function postLink(scope, element, attrs, subNavCtrl) {
     scope.vm.settings = subNavCtrl.settings;
   }
-
+  /*@ngInject*/
   function subNavSettingsCtrl(appEvent) {
     var vm = this;
     vm.handleSettings = handleSettings;
@@ -27,3 +28,4 @@ function jcSubNavSettings() {
     }
   }
 }
+})();

@@ -1,4 +1,5 @@
-angular.module('app.modules')
+(function () {
+  angular.module('app.modules')
   .service('topicsService', topicsService);
 
 function topicsService($http, $state, $document, APP_CONST) {
@@ -47,3 +48,4 @@ function topicsService($http, $state, $document, APP_CONST) {
   }
 
 }
+})();

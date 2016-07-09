@@ -1,4 +1,5 @@
-angular.module('app')
+(function() {
+  angular.module('app')
   .config(routeProvider);
 function routeProvider($stateProvider, $urlRouterProvider) {
 
@@ -57,3 +58,4 @@ function routeProvider($stateProvider, $urlRouterProvider) {
   });
 
 }
+})();

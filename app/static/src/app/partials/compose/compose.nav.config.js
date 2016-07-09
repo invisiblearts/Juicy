@@ -1,4 +1,5 @@
-angular.module('app')
+(function() {
+  angular.module('app')
   .config(navConfig);
 
 function navConfig(jcNavProvider, appServiceProvider) {
@@ -10,3 +11,4 @@ function navConfig(jcNavProvider, appServiceProvider) {
     );
   }
 }
+})();

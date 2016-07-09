@@ -1,6 +1,7 @@
-angular.module('app.components')
-  .directive('jcCard', jcCard);
+(function() {
 
+  angular.module('app.components')
+  .directive('jcCard', jcCard);
 function jcCard() {
   var directive = {
     controller: cardCtrl,
@@ -15,7 +16,7 @@ function jcCard() {
     bindToController: true
   };
   return directive;
-
+  /*@ngInject*/
   function cardCtrl(APP_CONST, appService) {
     var vm = this;
     vm.deleted = false;
@@ -24,3 +25,4 @@ function jcCard() {
 
   }
 }
+})();

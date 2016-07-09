@@ -1,4 +1,5 @@
-angular.module('app.modules')
+(function() {
+  angular.module('app.modules')
   .service('beatsService', beatsService);
 
 function beatsService($http, $state, $document, APP_CONST) {
@@ -42,3 +43,4 @@ function beatsService($http, $state, $document, APP_CONST) {
 
 
 }
+})();

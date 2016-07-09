@@ -1,6 +1,7 @@
-angular.module('app.modules')
+(function () {
+  angular.module('app.modules')
   .controller('topicsCtrl', topicsCtrl);
-
+  /*@ngInject*/
 function topicsCtrl($scope, $http, $state, $document, appEvent, topicsService) {
   var vm = this;
   vm.topicList = [];
@@ -60,3 +61,4 @@ function topicsCtrl($scope, $http, $state, $document, appEvent, topicsService) {
   appEvent.subscribe("editTopic", handleEditTopic, $scope);
 
 }
+})();

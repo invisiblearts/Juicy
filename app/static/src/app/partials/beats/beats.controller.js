@@ -1,4 +1,5 @@
-angular.module('app.modules')
+(function() {
+  angular.module('app.modules')
   .controller('beatsCtrl', beatsCtrl);
 
 function beatsCtrl($scope, $http, $state, $document, appEvent, appService, topicsService, jwtHelper, beatsService) {
@@ -198,3 +199,4 @@ function beatsCtrl($scope, $http, $state, $document, appEvent, appService, topic
 
 
 }
+})();

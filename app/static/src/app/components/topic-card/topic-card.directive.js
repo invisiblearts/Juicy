@@ -17,7 +17,7 @@ function jcTopicCard() {
   return directive;
 
   ////////
-
+  /*@ngInject*/
   function TopicCardCtrl($scope, $showdown, $location, appService, appEvent) {
     var vm = this;
     vm.selectTopic = selectTopic;

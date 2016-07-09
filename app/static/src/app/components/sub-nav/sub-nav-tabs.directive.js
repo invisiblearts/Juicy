@@ -16,7 +16,7 @@ function jcSubNavTabs() {
   function postLink(scope, element, attrs, subNavCtrl) {
     scope.subNavCtrl = subNavCtrl;
   }
-
+  /*@ngInject*/
   function subNavTabsCtrl($rootScope, $document, $state, $scope, appEvent) {
     var vm = this;
 

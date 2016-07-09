@@ -1,6 +1,8 @@
-angular.module('app.components')
-  .directive('jcCardContent', jcCardContent);
+(function() {
 
+  angular.module('app.components')
+  .directive('jcCardContent', jcCardContent);
+  /*@ngInject*/
 function jcCardContent(angularGridInstance) {
   var directive = {
     controller: cardContentCtrl,
@@ -21,7 +23,7 @@ function jcCardContent(angularGridInstance) {
     scope.vm.hideProgress = cardCtrl.hideProgress;
     scope.vm.refreshInit();
   }
-
+  /*@ngInject*/
   function cardContentCtrl($scope, $filter) {
     var vm = this;
     vm.timeMessage = '';
@@ -63,3 +65,4 @@ function jcCardContent(angularGridInstance) {
     });
   }
 }
+})();

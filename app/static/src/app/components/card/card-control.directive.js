@@ -1,4 +1,5 @@
-angular.module('app.components')
+(function() {
+  angular.module('app.components')
   .directive('jcCardControl', jcCardControl);
 
 function jcCardControl() {
@@ -17,7 +18,7 @@ function jcCardControl() {
     scope.cardCtrl = cardCtrl;
     scope.vm.content = cardCtrl.content;
   }
-
+  /*@ngInject*/
   function cardControlCtrl($scope, appEvent) {
     var vm = this;
     vm.deleteBeats = deleteBeats;
@@ -35,3 +36,4 @@ function jcCardControl() {
     }
   }
 }
+})();

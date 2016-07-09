@@ -1,4 +1,5 @@
-angular.module('app.components')
+(function() {
+  angular.module('app.components')
   .directive('jcSubNav', jcSubNav);
 
 function jcSubNav() {
@@ -14,7 +15,7 @@ function jcSubNav() {
     bindToController: true
   };
   return directive;
-
+  /*@ngInject*/
   function subNavCtrl($scope, appEvent) {
     var vm = this;
     vm.displaySettings = false;
@@ -26,3 +27,4 @@ function jcSubNav() {
     }
   }
 }
+})();

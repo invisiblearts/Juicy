@@ -25,13 +25,13 @@ var cleanCSS = require('gulp-clean-css');
 gulp.task('dev', ['appjs','vendorjs','minify-css','views'], function() {});
 
 gulp.task('appjs', function () {
-  return gulp.src(['app/*.js','app/**/*.js'])
-    .pipe(ngAnnotate())
-    .pipe(concat('app.js'))
+  return gulp.src(['app/*.module.js','app/*.js','app/**/*.module.js','app/**/*.js'])
+    .pipe(concat('app.js', {newLine: ';'}))
+    .pipe(ngAnnotate({add: true}))
     .pipe(babel({
       presets: ['es2015']
     }))
-  //  .pipe(uglify().on('error', gutil.log))
+    .pipe(uglify().on('error', gutil.log))
     .pipe(gulp.dest('../'))
 });
 
@@ -39,19 +39,20 @@ gulp.task('vendorjs', function () {
   return gulp.src([
     'node_modules/jquery/dist/jquery.js',
     'node_modules/materialize-css/dist/js/materialize.js',
+    'node_modules/angular/angular.js',
     'node_modules/angular-jwt/dist/angular-jwt.js',
     'node_modules/showdown/dist/showdown.js',
     'node_modules/ng-flow/dist/ng-flow-standalone.js',
     'node_modules/ng-showdown/dist/ng-showdown.js',
     'node_modules/angular-sanitize/angular-sanitize.js',
     'node_modules/angular-scroll/angular-scroll.js',
-    'libs/angular-materialize.js',
     'node_modules/angular-ui-router/release/angular-ui-router.js',
     'libs/angulargrid.js',
-    'node_modules/ng-infinite-scroll/build/ng-infinite-scroll.js'
+    'node_modules/ng-infinite-scroll/build/ng-infinite-scroll.js',
+    'libs/angular-materialize.js'
   ])
     .pipe(concat('vendor.js'))
-    .pipe(uglify({ mangle: false }).on('error', gutil.log))
+    .pipe(uglify().on('error', gutil.log))
     .pipe(gulp.dest('../'))
 });
 
