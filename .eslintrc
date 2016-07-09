@@ -1,35 +1,35 @@
 {
-  "extends": "eslint:recommended",
-  "env": {
-    "browser": true
-  },
-  "rules": {
-    "indent": [
-      2,
-      4,
-      {
-        "SwitchCase": 1
-      }
-    ],
-    "quotes": [
-      2,
-      "single"
-    ],
-    "linebreak-style": [
-      2,
-      "unix"
-    ],
-    "semi": [
-      2,
-      "always"
-    ]
-  },
-  "globals": {
-    "require": true,
-    "console": true,
-    "module": true,
-    "moment": true,
-    "CountUp": true,
-    "inject": true
-  }
+    "extends": "eslint:recommended",
+    "env": {
+        "browser": true
+    },
+    "rules": {
+        "indent": [
+            2,
+            4,
+            {
+                "SwitchCase": 1
+            }
+        ],
+        "quotes": [
+            2,
+            "single"
+        ],
+        "linebreak-style": [
+            2,
+            "unix"
+        ],
+        "semi": [
+            2,
+            "always"
+        ]
+    },
+    "globals": {
+        "require": true,
+        "console": true,
+        "module": true,
+        "moment": true,
+        "CountUp": true,
+        "inject": true
+    }
 }

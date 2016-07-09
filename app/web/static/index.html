@@ -1,0 +1,26 @@
+<!--
+  TODO MAJOR: Build up a compiling workflow with Gulp + Browserify
+-->
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-strict-di>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>Juicy by POJO</title>
+    <link rel="stylesheet" href="styles/app.css">
+    <link rel="stylesheet" href="styles/materialize.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+
+    <link href="https://fonts.lug.ustc.edu.cn/icon?family=Material+Icons" rel="stylesheet">
+
+    <script src="vendor.js"></script>
+
+    <script src="app.js"></script>
+
+</head>
+<body>
+<jc-nav></jc-nav>
+<div id="jc-view" ui-view></div>
+</body>
+</html>

@@ -1,31 +1,31 @@
 'use strict';
 
 function Log() {
-    var Console = console;
+  var Console = console;
 
-    return {
-        info : info,
-        debug : debug,
-        warn : warn,
-        error : error
-    };
-    //////////////
+  return {
+    info: info,
+    debug: debug,
+    warn: warn,
+    error: error
+  };
+  //////////////
 
-    function info(msg) {
-        Console.log(msg);
-    }
+  function info(msg) {
+    Console.log(msg);
+  }
 
-    function debug(msg) {
-        Console.debug(msg);
-    }
+  function debug(msg) {
+    Console.debug(msg);
+  }
 
-    function warn(msg) {
-        Console.warn(msg);
-    }
+  function warn(msg) {
+    Console.warn(msg);
+  }
 
-    function error(msg) {
-        Console.error(msg);
-    }
+  function error(msg) {
+    Console.error(msg);
+  }
 
 }
 
