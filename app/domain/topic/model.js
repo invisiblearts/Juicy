@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var Tag = [require('../tag/model').schema];
 
 function UserModel() {
   'use strict';
@@ -12,7 +13,8 @@ function UserModel() {
     featured: {type: Boolean,default:false},
     display: {type: Boolean, default: true},
     thumbnail:{type:String,default:null},
-    createdAt:{type:Date,default:new Date()}
+    createdAt:{type:Date,default:new Date()},
+    tag:Tag
   });
   return mongoose.model('topic', topicSchema);
 }

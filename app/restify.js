@@ -1,7 +1,7 @@
-var restify = require('..');
+var restify = require('./lib/express-restify-mongoose');
 var Models = require('./domain/models').getAll();
 var jwt = require('jsonwebtoken');
-var key = require('key');
+var key = require('./key');
 function Restify(app) {
   'use strict';
   var optionsComment = {

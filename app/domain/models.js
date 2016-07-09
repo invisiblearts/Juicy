@@ -2,13 +2,15 @@ var userModel = require('./user/model');
 var beatModel = require('./beat/model');
 var topicModel = require('./topic/model');
 var linksModel = require('./links/model');
+var tagModel = require('./tag/model');
 
 function Models() {
   var models = {
     user: userModel,
     beat: beatModel,
     topic: topicModel,
-    links: linksModel
+    links: linksModel,
+    tag: tagModel
   };
 
   return {
