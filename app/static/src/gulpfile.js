@@ -31,7 +31,7 @@ gulp.task('appjs', function () {
     .pipe(babel({
       presets: ['es2015']
     }))
-    .pipe(uglify().on('error', gutil.log))
+    .pipe(uglify({compress:{unsafe:true,hoist_vars:true}}).on('error', gutil.log))
     .pipe(gulp.dest('../'))
 });
 
@@ -52,7 +52,7 @@ gulp.task('vendorjs', function () {
     'libs/angular-materialize.js'
   ])
     .pipe(concat('vendor.js'))
-    .pipe(uglify().on('error', gutil.log))
+    .pipe(uglify({compress:{unsafe:true,hoist_vars:true}}).on('error', gutil.log))
     .pipe(gulp.dest('../'))
 });
 

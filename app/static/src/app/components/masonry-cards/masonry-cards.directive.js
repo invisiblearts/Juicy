@@ -98,7 +98,7 @@ function jcMasonryCards($q) {
 
     function loadMore() {
       if (vm.customRefreshEnabled) {
-        $scope.$apply(vm.customRefresh());
+        vm.customRefresh();
       } else {
         pushData(newCardPerPage);
       }

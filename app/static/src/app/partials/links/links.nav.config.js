@@ -8,7 +8,7 @@
     if (appServiceProvider.$get().isAdmin()) {
       jcNavProvider.$get().addMenu(
         [
-          {title: 'Idols!', state: 'links', order: 8}
+          {title: 'Friends!', state: 'links', order: 8}
         ]
       );
     }

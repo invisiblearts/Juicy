@@ -12,16 +12,22 @@ function aboutCtrl() {
       featured: true
     },
     {
+      title: 'v2 alpha3',
+      time: 1468066126860,
+      text: 'Gulp, Babel, Minify',
+      featured: true
+    },
+    {
       title: 'v2 alpha2',
       time: 1467907913966,
       text: 'Redis Cache , Links module',
-      featured: true
+      featured: false
     },
     {
       title: 'v2 alpha1',
       time: 1467733803777,
       text: 'Image Uploading , Beats and Topics editing , bug fixes',
-      featured: true,
+      featured: false
     },
     {
       title: 'v2 alpha0',

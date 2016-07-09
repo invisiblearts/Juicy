@@ -15,8 +15,8 @@
                 jc-data="vm.selectedBeats.beats">
         </jc-masonry-cards>
     </div>
-    <div class="wrapper-topic-list col m4 l4hide-on-small-only" style="width: 31.5%;padding: 0" ng-if="vm.customRefreshEnabled">
-        <div class="wrapper-topic-list-elem" pushpin pushpin-top="64" pushpin-bottom="Infinity">
+    <div class="wrapper-topic-list col m4 l4" style="width: 31.5%;padding: 0" ng-if="vm.customRefreshEnabled">
+        <div class="wrapper-topic-list-elem hide-on-small-only" pushpin pushpin-top="64" pushpin-bottom="Infinity">
             <div ng-repeat="top in vm.topicList track by $index">
                 <jc-topic-card
                         class="repeated-item"
