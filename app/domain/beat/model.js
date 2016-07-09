@@ -1,5 +1,4 @@
 var mongoose = require('mongoose');
-var Tag = [require('../tag/model').schema];
 
 function BeatModel() {
     'use strict';
@@ -10,7 +9,7 @@ function BeatModel() {
         featured: Boolean,
         image: Array,
         safe: Boolean,
-        tag: Tag
+        tags: [{ type: mongoose.Schema.Types.ObjectId, ref: 'tag' }]
     });
     var beatModel = mongoose.model('beat', beatSchema);
 /*    beatModel.prototype.set = setter;

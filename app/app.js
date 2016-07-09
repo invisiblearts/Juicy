@@ -9,7 +9,6 @@ var mongoose = require('mongoose');
 var key = require('./key');
 var jwt = require('express-jwt');
 var cachegoose = require('cachegoose');
-var promise = require('bluebird');
 var path = require('path');
 
 (function app() {
@@ -24,12 +23,11 @@ var path = require('path');
 
   function run() {
     mongoose.connect(db);
-    //mongoose.Promise = promise;
     applyMiddleWares(api);
 
     cachegoose(mongoose, {
-      engine: 'redis', /* If you don't specify the redis engine,      */
-      port: 6379, /* the query results will be cached in memory. */
+      engine: 'redis', 
+      port: 6379, 
       host: 'localhost'
     });
 
@@ -37,6 +35,7 @@ var path = require('path');
     restifyDB(api);
     applyCustomRestfulAPIs(api);
     api.use(express.static(path.join(__dirname, 'web/static')));
+    api.use('/dev', express.static(path.join(__dirname, 'web/src')));
 
     http.createServer(api)
       .listen(port, successLog(port));
