@@ -54,10 +54,10 @@
     "readmeFilename": "README.md",
     "repository": {
         "type": "git",
-        "url": "git://github.com/ThrowableFactory/Juicy.git"
+        "url": "git://github.com/POJOa/Juicy.git"
     },
     "bugs": {
-        "url": "https://github.com/ThrowableFactory/Juicy/issues"
+        "url": "https://github.com/POJOa/Juicy/issues"
     },
     "scripts": {
         "lint": "standard",
