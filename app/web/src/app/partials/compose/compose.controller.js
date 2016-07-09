@@ -14,6 +14,11 @@ function composeCtrl($scope, $http, $state, $document, appEvent, appService, top
     content: "",
     featured: false
   };
+  
+  vm.newTag = {
+    title: "Tag Name Goes Here",
+    class: "Tag Class Goes Here"
+  };
 
   init();
   /////////
