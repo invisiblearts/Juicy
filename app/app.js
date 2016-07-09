@@ -65,6 +65,6 @@ var path = require('path');
   }
 
   function successLog(port) {
-    log.info('JuicyBeatsAPI @ ' + port);
+    log.info('Juicy Serving @ ' + port);
   }
 })();

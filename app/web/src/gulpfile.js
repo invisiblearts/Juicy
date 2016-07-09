@@ -22,7 +22,7 @@ var cleanCSS = require('gulp-clean-css');
 
 // Dev task
 //gulp.task('dev', ['views', 'styles', 'lint', 'browserify', 'watch'], function() {});
-gulp.task('dev', ['appjs','vendorjs','minify-css','views'], function() {});
+gulp.task('default', ['appjs','vendorjs','minify-css','views'], function() {});
 
 gulp.task('appjs', function () {
   return gulp.src(['app/*.module.js','app/*.js','app/**/*.module.js','app/**/*.js'])
