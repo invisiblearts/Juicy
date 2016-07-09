@@ -1,12 +1,13 @@
 var restify = require('..');
 var Models = require('./domain/models').getAll();
 var jwt = require('jsonwebtoken');
+var key = require('key');
 function Restify(app) {
   'use strict';
   var optionsComment = {
     findOneAndUpdate: false,
     preUpdate: function (req, res, next) {
-      jwt.verify(token, 'shhhhh', function (err, decoded) {
+      jwt.verify(token, key, function (err, decoded) {
         req.user = decoded.user;
       });
 
@@ -18,7 +19,7 @@ function Restify(app) {
     },
     findOneAndRemove: false,
     preDelete: function (req, res, next) {
-      jwt.verify(token, 'shhhhh', function (err, decoded) {
+      jwt.verify(token, key, function (err, decoded) {
         req.user = decoded.user;
       });
 
