@@ -1,7 +1,7 @@
 {
     "author": {
-        "email": "flo.holzapfel@gmail.com",
-        "name": "Florian Holzapfel"
+        "email": "hzjdev@foxmail.com",
+        "name": "Zijie HUANG"
     },
     "dependencies": {
         "async": "~1.5.0",
@@ -17,7 +17,7 @@
     "peerDependencies": {
         "mongoose": "^4.0.0"
     },
-    "description": "Easily create a flexible REST interface for mongoose models",
+    "description": "Open-sourced blog system based on express-restify-mongoose and angular 1.x",
     "devDependencies": {
         "babel-cli": "^6.6.0",
         "babel-core": "^6.7.0",
@@ -39,7 +39,7 @@
     "engines": {
         "node": ">=0.10"
     },
-    "homepage": "http://florianholzapfel.github.io/express-restify-mongoose/",
+    "homepage": "http://src.moe/",
     "keywords": [
         "ReST",
         "express",
@@ -49,15 +49,15 @@
         "model"
     ],
     "license": "MIT",
-    "main": "./lib/express-restify-mongoose",
-    "name": "express-restify-mongoose",
+    "main": "./app/app",
+    "name": "juicy",
     "readmeFilename": "README.md",
     "repository": {
         "type": "git",
-        "url": "git://github.com/florianholzapfel/express-restify-mongoose.git"
+        "url": "git://github.com/ThrowableFactory/Juicy.git"
     },
     "bugs": {
-        "url": "https://github.com/florianholzapfel/express-restify-mongoose/issues"
+        "url": "https://github.com/ThrowableFactory/Juicy/issues"
     },
     "scripts": {
         "lint": "standard",
@@ -94,5 +94,5 @@
             "it"
         ]
     },
-    "version": "4.0.2"
+    "version": "2"
 }
