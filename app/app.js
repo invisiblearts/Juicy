@@ -36,7 +36,7 @@ var path = require('path');
 
     restifyDB(api);
     applyCustomRestfulAPIs(api);
-    api.use(express.static(path.join(__dirname, 'static')));
+    api.use(express.static(path.join(__dirname, 'web/static')));
 
     http.createServer(api)
       .listen(port, successLog(port));
