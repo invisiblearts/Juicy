@@ -1,5 +1,5 @@
 function key() {
-  return 'booooo';
+  return 'yoyochecknow';
 }
 
 module.exports = key();
