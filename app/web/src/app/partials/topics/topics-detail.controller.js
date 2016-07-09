@@ -15,7 +15,7 @@ function topicsDetailCtrl($scope, $http, $state, $document, appEvent, topicsServ
     if (!vm.topicId) {
       $state.go("beats");
     }
-    topicsService.fetchOne(vm.topicId).success(res=>vm.topicData = res);
+    topicsService.fetchOne(vm.topicId).success(res=>vm.topicData = res[0]);
   }
 
   function handleEditTopic(event, id) {

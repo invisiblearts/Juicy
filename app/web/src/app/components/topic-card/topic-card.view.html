@@ -11,10 +11,13 @@
             <span class="card-title activator" ng-class="!vm.jcTopic.featured || !vm.jcTopicBrief? 'pink-text':'yellow-text'" style="margin-left:0">{{::vm.jcTopic.title}}</span>
             <p>
                 <span>{{::vm.jcTopic.createdAt | date:"yyyy-MM-dd HH:mm:ss"}}</span>
+                <div ng-repeat="tag in vm.jcTopic.tags"  class="chip white-text {{tag.class}}">
+                    {{tag.name}}
+                </div>
             </p>
 
             <p ng-if="vm.jcTopicBrief">{{::vm.jcTopic.summary}}</p>
-            <p ng-if="!vm.jcTopicBrief" ng-bind-html="vm.jcTopic.html"></p>
+            <div ng-if="!vm.jcTopicBrief" ng-bind-html="vm.jcTopic.html"></div>
         </div>
 
         <div class="card-action" ng-if="!vm.jcTopicBrief">

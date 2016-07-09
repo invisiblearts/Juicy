@@ -27,6 +27,9 @@
         </div>
         <div class="left-align" ng-class="vm.content.featured? 'yellow-text' : 'white-text'">
             <span>{{::vm.timeMessage}}</span>
+            <div ng-repeat="tag in ::vm.content.tags"  class="chip white-text {{tag.class}}">
+                {{::tag.name}}
+            </div>
         </div>
         <div class="yellow-text right-align" ng-if="vm.content.featured">
             ★Featured

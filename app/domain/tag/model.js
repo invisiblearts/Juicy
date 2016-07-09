@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 function TagModel() {
   'use strict';
   var tagSchema = new mongoose.Schema({
-    name: {type: String},
+    name: {type: String,index: { unique: true }},
     class: {type: String}
 
   });

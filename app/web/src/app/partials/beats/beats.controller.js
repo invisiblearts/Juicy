@@ -2,18 +2,28 @@
   angular.module('app.modules')
   .controller('beatsCtrl', beatsCtrl);
 
-function beatsCtrl($scope, $http, $state, $document, appEvent, appService, topicsService, jwtHelper, beatsService) {
+function beatsCtrl($scope, $http, $state, $document, appEvent, appService,tagsService, topicsService, jwtHelper, beatsService) {
   var vm = this;
   var beatsPerPage = 6;
   var paginationInitBeatsNum = 15;
   var paginationInit = true;
   vm.upload = upload;
   vm.submitBeat = submitBeat;
+  vm.addTag = addTag;
+
+  vm.modifyTag = modifyTag;
+  vm.deleteTag = deleteTag;
+
+  vm.newTag = {
+    name: "Tag Name Goes Here",
+    class: "blue"
+  };
   vm.newBeat = {
     // time: 0,  to be populated in backend
     text: "",
     featured: false,
-    safe: true
+    safe: true,
+    tags:null
   };
 
   //Temporarily treat vm.dataSource as a local datasource
@@ -188,6 +198,44 @@ function beatsCtrl($scope, $http, $state, $document, appEvent, appService, topic
   function upload($files, $event, $flow) {
     appService.uploadImage($flow.files[0].file)
       .success(data=>vm.newBeat.image.push('http://ww4.sinaimg.cn/large/' + data.pid));
+  }
+
+  function addTag(){
+    tagsService.fetchByName(vm.newTag.name).success(res=>{
+      if(!res[0] || !res[0]._id){
+        tagsService.postTag(vm.newTag).success(res=>pushTag(res));
+      }else{
+        pushTag(res[0]);
+      }});
+  }
+
+  function pushTag(tag){
+    var present = false;
+    if(vm.newBeat.tags == null){
+      vm.newBeat.tags=[];
+    }
+    for(var i = 0 ; i < vm.newBeat.tags.length; i++) {
+      present = vm.newBeat.tags[i]._id === tag._id;
+      if (present) {
+        vm.newBeat.tags[i] = tag;
+        break;
+      }
+    }
+    if(!present){
+      vm.newBeat.tags.push(tag);
+    }
+    vm.newTag = {
+      name: "Tag Name Goes Here",
+      class: "blue"
+    };
+  }
+
+  function modifyTag(tag){
+    vm.newTag = angular.copy(tag);
+  }
+
+  function deleteTag(tag){
+    tagsService.deleteOne(tag._id);
   }
 
   ///////////////////

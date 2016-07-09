@@ -138,3 +138,8 @@ pre {
 .card-action label {
     margin-right: 20px;
 }
+
+p{
+    word-wrap: break-word;
+    word-break: normal;
+}

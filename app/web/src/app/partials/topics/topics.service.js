@@ -15,20 +15,16 @@ function topicsService($http, $state, $document, APP_CONST) {
   return service;
 
   function fetchAll() {
-    return $http.get(APP_CONST.api + 'v1/topics');
+    return $http.get(APP_CONST.api + 'v1/topics&populate=tags');
   }
 
   function fetchBySkipAndLimit(skip, limit) {
-    return $http.get(APP_CONST.api + 'v1/topics?sort=-createdAt&skip=' + skip + '&limit=' + limit + '&select=-content');
+    return $http.get(APP_CONST.api + 'v1/topics?sort=-createdAt&skip=' + skip + '&limit=' + limit + '&select=_id,title,featured,createdAt,summary,content,tags&populate=tags');
   }
 
-  /*
-   function fetchOne(id){
-   return $http.get(APP_CONST.api + 'v1/topics?query={"_id":"'+id+'"}');
-   }
-   */
-  function fetchOne(id) {
-    return $http.get(APP_CONST.api + 'v1/topics/' + id);
+
+  function fetchOne(id){
+   return $http.get(APP_CONST.api + 'v1/topics?query={"_id":"'+id+'"}&populate=tags');
   }
 
   function fetchByMonth(yymm, duration) {
