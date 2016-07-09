@@ -1,6 +1,8 @@
 # Juicy
 Source code of http://src.moe/
 
+Built as a personal blogging system
+
 # Libs
 Angular 1.x
 
