@@ -24,8 +24,7 @@ function composeCtrl($scope, $http, $state, $document, appEvent, appService, top
     name: "Tag Name Goes Here",
     class: "blue"
   };
-
-
+  
   init();
   /////////
 
@@ -82,6 +81,6 @@ function composeCtrl($scope, $http, $state, $document, appEvent, appService, top
   function deleteTag(tag){
     tagsService.deleteOne(tag._id);
   }
-
+  
 }
 })();

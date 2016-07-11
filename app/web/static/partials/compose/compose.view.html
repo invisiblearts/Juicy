@@ -45,7 +45,16 @@
             <div class="left">
                 <input type="checkbox" ng-model="vm.newTopic.featured" class="filled-in" id="topic-feature-box" checked="checked"/>
                 <label for="topic-feature-box">Featured</label>
+                <div ng-repeat="tag in vm.newTopic.tags" class="chip">
+                    <div class="chip white-text {{tag.class}}">
+                    {{tag.name}}
+                    </div>
+                    <i class="material-icons" ng-click="vm.deleteTag(tag)" >close</i>
+                    <i class="clickable" ng-click="vm.modifyTag(tag)">edit</i>
+                </div>
             </div>
+
+
             <div flow-init
                  flow-files-submitted="vm.upload( $files, $event, $flow )"
                  flow-file-success="$file.msg = $message"
@@ -56,5 +65,13 @@
             </div>
             &nbsp;
         </div>
+
+        <div class="card">
+            <input style="width:150px" ng-model="vm.newTag.name"/>
+            <input style="width:150px" ng-model="vm.newTag.class"/>
+            <span class="btn" ng-click="vm.addTag()">Add Tag</span>
+        </div>
+
+        <music-player ng-model="vm.playList" play-config="vm.playConfig"></music-player>
     </div>
 </div>

@@ -55,6 +55,11 @@ function routeProvider($stateProvider, $urlRouterProvider) {
     templateUrl: 'partials/topics/topics-detail.view.html',
     controller: 'topicsDetailCtrl',
     controllerAs: 'vm'
+  }).state('baladeur', {
+    url: '/baladeur',
+    templateUrl: 'partials/baladeur/baladeur.view.html',
+    controller: 'baladeurCtrl',
+    controllerAs: 'vm'
   });
 
 }

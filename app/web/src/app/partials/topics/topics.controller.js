@@ -11,25 +11,25 @@ function topicsCtrl($scope, $http, $state, $document, appEvent, topicsService) {
   vm.loadMore = loadMore;
   vm.pageForCustomRefresh = 0;
   var paginationInit = true;
-  var paginationInitBeatsNum = 3;
-  var beatsPerPage = 3;
+  var paginationInitTopicsNum = 3;
+  var topicsPerPage = 3;
   // init();
 
   /////////
 
   function loadMore() {
-    pushBeatsPaginated();
+    pushTopicsPaginated();
 
   }
 
-  function pushBeatsPaginated() {
-    var skipCount = vm.pageForCustomRefresh * beatsPerPage;
+  function pushTopicsPaginated() {
+    var skipCount = vm.pageForCustomRefresh * topicsPerPage;
     if (paginationInit) {
-      beatsPerPage = paginationInitBeatsNum;
+      topicsPerPage = paginationInitTopicsNum;
     }
     if (!vm.lock) {
       vm.lock = true;
-      topicsService.fetchBySkipAndLimit(skipCount, beatsPerPage).success(res=> {
+      topicsService.fetchBySkipAndLimit(skipCount, topicsPerPage).success(res=> {
         if (res && res.length) {
           angular.forEach(res, r => {
               r.init = paginationInit;

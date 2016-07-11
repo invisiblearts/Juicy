@@ -82,8 +82,22 @@
             </div>
 
         </div>
-        <div class="modal-footer">
+        tags
+        <div ng-repeat="tag in vm.newBeat.tags" class="chip">
+            <div class="chip white-text {{tag.class}}">
+                {{tag.name}}
+            </div>
+            <i class="material-icons" ng-click="vm.deleteTag(tag)" >close</i>
+            <i class="clickable" ng-click="vm.modifyTag(tag)">edit</i>
+        </div>
 
+
+        <div class="modal-footer row">
+            <div class="col s8">
+                <input style="width:150px" ng-model="vm.newTag.name"/>
+                <input style="width:150px" ng-model="vm.newTag.class"/>
+                <span class="btn" ng-click="vm.addTag()">Add Tag</span>
+            </div>
             <a class="modal-action modal-close waves-effect waves-green btn-flat clickable" ng-click="vm.submitBeat()">Submit</a>
             <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Abandon</a>
         </div>

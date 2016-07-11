@@ -3,14 +3,15 @@ var beatModel = require('./beat/model');
 var topicModel = require('./topic/model');
 var linksModel = require('./links/model');
 var tagModel = require('./tag/model');
-
+var baladeurModel = require('./baladeur/model');
 function Models() {
   var models = {
     user: userModel,
     beat: beatModel,
     topic: topicModel,
     links: linksModel,
-    tag: tagModel
+    tag: tagModel,
+    baladeur: baladeurModel
   };
 
   return {

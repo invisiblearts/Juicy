@@ -18,7 +18,7 @@ var paths = gulp.paths;
 var babel = require('gulp-babel');
 var $ = require('gulp-load-plugins')();
 var cleanCSS = require('gulp-clean-css');
-
+var closureCompiler=require('gulp-closure-compiler');
 
 // Dev task
 //gulp.task('dev', ['views', 'styles', 'lint', 'browserify', 'watch'], function() {});
@@ -49,11 +49,31 @@ gulp.task('vendorjs', function () {
     'node_modules/angular-ui-router/release/angular-ui-router.js',
     'libs/angulargrid.js',
     'node_modules/ng-infinite-scroll/build/ng-infinite-scroll.js',
-    'libs/angular-materialize.js'
+    'libs/angular-materialize.js',
+      'libs/ne-music.js'
   ])
     .pipe(concat('vendor.js'))
-    .pipe(uglify({compress:{unsafe:true,hoist_vars:true}}).on('error', gutil.log))
+    .pipe(uglify({compress:{hoist_vars:true}}).on('error', gutil.log))
     .pipe(gulp.dest('../static'))
+  /*    .pipe(closureCompiler({
+        // compilerPath is optional, since google-closure-compiler is a dependency
+        // compilerPath: 'bower_components/closure-compiler/lib/vendor/compiler.jar',
+        fileName: '../static/vendor.js',
+        compilerFlags: {
+          closure_entry_point: 'app.module.js',
+          compilation_level: 'ADVANCED_OPTIMIZATIONS',
+          define: [
+            "goog.DEBUG=false"
+          ],
+
+          only_closure_dependencies: true,
+          // .call is super important, otherwise Closure Library will not work in strict mode.
+          output_wrapper: '(function(){%output%}).call(window);',
+          warning_level: 'VERBOSE',
+          language_in: "ECMASCRIPT5"
+
+        }
+      }))*/
 });
 
 gulp.task('minify-css', function() {
