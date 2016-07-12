@@ -9,7 +9,8 @@ function BeatModel() {
         featured: Boolean,
         image: Array,
         safe: Boolean,
-        tags: [{ type: mongoose.Schema.Types.ObjectId, ref: 'tag' }]
+        tags: [{ type: mongoose.Schema.Types.ObjectId, ref: 'tag' }],
+        comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'comment' }]
     });
     var beatModel = mongoose.model('beat', beatSchema);
 /*    beatModel.prototype.set = setter;

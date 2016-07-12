@@ -4,6 +4,8 @@ var topicModel = require('./topic/model');
 var linksModel = require('./links/model');
 var tagModel = require('./tag/model');
 var baladeurModel = require('./baladeur/model');
+var commentModel = require('./comment/model');
+
 function Models() {
   var models = {
     user: userModel,
@@ -11,13 +13,14 @@ function Models() {
     topic: topicModel,
     links: linksModel,
     tag: tagModel,
-    baladeur: baladeurModel
+    baladeur: baladeurModel,
+    comment: commentModel
   };
 
   return {
     getAll: getAll,
     get: getOne
-  }
+  };
 
   function getAll() {
     return models;

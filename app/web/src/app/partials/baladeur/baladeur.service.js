@@ -27,7 +27,7 @@
         function postBaladeur(baladeur) {
             baladeur.emo = parseInt(baladeur.emo, 10);
             baladeur.express = parseInt(baladeur.express, 10)
-            baladeur.ids = baladeur.ids.map(i => parseInt(i, 10));
+            baladeur.ids = baladeur.ids.split(',').map(i => parseInt(i, 10));
             if (!baladeur._id) {
                 return $http.post(APP_CONST.api + 'v1/baladeurs', baladeur);
             } else {

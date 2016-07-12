@@ -7,6 +7,8 @@ function beatsCtrl($scope, $http, $state, $document, appEvent, appService,tagsSe
   var beatsPerPage = 6;
   var paginationInitBeatsNum = 15;
   var paginationInit = true;
+  vm.isAdmin=appService.isAdmin();
+  
   vm.upload = upload;
   vm.submitBeat = submitBeat;
   vm.addTag = addTag;

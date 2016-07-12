@@ -13,7 +13,7 @@ function resize($window) {
       refreshWidth();   // when window size gets changed
     });
     refreshWidth();     // when page loads
-    element.css('height', (w.height() - 20) + 'px');
+   // element.css('height', (w.height() - 20) + 'px');
   }
 }
 })();

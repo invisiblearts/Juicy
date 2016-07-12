@@ -19,11 +19,15 @@ function jcCardControl() {
     scope.vm.content = cardCtrl.content;
   }
   /*@ngInject*/
-  function cardControlCtrl($scope, appEvent) {
+  function cardControlCtrl($scope, appEvent,beatsService) {
     var vm = this;
     vm.deleteBeats = deleteBeats;
     vm.modifyBeats = modifyBeats;
+    vm.submitComment = submitComment;
+    vm.newComment = {
 
+      body:""
+    };
     ////////////////////////////////
 
     function deleteBeats() {
@@ -33,6 +37,10 @@ function jcCardControl() {
 
     function modifyBeats() {
       appEvent.publish('modifyBeats', vm.content);
+    }
+    
+    function submitComment(){
+      beatsService.postComment(vm.content._id,vm.newComment);
     }
   }
 }

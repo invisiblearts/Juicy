@@ -9,7 +9,8 @@ function beatsService($http, $state, $document, APP_CONST) {
     fetchBySkipAndLimit: fetchBySkipAndLimit,
     fetchAvailableMonths: fetchAvailableMonths,
     deleteOne: deleteOne,
-    postBeat: postBeat
+    postBeat: postBeat,
+    postComment: postComment
   }
   return service;
 
@@ -41,6 +42,9 @@ function beatsService($http, $state, $document, APP_CONST) {
     }
   }
 
+  function postComment(id,comment) {
+    return $http.post(APP_CONST.api + 'beats/'+id+'/comment', comment);
+  }
 
 }
 })();

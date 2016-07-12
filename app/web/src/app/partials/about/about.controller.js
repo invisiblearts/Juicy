@@ -6,16 +6,22 @@ function aboutCtrl() {
   var vm = this;
   vm.aboutData = [
     {
-      title: 'Road to V2',
-      time: 1456751208000,
-      text: 'TODO:Build up a compiling workflow with Gulp + Browserify\nTODO:Comment and tag function to add in further releases \nTODO:Music section and Anime wallpapers switch\nTODO:(V3)Analysis module to add in further releases(optional)\nTODO:(V3)Unit Tests\nTODO:(V3+)Angular 2',
+      title: 'Road to V3',
+      time: 1468342287378,
+      text: 'TODO:(V3)Analysis module to add in further releases(optional)\nTODO:(V3)Unit Tests\nTODO:(V3+)Angular 2',
+      featured: true
+    },
+    {
+      title: 'v2 alpha4',
+      time: 1468342287378,
+      text: 'Bug Fixes, Baladeur, Comment Init',
       featured: true
     },
     {
       title: 'v2 alpha3',
       time: 1468066126860,
       text: 'Gulp, Babel, Minify',
-      featured: true
+      featured: false
     },
     {
       title: 'v2 alpha2',

@@ -7,7 +7,7 @@
   function navConfig(jcNavProvider, appServiceProvider) {
       jcNavProvider.$get().addMenu(
         [
-          {title: 'Friends!', state: 'links', order: 8}
+          {title: 'Friends!', state: 'links', order: 1}
         ]
       );
   }

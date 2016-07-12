@@ -63,8 +63,9 @@
         }
         
         function edit(baladeur){
-            vm.newBaladeur = baladeur;
-            
+            vm.newBaladeur = angular.copy(baladeur);
+            vm.newBaladeur.ids = vm.newBaladeur.ids.join(',');
+
         }
         function loadMore() {
             pushBaladeurPaginated();

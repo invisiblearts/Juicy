@@ -152,9 +152,20 @@
     angular.module("ui.materialize.tabs", [])
         .directive("tabs", ["$timeout", function($timeout){
             return {
+                scope: {
+                    reload: '='
+                },
                 link: function (scope, element, attrs) {
-                    $timeout(function(){
+                    element.addClass("tabs");
+                    $timeout(function() {
                         element.tabs();
+                    });
+
+                    scope.$watch('reload', function(newValue) {
+                        if (newValue === true) {
+                            element.tabs();
+                            scope.reload = false;
+                        }
                     });
                 }
             };
