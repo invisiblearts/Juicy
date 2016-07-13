@@ -12,6 +12,9 @@
     width: 100%
 }
 
+#card-ctrl{
+    z-index:0;!important;
+}
 img {
     width: 100%;
 }

@@ -2,8 +2,10 @@
     angular.module('app.modules')
         .controller('baladeurCtrl', baladeurCtrl);
 
-    function baladeurCtrl($scope, $http, $state, $document, appEvent, appService,baladeurService, jwtHelper, beatsService) {
+    function baladeurCtrl($scope, $http, $state, $window,$document, appEvent, appService,baladeurService, jwtHelper, beatsService) {
+
         var vm = this;
+        window.alert = null;
         vm.playConfig={
             autoPlay: false, // 表示是否自动播放
             size: 'normal', // 表示正在播放歌曲的面板大小，normal表示标准大小，small表示小面板
@@ -46,7 +48,7 @@
             baladeurService.fetchAll();
         }
 
-        
+
         function submit(){
             baladeurService.postBaladeur(vm.newBaladeur).then(()=>vm.newBaladeur={
                 createdAt: new Date().getTime(),

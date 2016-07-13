@@ -5,7 +5,8 @@
 function appService(jwtHelper, $http) {
   var service = {
     uploadImage: uploadImage,
-    isAdmin: isAdmin
+    isAdmin: isAdmin,
+    isUser: isUser
   };
   return service;
 
@@ -22,5 +23,14 @@ function appService(jwtHelper, $http) {
     }
     return false;
   }
+
+  function isUser() {
+    if (localStorage.getItem('juicy_token')) {
+      var payload = jwtHelper.decodeToken(localStorage.getItem('juicy_token'));
+      return !!payload;
+    }
+    return false;
+  }
+  
 }
 })();

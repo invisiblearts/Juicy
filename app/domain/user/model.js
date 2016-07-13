@@ -4,7 +4,7 @@ function UserModel() {
     'use strict';
     var userSchema = new mongoose.Schema({
         username: {type: String},
-        password: {type: String},
+        password: {type: String,select: false},
         isAdmin : Boolean
     });
     return mongoose.model('user', userSchema);

@@ -7,7 +7,7 @@ var key = require('../../key');
 
 function userRest(api) {
     api.post('/login', function (req, res) {
-        User.findOne({'username': req.body.username}).exec().then(r=> {
+        User.findOne({'username': req.body.username}).select("+password").exec().then(r=> {
             if (!r) {
                 return res.sendStatus(403);
             }
@@ -22,7 +22,7 @@ function userRest(api) {
     })
 
     api.post('/reg', function (req, res) {
-        User.findOne({'username': req.body.username}).exec()
+        User.findOne({'username': req.body.username}).select("+password").exec()
             .then(r=> {
                 if (!r) {
                     var u = new User();

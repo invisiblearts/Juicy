@@ -23,7 +23,7 @@ function beatsService($http, $state, $document, APP_CONST) {
   }
 
   function fetchBySkipAndLimit(skip, limit) {
-    return $http.get(APP_CONST.api + 'v1/beats?sort=-time&populate=tags&&skip=' + skip + '&limit=' + limit);
+    return $http.get(APP_CONST.api + 'v1/beats?sort=-time&populate=[{"path":"tags"},{"path":"comments","populate":{"path":"user"}}]&skip=' + skip + '&limit=' + limit);
   }
 
   function fetchByMonth(yymm, duration) {

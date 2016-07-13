@@ -15,7 +15,10 @@ function beatsCtrl($scope, $http, $state, $document, appEvent, appService,tagsSe
 
   vm.modifyTag = modifyTag;
   vm.deleteTag = deleteTag;
-
+  vm.newComment= {
+    body:"Comment"
+  };
+  
   vm.newTag = {
     name: "Tag Name Goes Here",
     class: "blue"
@@ -196,6 +199,9 @@ function beatsCtrl($scope, $http, $state, $document, appEvent, appService,tagsSe
     $state.go("compose-edit", id);
   }
 
+  function handleComment(event, content) {
+    vm.newComment.beat = content._id;
+  }
 
   function upload($files, $event, $flow) {
     appService.uploadImage($flow.files[0].file)
@@ -246,6 +252,7 @@ function beatsCtrl($scope, $http, $state, $document, appEvent, appService,tagsSe
   appEvent.subscribe('deleteBeats', deleteBeats, $scope);
   appEvent.subscribe("topicSelected", handleTopicSelected, $scope);
   appEvent.subscribe("editTopic", handleEditTopic, $scope);
+  appEvent.subscribe("comment", handleComment, $scope);
 
 
 }
