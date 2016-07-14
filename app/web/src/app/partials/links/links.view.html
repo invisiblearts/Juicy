@@ -9,15 +9,15 @@
 
                     <span ng-click="vm.open(link.href)">{{::link.title}}</span>
                     <div class="right" ng-if="vm.isAdmin">
-                   <div class="btn" ng-click="vm.modify(link)">Modify</div>
-            <div ng-click="vm.del(link)" class="btn">Delete</div>
                         </div>
                 </span>
 
                     <div ng-click="vm.open(link.href)" class="row valign-wrapper clickable" style="border-top:1px">
                         <div class="col s3">
-                            <img ng-src="{{::link.img}}" alt="" class="circle responsive-img link"> <!-- notice the "circle" class -->
-                        </div>
+                            <div class="box">
+                            <img ng-src="{{::link.img}}" alt="" class="circle content link"> <!-- notice the "circle" class -->
+                            </div>
+                            </div>
                         <div class="col s9">
                             <blockquote class="{{::link.color}} accent-1">
                                 <h5>{{::link.description}}</h5>
@@ -28,7 +28,8 @@
                         </div>
                     </div>
                 </div>
-
+                <div class="btn-flat" ng-click="vm.modify(link)">Modify</div>
+                <div ng-click="vm.del(link)" class="btn-flat">Delete</div>
             </div>
         </div>
     </div>

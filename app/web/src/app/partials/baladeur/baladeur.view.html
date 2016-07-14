@@ -70,7 +70,7 @@
     <div infinite-scroll-distance="1" infinite-scroll="vm.loadMore()">
         <div ng-repeat="b in vm.baladeurList track by $index">
             <div class="card big">
-            <div
+            <div style="height:200px;overflow:hidden"
                  class="card-image">
                 <img ng-src="{{b.image[0]}}"/>
                 <span class="card-title">{{b.artist + ' - ' + b.title + ' | ' + b.genre}}</span>

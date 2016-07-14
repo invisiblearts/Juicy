@@ -3,8 +3,8 @@
     <a ng-if="vm.isAdmin" class="clickable  " ng-click="vm.modifyBeats()" href='#composeBeats' modal>Modify</a>
     <a class="clickable " ng-click="vm.comment()" href='#comment' modal>Comment</a>
 </div>
-<ul style="margin-top:0" ng-if="vm.content.comments.length" class="collection">
-    <li ng-repeat="c in vm.content.comments" class="collection-item">
+<ul style="margin-top:0;border:0;" ng-if="vm.content.comments.length" class="collection">
+    <li ng-repeat="c in vm.content.comments" class="collection-item" style="background-color: transparent">
         <span class="title">{{c.user[0] ? c.user[0].username : '阿卡林'}} </span>
 
         <p>{{c.body}}</p>

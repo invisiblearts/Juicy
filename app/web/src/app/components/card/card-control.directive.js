@@ -24,6 +24,7 @@ function jcCardControl() {
     vm.deleteBeats = deleteBeats;
     vm.modifyBeats = modifyBeats;
     vm.submitComment = submitComment;
+    vm.comment = comment;
     vm.isUser = appService.isUser();
     vm.isAdmin = appService.isAdmin();
 

@@ -8,7 +8,7 @@ function beatsCtrl($scope, $http, $state, $document, appEvent, appService,tagsSe
   var paginationInitBeatsNum = 15;
   var paginationInit = true;
   vm.isAdmin=appService.isAdmin();
-  
+
   vm.upload = upload;
   vm.submitBeat = submitBeat;
   vm.addTag = addTag;
@@ -18,7 +18,7 @@ function beatsCtrl($scope, $http, $state, $document, appEvent, appService,tagsSe
   vm.newComment= {
     body:"Comment"
   };
-  
+
   vm.newTag = {
     name: "Tag Name Goes Here",
     class: "blue"
@@ -58,6 +58,7 @@ function beatsCtrl($scope, $http, $state, $document, appEvent, appService,tagsSe
   vm.getBeatOfMonth = getBeatOfMonth;
   vm.scrollTop = scrollTop;
   vm.pushBeatsPaginated = pushBeatsPaginated;
+  vm.submitComment = submitComment;
   vm.pageForCustomRefresh = 0;
   activate();
   ////////////////////////////////
@@ -195,11 +196,13 @@ function beatsCtrl($scope, $http, $state, $document, appEvent, appService,tagsSe
     beatsService.postBeat(vm.newBeat);
   }
 
+
   function handleEditTopic(event, id) {
     $state.go("compose-edit", id);
   }
 
   function handleComment(event, content) {
+    console.log(content);
     vm.newComment.beat = content._id;
   }
 
@@ -246,6 +249,11 @@ function beatsCtrl($scope, $http, $state, $document, appEvent, appService,tagsSe
     tagsService.deleteOne(tag._id);
   }
 
+  function submitComment(){
+    var id = angular.copy(vm.newComment.beat);
+    delete vm.newComment.beat;
+    return beatsService.postComment(id,vm.newComment);
+  }
   ///////////////////
   appEvent.subscribe('jcSubNavSectionSwitched', switchTab, $scope);
   appEvent.subscribe('modifyBeats', modifyBeats, $scope);
