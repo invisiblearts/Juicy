@@ -7,7 +7,8 @@
             fetchAll: fetchAll,
             fetchBySkipAndLimit: fetchBySkipAndLimit,
             deleteOne: deleteOne,
-            postBaladeur: postBaladeur
+            postBaladeur: postBaladeur,
+            fetchBySkipAndLimitMoe:fetchBySkipAndLimitMoe
         };
         
         return service;
@@ -20,8 +21,41 @@
             return $http.delete(APP_CONST.api + 'v1/baladeurs/' + id);
         }
 
-        function fetchBySkipAndLimit(skip, limit) {
-            return $http.get(APP_CONST.api + 'v1/baladeurs?sort=-time&populate=tags&&skip=' + skip + '&limit=' + limit);
+        function fetchBySkipAndLimit(skip, limit,settings) {
+            function genQuery(moe){
+                var query = {
+                    express:{$in:[0,1,2]},
+                    emo:{$in:[0,1,2]},
+                };
+                if(!settings.emo.neg){
+                    query.emo.$in.splice(query.emo.$in.indexOf(0),1);
+                }
+                if(!settings.emo.soso){
+                    query.emo.$in.splice(query.emo.$in.indexOf(1),1);
+                }
+                if(!settings.emo.pos){
+                    query.emo.$in.splice(query.emo.$in.indexOf(2),1);
+                }
+                if(!settings.express.neg){
+                    query.express.$in.splice(query.express.$in.indexOf(0),1);
+                }
+                if(!settings.express.soso){
+                    query.express.$in.splice(query.express.$in.indexOf(1),1);
+                }
+                if(!settings.express.pos){
+                    query.express.$in.splice(query.express.$in.indexOf(2),1);
+                }
+                if(moe) {
+                    query.genre = {$regex: "[Mm]oe"};
+                }
+                return JSON.stringify(query);
+            }
+            var query = genQuery(settings.current === 'moe');
+            return $http.get(APP_CONST.api + 'v1/baladeurs?sort=-time&populate=tags&skip=' + skip + '&limit=' + limit + '&query=' + query);
+        }
+
+        function fetchBySkipAndLimitMoe(skip, limit,settings) {
+            return $http.get(APP_CONST.api + 'v1/baladeurs?sort=-time&populate=tags&skip=' + skip + '&limit=' + limit + '&query={"genre":{"$regex":"[Mm]oe"}}');
         }
 
         function postBaladeur(baladeur) {

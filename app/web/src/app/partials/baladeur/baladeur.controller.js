@@ -32,20 +32,37 @@
         vm.upload = upload;
         vm.submit = submit;
         vm.edit = edit;
-        vm.isAdmin = appService.isAdmin();
+        vm.moe = moe;
+        vm.all = all;
+        vm.settings={
+            emo:{
+                neg:true,
+                soso:true,
+                pos:true
+            },
+            express:{
+                neg:true,
+                soso:true,
+                pos:true
+            },
+            current:"all"
+        };
 
+        vm.isAdmin = appService.isAdmin();
         vm.pageForCustomRefresh = 0;
+        var currentPaginationFunction = baladeurService.fetchBySkipAndLimit;
+
         var paginationInit = true;
         var paginationInitBaladeurNum = 3;
         var baladeurPerPage = 3;
         
 
         init();
+        $scope.$watch('vm.settings',reinit,true);
 
         ///////////////////
 
         function init(){
-            baladeurService.fetchAll();
         }
 
 
@@ -79,7 +96,22 @@
                 .success(data=>vm.newBaladeur.image[0]='http://ww4.sinaimg.cn/large/' + data.pid);
         }
 
+        function moe(){
+            vm.settings.current="moe";
+            reinit(vm.settings);
+        }
 
+        function all(){
+            vm.settings.current="all";
+            reinit(vm.settings);
+        }
+        function reinit(){
+            console.log('reinit' + vm.settings);
+            vm.baladeurList = [];
+            vm.lock = false;
+            vm.pageForCustomRefresh = 0;
+            pushBaladeurPaginated();
+        }
         function pushBaladeurPaginated() {
             var skipCount = vm.pageForCustomRefresh * baladeurPerPage;
             if (paginationInit) {
@@ -87,7 +119,7 @@
             }
             if (!vm.lock) {
                 vm.lock = true;
-                baladeurService.fetchBySkipAndLimit(skipCount, baladeurPerPage).success(res=> {
+                currentPaginationFunction(skipCount, baladeurPerPage,vm.settings).success(res=> {
                     if (res && res.length) {
                         angular.forEach(res, r => {
                                 r.init = paginationInit;

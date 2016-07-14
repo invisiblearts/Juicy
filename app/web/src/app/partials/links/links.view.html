@@ -1,4 +1,5 @@
 <div class="container">
+
     <div class="row">
 
         <div ng-repeat="link in vm.links track by $index" class="col s12 m6 l6 ">
@@ -8,25 +9,24 @@
                 <span class="card-title activator">
 
                     <span ng-click="vm.open(link.href)">{{::link.title}}</span>
-                    <div class="right" ng-if="vm.isAdmin">
-                        </div>
+
                 </span>
 
                     <div ng-click="vm.open(link.href)" class="row valign-wrapper clickable" style="border-top:1px">
                         <div class="col s3">
                             <div class="box">
-                            <img ng-src="{{::link.img}}" alt="" class="circle content link"> <!-- notice the "circle" class -->
+                            <img ng-src="{{::link.img}}" alt="" class="circle content link" style="margin-left: 10px"> <!-- notice the "circle" class -->
                             </div>
                             </div>
                         <div class="col s9">
-                            <blockquote class="{{::link.color}} accent-1">
+                            <blockquote class="{{::link.color}} accent-1" style="margin-top: 0;margin-bottom: 0;height: 100%">
                                 <h5>{{::link.description}}</h5>
                             </blockquote>
-                        <span class="right right-align">
-                        {{::link.alias}}
-                        </span>
                         </div>
                     </div>
+                                            <span class="right right-align">
+                        {{::link.alias}}
+                        </span>
                 </div>
                 <div class="btn-flat" ng-click="vm.modify(link)">Modify</div>
                 <div ng-click="vm.del(link)" class="btn-flat">Delete</div>

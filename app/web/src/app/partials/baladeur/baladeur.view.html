@@ -1,4 +1,29 @@
 <div class="container">
+    <nav style="margin-top:10px" >
+        <div class="nav-wrapper grey lighten-4 grey-text">
+            <div class="col s12">
+                <span style="margin-right: 10px" class="clickable " ng-click="vm.all()">ALL</span>
+                <span style="margin-right: 10px" class="clickable " ng-click="vm.moe()">MOE</span>
+                <span style="margin-right: 10px">| EMO </span>
+
+                <input ng-model="vm.settings.emo.neg" type="checkbox" class="filled-in" id="EMO-1" checked="checked" />
+                <label for="EMO-1">-1</label>
+                <input ng-model="vm.settings.emo.soso" type="checkbox" class="filled-in" id="EMO0" checked="checked" />
+                <label for="EMO0">0</label>
+                <input  ng-model="vm.settings.emo.pos" type="checkbox" class="filled-in" id="EMO1" checked="checked" />
+                <label for="EMO1">1</label>
+                <span style="margin-right: 10px">| EXPRESS </span>
+
+                <input ng-model="vm.settings.express.neg" type="checkbox" class="filled-in" id="EXPRESS-1" checked="checked" />
+                <label for="EXPRESS-1">-1</label>
+                <input ng-model="vm.settings.express.soso" type="checkbox" class="filled-in" id="EXPRESS0" checked="checked" />
+                <label for="EXPRESS0">0</label>
+                <input ng-model="vm.settings.express.pos" type="checkbox" class="filled-in" id="EXPRESS1" checked="checked" />
+                <label for="EXPRESS1">1</label>
+
+            </div>
+        </div>
+    </nav>
 
 
 
@@ -7,8 +32,7 @@
 
 
 
-
-
+    {{vm.settings}}
 
 
     <!-- FAB -->

@@ -25,7 +25,7 @@ img.circle.content.link{
 }
 .box{
     position: relative;
-    width: 100%;		/* desired width */
+    width: 75%;		/* desired width */
 }
 .box:before{
     content: "";
