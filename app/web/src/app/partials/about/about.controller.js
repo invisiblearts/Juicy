@@ -12,10 +12,16 @@ function aboutCtrl() {
       featured: true
     },
     {
+      title: 'v2 alpha5',
+      time: 1468604591080,
+      text: 'Comment, Avatar',
+      featured: true
+    },
+    {
       title: 'v2 alpha4',
       time: 1468342287378,
       text: 'Bug Fixes, Baladeur, Comment Init',
-      featured: true
+      featured: false
     },
     {
       title: 'v2 alpha3',

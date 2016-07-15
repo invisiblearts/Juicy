@@ -2,8 +2,8 @@
 
   angular.module('app')
   .constant('APP_CONST', {
-    title: 'Juicy',
-    version: 'v2 alpha1',
+    title: 'src | moe',
+    version: 'v2 alpha5',
     production: true,
     api: '/api/'
   });

@@ -6,7 +6,8 @@ function loginService($http, $state, $document, APP_CONST) {
   var service = {
     login: login,
     reg: reg,
-    evict: evict
+    evict: evict,
+    updateUser: updateUser
   }
   return service;
 
@@ -32,6 +33,10 @@ function loginService($http, $state, $document, APP_CONST) {
         "Content-Type": "application/json"
       }
     });
+  }
+
+  function updateUser(u){
+    return $http.patch(APP_CONST.api + 'v1/users/'+u._id,u);
   }
 
   function evict() {

@@ -11,6 +11,7 @@ function jcCard() {
       content: '=jcContent',
       showDst: '@jcShowDst',
       utcCn: '@jcShowUtcCn',
+      hideCtrl: '@jcHideCtrl',
       hideProgress: '@jcHideProgress'
     },
     bindToController: true

@@ -2,11 +2,12 @@
   angular.module('app.modules')
   .controller('topicsDetailCtrl', topicsDetailCtrl);
 
-function topicsDetailCtrl($scope, $http, $state, $document, appEvent, topicsService) {
+function topicsDetailCtrl($scope, $http, $state, $document, appEvent,appService, topicsService) {
   var vm = this;
   vm.topicData = {};
   vm.topicId = $state.params.id;
-
+  vm.submitComment = submitComment;
+  vm.isUser = appService.isUser();
   init();
 
   /////////
@@ -21,7 +22,11 @@ function topicsDetailCtrl($scope, $http, $state, $document, appEvent, topicsServ
   function handleEditTopic(event, id) {
     $state.go("compose-edit", id);
   }
-
+  
+  function submitComment(){
+    return topicsService.postComment(vm.topicId,vm.newComment).then();
+  }
+  
   appEvent.subscribe("editTopic", handleEditTopic, $scope);
 
 }

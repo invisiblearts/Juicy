@@ -20,7 +20,7 @@ function Models() {
   return {
     getAll: getAll,
     get: getOne
-  };
+  };  
 
   function getAll() {
     return models;

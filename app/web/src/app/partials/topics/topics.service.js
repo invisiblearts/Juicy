@@ -9,7 +9,8 @@ function topicsService($http, $state, $document, APP_CONST) {
     fetchBySkipAndLimit: fetchBySkipAndLimit,
     fetchAvailableMonths: fetchAvailableMonths,
     fetchOne: fetchOne,
-    postTopic: postTopic
+    postTopic: postTopic,
+    postComment:postComment
   };
 
   return service;
@@ -24,7 +25,7 @@ function topicsService($http, $state, $document, APP_CONST) {
 
 
   function fetchOne(id){
-   return $http.get(APP_CONST.api + 'v1/topics?query={"_id":"'+id+'"}&populate=tags');
+   return $http.get(APP_CONST.api + 'v1/topics?query={"_id":"'+id+'"}&populate=[{"path":"tags"},{"path":"comments","populate":{"path":"user"}}]');
   }
 
   function fetchByMonth(yymm, duration) {
@@ -42,6 +43,12 @@ function topicsService($http, $state, $document, APP_CONST) {
       return $http.patch(APP_CONST.api + 'v1/topics/' + topic._id, topic);
     }
   }
+
+  function postComment(id,comment) {
+    return $http.post(APP_CONST.api + 'topic/'+id+'/comment', comment);
+  }
+
+
 
 }
 })();

@@ -5,7 +5,9 @@
         <div ng-repeat="link in vm.links track by $index" class="col s12 m6 l6 ">
             <div class="card {{::link.color}} z-depth-1 hoverable">
                 <div class="card-content">
-
+   <span class="right right-align">
+                        {{::link.alias}}
+                        </span>
                 <span class="card-title activator">
 
                     <span ng-click="vm.open(link.href)">{{::link.title}}</span>
@@ -23,13 +25,14 @@
                                 <h5>{{::link.description}}</h5>
                             </blockquote>
                         </div>
+
                     </div>
-                                            <span class="right right-align">
-                        {{::link.alias}}
-                        </span>
+
                 </div>
+                <div ng-if="vm.isAdmin">
                 <div class="btn-flat" ng-click="vm.modify(link)">Modify</div>
                 <div ng-click="vm.del(link)" class="btn-flat">Delete</div>
+                </div>
             </div>
         </div>
     </div>

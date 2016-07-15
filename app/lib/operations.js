@@ -129,7 +129,9 @@ module.exports = function (model, options) {
             err.statusCode = 404
             return options.onError(err, req, res, next)
           }
-          cachegoose.clearCache(req.param.id);
+          //cachegoose.clearCache(req.param.id);
+          cachegoose._cache.clear();
+
           req.erm.statusCode = 204
 
           next()
@@ -245,7 +247,8 @@ module.exports = function (model, options) {
 
           req.erm.result = item
           req.erm.statusCode = 200
-          cachegoose.clearCache(req.params.id);
+          //cachegoose.clearCache(req.params.id);
+          cachegoose._cache.clear();
 
           next()
         }, function (err) {

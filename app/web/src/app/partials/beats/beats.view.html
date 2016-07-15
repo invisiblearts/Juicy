@@ -87,6 +87,8 @@
 
         </div>
         tags
+
+
         <div ng-repeat="tag in vm.newBeat.tags" class="chip">
             <div class="chip white-text {{tag.class}}">
                 {{tag.name}}
@@ -94,15 +96,26 @@
             <i class="material-icons" ng-click="vm.deleteTag(tag)" >close</i>
             <i class="clickable" ng-click="vm.modifyTag(tag)">edit</i>
         </div>
+        <div class="modal-footer row">
+            <div class="col s8">
+                <input style="width:150px" ng-model="vm.newTag.name"/>
+                <input style="width:150px" ng-model="vm.newTag.class"/>
+                <span class="btn" ng-click="vm.addTag()">Add Tag</span>
+            </div>
+            <a class="modal-action modal-close waves-effect waves-green btn-flat clickable" ng-click="vm.submitBeat()">Submit</a>
+            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Abandon</a>
         </div>
 
+    </div>
 
+</div>
 
         <!-- Modal Structure -->
         <div id="comment" class="modal">
             <div class="modal-content">
                 <input type="text" ng-model="vm.newComment.body">
-                <span type="btn" ng-click="vm.submitComment()">submit</span>
+                <a class="modal-action modal-close waves-effect waves-green btn clickable" ng-click="vm.submitComment()">SEND!</a>
+                评论完暂时需要手动刷新页面...
             </div>
         </div>
 </div>

@@ -32,7 +32,17 @@ img.circle.content.link{
     display: block;
     padding-top: 100%; 	/* initial ratio of 1:1*/
 }
+ul.collection{
+    overflow:inherit;!important;
+}
 
+.card-action.article{
+    border-top:0!important;
+}
+label{
+    padding-left: 25px!important;
+    width: 120px;
+}
 .content{
     position:  absolute;
     top: 0;

@@ -1,4 +1,4 @@
 <div ng-if="!vm.deleted" class="card hoverable" ng-class="vm.content.featured? 'light-blue darken-1 yellow-text' : 'white lighten-5'">
     <jc-card-content></jc-card-content>
-    <jc-card-control></jc-card-control>
+    <jc-card-control ng-if="!vm.hideCtrl"></jc-card-control>
 </div>

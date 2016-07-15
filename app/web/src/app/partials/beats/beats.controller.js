@@ -252,7 +252,7 @@ function beatsCtrl($scope, $http, $state, $document, appEvent, appService,tagsSe
   function submitComment(){
     var id = angular.copy(vm.newComment.beat);
     delete vm.newComment.beat;
-    return beatsService.postComment(id,vm.newComment);
+    return beatsService.postComment(id,vm.newComment).then();
   }
   ///////////////////
   appEvent.subscribe('jcSubNavSectionSwitched', switchTab, $scope);
