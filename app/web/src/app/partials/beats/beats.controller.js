@@ -2,7 +2,7 @@
   angular.module('app.modules')
   .controller('beatsCtrl', beatsCtrl);
 
-function beatsCtrl($scope, $http, $state, $document, appEvent, appService,tagsService, topicsService, jwtHelper, beatsService) {
+function beatsCtrl($scope, $http, $state, $document, appEvent, appService,tagsService, topicsService, jwtHelper, beatsService,angularGridInstance) {
   var vm = this;
   var beatsPerPage = 6;
   var paginationInitBeatsNum = 15;
@@ -202,7 +202,6 @@ function beatsCtrl($scope, $http, $state, $document, appEvent, appService,tagsSe
   }
 
   function handleComment(event, content) {
-    console.log(content);
     vm.newComment.beat = content._id;
   }
 
@@ -252,7 +251,7 @@ function beatsCtrl($scope, $http, $state, $document, appEvent, appService,tagsSe
   function submitComment(){
     var id = angular.copy(vm.newComment.beat);
     delete vm.newComment.beat;
-    return beatsService.postComment(id,vm.newComment).then();
+    return beatsService.postComment(id,vm.newComment).success(res=>appEvent.publish('card_update_'+id, res));
   }
   ///////////////////
   appEvent.subscribe('jcSubNavSectionSwitched', switchTab, $scope);

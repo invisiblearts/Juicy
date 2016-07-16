@@ -24,7 +24,7 @@ function topicsDetailCtrl($scope, $http, $state, $document, appEvent,appService,
   }
   
   function submitComment(){
-    return topicsService.postComment(vm.topicId,vm.newComment).then();
+    return topicsService.postComment(vm.topicId,vm.newComment).success(res=>vm.topicData = res);
   }
   
   appEvent.subscribe("editTopic", handleEditTopic, $scope);

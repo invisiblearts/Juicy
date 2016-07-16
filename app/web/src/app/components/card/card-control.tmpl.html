@@ -1,4 +1,4 @@
-<div id="card-ctrl" ng-if="vm.isUser || vm.isAdmin" ng-class="vm.content.featured? 'card-action cyan darken-2' : 'card-action grey lighten-4'" style="border:top:1px solid rgba(255,255,255,0.2)">
+<div id="card-ctrl" ng-class="vm.content.featured? 'card-action cyan darken-2' : 'card-action grey lighten-4'" style="border:top:1px solid rgba(255,255,255,0.2)">
     <a ng-if="vm.isAdmin" ng-class="vm.content.featured? 'white-text clickable' : 'clickable'" ng-click="vm.deleteBeats()">Delete</a>
     <a ng-if="vm.isAdmin" ng-class="vm.content.featured? 'white-text clickable' : 'clickable'" ng-click="vm.modifyBeats()" href='#composeBeats' modal>Modify</a>
     <a ng-class="vm.content.featured? 'white-text clickable' : 'clickable'" ng-click="vm.comment()" href='#comment' modal>Comment</a>

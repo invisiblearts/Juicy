@@ -13,12 +13,16 @@ function commentRest(api){
             if(comment._id && comment.user[0]!==req.user._id){
                 return res.sendStatus(401);
             }
+        if(req.user && req.user.id) {
             comment.user = [req.user.id];
+        }
             var c = new Comment(comment);
 
             c.save()
-                .then(g=>Beats.findOneAndUpdate({_id: req.params.id},{$push:{comments:g._id}}).exec())
-                .then(i=>res.json(i))
+                .then(g=>Beats.findOneAndUpdate({_id: req.params.id},{$push:{comments:g._id}}).populate([{"path":"tags"},{"path":"comments","populate":{"path":"user"}}]).exec())
+                .then(i=>{
+                    Beats.findOne({_id:i._id}).populate([{"path":"tags"},{"path":"comments","populate":{"path":"user"}}]).exec().then(r=>res.json(r))
+                    })
                 .catch(err=>console.log(err));
     });
     
@@ -29,12 +33,16 @@ function commentRest(api){
         if(comment._id && comment.user[0]!==req.user._id){
             return res.sendStatus(401);
         }
-        comment.user = [req.user.id];
+        if(req.user && req.user.id) {
+            comment.user = [req.user.id];
+        }
         var c = new Comment(comment);
 
         c.save()
-            .then(g=>Topic.findOneAndUpdate({_id: req.params.id},{$push:{comments:g}}).exec())
-            .then(i=>res.json(i))
+            .then(g=>Topic.findOneAndUpdate({_id: req.params.id},{$push:{comments:g}}).populate([{"path":"tags"},{"path":"comments","populate":{"path":"user"}}]).exec())
+          .then(i=>{
+              Topic.findOne({_id:i._id}).populate([{"path":"tags"},{"path":"comments","populate":{"path":"user"}}]).exec().then(r=>res.json(r))
+          })
             .catch(err=>console.log(err));
     });
 }

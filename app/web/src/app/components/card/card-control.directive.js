@@ -17,9 +17,11 @@ function jcCardControl() {
   function postLink(scope, element, attrs, cardCtrl) {
     scope.cardCtrl = cardCtrl;
     scope.vm.content = cardCtrl.content;
+    scope.vm.appEvent.subscribe('card_update_'+scope.vm.content._id, scope.vm.handleUpdate, scope); //this scope is problematic , memory leak?
+
   }
   /*@ngInject*/
-  function cardControlCtrl($scope, appEvent,appService,beatsService) {
+  function cardControlCtrl($scope, appEvent,appService,beatsService,angularGridInstance) {
     var vm = this;
     vm.deleteBeats = deleteBeats;
     vm.modifyBeats = modifyBeats;
@@ -27,7 +29,8 @@ function jcCardControl() {
     vm.comment = comment;
     vm.isUser = appService.isUser();
     vm.isAdmin = appService.isAdmin();
-
+    vm.appEvent = appEvent;
+    vm.handleUpdate = handleUpdate;
     vm.newComment = {
 
       body:""
@@ -50,6 +53,13 @@ function jcCardControl() {
     function submitComment(){
       beatsService.postComment(vm.content._id,vm.newComment);
     }
+
+    function handleUpdate(event,update){
+      console.log(update);
+      vm.content = update;
+      angularGridInstance['cards'].refresh();
+    }
+
   }
 }
 })();
