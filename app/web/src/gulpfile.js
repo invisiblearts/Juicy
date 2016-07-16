@@ -6,19 +6,14 @@ var gulp = require('gulp'),
   browserify = require('browserify'),
   concat = require('gulp-concat'),
   autoprefixer = require('gulp-autoprefixer'),
-  refresh = require('gulp-livereload'),
   nodemon = require('gulp-nodemon');
 var ngAnnotate = require('gulp-ng-annotate');
 var uglify = require('gulp-uglify');
-var templates = require('gulp-angular-templatecache');
 var htmlmin = require('gulp-htmlmin');
 var gutil = require('gulp-util');
 var path = require('path');
-var paths = gulp.paths;
 var babel = require('gulp-babel');
-var $ = require('gulp-load-plugins')();
 var cleanCSS = require('gulp-clean-css');
-var closureCompiler=require('gulp-closure-compiler');
 
 // Dev task
 //gulp.task('dev', ['views', 'styles', 'lint', 'browserify', 'watch'], function() {});
@@ -77,7 +72,7 @@ gulp.task('vendorjs', function () {
 });
 
 gulp.task('minify-css', function() {
-  return gulp.src(['app/styles/*.css','node_modules/materialize-css/dist/css/materialize.min.css','node_modules/angular-materialize/css/style.css'])
+  return gulp.src(['app/styles/*.css'])
     .pipe(cleanCSS({compatibility: 'ie8'}))
     .pipe(gulp.dest('../static/styles'));
 });

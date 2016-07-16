@@ -113,8 +113,8 @@
         <!-- Modal Structure -->
         <div id="comment" class="modal">
             <div class="modal-content">
-                <input type="text" ng-model="vm.newComment.body">
-                <a class="modal-action modal-close waves-effect waves-green btn clickable" ng-click="vm.submitComment()">SEND!</a>
+                <input type="text" placeholder="Comment" ng-model="vm.newComment.body">
+                <a ng-class="vm.newComment.body ? 'enabled' : 'disabled'" class="modal-action modal-close waves-effect waves-green btn clickable" ng-click="vm.submitComment()">SEND!</a>
                 评论完暂时需要手动刷新页面...
             </div>
         </div>

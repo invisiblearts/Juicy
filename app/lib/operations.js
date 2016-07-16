@@ -16,7 +16,7 @@ module.exports = function (model, options) {
     options.contextFilter(model, req, function (filteredContext) {
       var query = buildQuery(filteredContext.find(), req._ermQueryOptions).read(options.readPreference)
 
-      query.lean(options.lean).cache(3600, req.originalUrl + 'GET').exec().then(function (items) {
+      query.lean(options.lean).cache(3600).exec().then(function (items) {
         req.erm.result = items
         req.erm.statusCode = 200
 
@@ -48,7 +48,7 @@ module.exports = function (model, options) {
 
   function getCount(req, res, next) {
     options.contextFilter(model, req, function (filteredContext) {
-      buildQuery(filteredContext.count(), req._ermQueryOptions).cache(3600, req.originalUrl + 'GET').exec().then(function (count) {
+      buildQuery(filteredContext.count(), req._ermQueryOptions).cache(3600).exec().then(function (count) {
         req.erm.result = {count: count}
         req.erm.statusCode = 200
 
@@ -62,7 +62,7 @@ module.exports = function (model, options) {
 
   function getShallow(req, res, next) {
     options.contextFilter(model, req, function (filteredContext) {
-      buildQuery(findById(filteredContext, req.params.id), req._ermQueryOptions).lean(options.lean).read(options.readPreference).cache(3600, req.originalUrl + 'GET').exec().then(function (item) {
+      buildQuery(findById(filteredContext, req.params.id), req._ermQueryOptions).lean(options.lean).read(options.readPreference).cache(3600).exec().then(function (item) {
         if (!item) {
           var err = new Error(http.STATUS_CODES[404])
           err.statusCode = 404
@@ -85,6 +85,8 @@ module.exports = function (model, options) {
   }
 
   function deleteItems(req, res, next) {
+    cachegoose._cache.clear();
+
     options.contextFilter(model, req, function (filteredContext) {
       buildQuery(filteredContext.find(), req._ermQueryOptions).remove().then(function () {
         req.erm.statusCode = 204
@@ -99,7 +101,7 @@ module.exports = function (model, options) {
 
   function getItem(req, res, next) {
     options.contextFilter(model, req, function (filteredContext) {
-      buildQuery(findById(filteredContext, req.params.id), req._ermQueryOptions).lean(options.lean).read(options.readPreference).cache(3600, req.originalUrl + 'GET', req.params.id).exec().then(function (item) {
+      buildQuery(findById(filteredContext, req.params.id), req._ermQueryOptions).lean(options.lean).read(options.readPreference).cache(3600).exec().then(function (item) {
         if (!item) {
           var err = new Error(http.STATUS_CODES[404])
           err.statusCode = 404
@@ -118,6 +120,7 @@ module.exports = function (model, options) {
   }
 
   function deleteItem(req, res, next) {
+    cachegoose._cache.clear();
     var byId = {}
     byId[options.idProperty] = req.params.id
 
@@ -130,7 +133,6 @@ module.exports = function (model, options) {
             return options.onError(err, req, res, next)
           }
           //cachegoose.clearCache(req.param.id);
-          cachegoose._cache.clear();
 
           req.erm.statusCode = 204
 
@@ -153,6 +155,7 @@ module.exports = function (model, options) {
   }
 
   function createObject(req, res, next) {
+    cachegoose._cache.clear();
     var filterOpts = {
       access: req.access,
       populate: req._ermQueryOptions.populate
@@ -182,6 +185,7 @@ module.exports = function (model, options) {
   }
 
   function modifyObject(req, res, next) {
+    cachegoose._cache.clear();
     var filterOpts = {
       access: req.access,
       populate: req._ermQueryOptions.populate
@@ -248,7 +252,6 @@ module.exports = function (model, options) {
           req.erm.result = item
           req.erm.statusCode = 200
           //cachegoose.clearCache(req.params.id);
-          cachegoose._cache.clear();
 
           next()
         }, function (err) {

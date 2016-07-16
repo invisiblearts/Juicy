@@ -35,7 +35,11 @@
             <i class="material-icons">publish</i></a>
 
         <ul>
-            <li><a ng-if="vm.isAdmin" class="btn-floating red" href='#composeBeats' modal><i class="material-icons">mode_edit</i></a></li>
+            <li>
+                <a ng-if="vm.isAdmin" class="btn-floating red" href='#composeBeats' modal>
+                    <i class="material-icons">mode_edit</i>
+                </a>
+            </li>
         </ul>
     </div>
 
@@ -83,6 +87,8 @@
 
         </div>
         tags
+
+
         <div ng-repeat="tag in vm.newBeat.tags" class="chip">
             <div class="chip white-text {{tag.class}}">
                 {{tag.name}}
@@ -90,8 +96,6 @@
             <i class="material-icons" ng-click="vm.deleteTag(tag)" >close</i>
             <i class="clickable" ng-click="vm.modifyTag(tag)">edit</i>
         </div>
-
-
         <div class="modal-footer row">
             <div class="col s8">
                 <input style="width:150px" ng-model="vm.newTag.name"/>
@@ -101,5 +105,17 @@
             <a class="modal-action modal-close waves-effect waves-green btn-flat clickable" ng-click="vm.submitBeat()">Submit</a>
             <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Abandon</a>
         </div>
+
     </div>
+
+</div>
+
+        <!-- Modal Structure -->
+        <div id="comment" class="modal">
+            <div class="modal-content">
+                <input type="text" placeholder="Comment" ng-model="vm.newComment.body">
+                <a ng-class="vm.newComment.body ? 'enabled' : 'disabled'" class="modal-action modal-close waves-effect waves-green btn clickable" ng-click="vm.submitComment()">SEND!</a>
+                评论完暂时需要手动刷新页面...
+            </div>
+        </div>
 </div>

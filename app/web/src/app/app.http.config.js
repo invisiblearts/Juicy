@@ -2,8 +2,10 @@
   angular.module('app')
   .config(httpConfig);
 
-function httpConfig($httpProvider, jwtInterceptorProvider) {
+function httpConfig($httpProvider, jwtInterceptorProvider,$logProvider,$compileProvider) {
   //Reset headers to avoid OPTIONS request (aka preflight)
+  $logProvider.debugEnabled(false);
+  $compileProvider.debugInfoEnabled(false);
   $httpProvider.defaults.headers.common = {
     'Accept': 'application/json, text/plain, */*',
     'Content-Type': 'application/json'

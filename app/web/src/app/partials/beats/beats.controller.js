@@ -16,7 +16,7 @@ function beatsCtrl($scope, $http, $state, $document, appEvent, appService,tagsSe
   vm.modifyTag = modifyTag;
   vm.deleteTag = deleteTag;
   vm.newComment= {
-    body:"Comment"
+    
   };
 
   vm.newTag = {

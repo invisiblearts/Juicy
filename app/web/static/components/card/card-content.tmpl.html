@@ -18,14 +18,14 @@
         </ul>
      </div>
      -->
-    <div class="card-content white-text">
+    <div class="card-content">
     <span ng-if="vm.content.title" class="card-title">
       <span>{{::vm.content.title}}</span>
     </span>
         <div>
             <pre>{{::vm.content.text}}</pre>
         </div>
-        <div class="left-align" ng-class="vm.content.featured? 'yellow-text' : 'white-text'">
+        <div class="left-align" ng-class="vm.content.featured? 'yellow-text': noop">
             <span>{{::vm.timeMessage}}</span>
             <div ng-repeat="tag in ::vm.content.tags"  class="chip white-text {{tag.class}}">
                 {{::tag.name}}
