@@ -9,14 +9,14 @@
             </a>
             <!-- Desktop -->
             <ul class="right hide-on-med-and-down">
-                <li class="right" ng-repeat="nav in vm.navs">
+                <li class="right" ng-repeat="nav in vm.navs" ng-class="nav.state === vm.state.current.name? 'active': angular.noop" >
                     <a class="clickable" ng-click="vm.gotoState(nav.state)">{{::nav.title}}
                     </a>
                 </li>
             </ul>
             <!-- Mobile Optimize -->
             <ul id="nav-mobile" class="side-nav">
-                <li ng-repeat="nav in vm.navs">
+                <li ng-repeat="nav in vm.navs" ng-class="nav.state === vm.state.current.name? 'active': angular.noop">
                     <a class="clickable" ng-click="vm.gotoState(nav.state)">{{::nav.title}}
                     </a>
                 </li>

@@ -106,6 +106,7 @@
             reinit(vm.settings);
         }
         function reinit(){
+            console.log('reinit' + vm.settings);
             vm.baladeurList = [];
             vm.lock = false;
             vm.pageForCustomRefresh = 0;
