@@ -1,0 +1,95 @@
+<div class="container">
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- FAB -->
+
+    <div class="fixed-action-btn horizontal">
+        <a class="btn-floating btn-large red" ng-click="vm.scrollTop()">
+            <i class="material-icons">publish</i></a>
+
+        <ul>
+            <li><a ng-if="vm.isAdmin" class="btn-floating red" href='#addSong' modal><i class="material-icons">mode_edit</i></a></li>
+        </ul>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="addSong" class="modal">
+        <div class="container" ng-if="vm.isAdmin">
+                <div flow-init
+                     flow-files-submitted="vm.upload( $files, $event, $flow )"
+                     flow-file-success="$file.msg = $message"
+                     class="card-image">
+                    <img ng-src="{{vm.newBaladeur.image[0]}}" class="clickable" flow-btn/>
+                    <span class="card-title">{{vm.newBaladeur.artist + ' - ' + vm.newBaladeur.title}}</span>
+
+                </div>
+
+                <div class="card-content">
+                    <input ng-model="vm.newBaladeur.description" />
+
+                </div>
+
+             <input ng-model="vm.newBaladeur.artist" />
+                <input ng-model="vm.newBaladeur.title" />
+                <input ng-model="vm.newBaladeur.genre" />
+                <div class="row">
+
+                    <div input-field class="input-field col s6">
+                        <p class="range-field">
+                            <span>Emo</span>
+                            <input type="range" id="test4" ng-model="vm.newBaladeur.emo" min="0" max="2" />
+                        </p>
+                    </div>
+                    <div input-field class="input-field col s6">
+                        <p class="range-field">
+                            <span>Express</span>
+                            <input type="range" id="test5" ng-model="vm.newBaladeur.express" min="0" max="2" />
+                        </p>
+                    </div>
+
+                </div>
+                <input ng-model="vm.newBaladeur.ids" placeholder="Songs"/>
+
+                <span ng-click="vm.submit()" class="btn-large">Submit</span>
+
+        </div>
+    </div>
+
+
+
+    <div infinite-scroll-distance="1" infinite-scroll="vm.loadMore()">
+        <div ng-repeat="b in vm.baladeurList track by $index">
+            <div class="card big">
+            <div
+                 class="card-image">
+                <img ng-src="{{b.image[0]}}"/>
+                <span class="card-title">{{b.artist + ' - ' + b.title + ' | ' + b.genre}}</span>
+
+            </div>
+
+            <div class="card-content">
+                <p>{{b.description}}</p>
+
+            </div>
+            <div class="card-action" style="padding-left: 0px;padding-right: 0px;">
+                <music-player ng-model="b.ids" play-config="vm.playConfig"></music-player>
+            </div>
+            <div ng-if="vm.isAdmin">
+                <span class="btn-large" href='#addSong' ng-click="vm.edit(b)" modal>edit</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
