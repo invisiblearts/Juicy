@@ -56,7 +56,9 @@ function jcCardControl() {
 
     function handleUpdate(event,update){
       vm.content = update;
-      angularGridInstance['cards'].refresh();
+      if(angularGridInstance['cards']) {
+        angularGridInstance['cards'].refresh();
+      }
     }
 
   }

@@ -9,7 +9,7 @@ function BeatRepository() {
         var crit = {
             'time': {'$gte': fromDate, '$lt': toDate}
         };
-        return BeatModel.find(crit).sort({time:1}).cache(7200).exec()
+        return BeatModel.find(crit).populate([{"path":"tags"},{"path":"comments","populate":{"path":"user"}}]).sort({time:1}).cache(7200).exec()
                .then(BeatAssembler.addYYMM);
     }
 
