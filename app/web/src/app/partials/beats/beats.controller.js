@@ -12,7 +12,7 @@ function beatsCtrl($scope, $http, $state, $document, appEvent, appService,tagsSe
   vm.upload = upload;
   vm.submitBeat = submitBeat;
   vm.addTag = addTag;
-
+  vm.clearCurrentBeat = clearCurrentBeat;
   vm.modifyTag = modifyTag;
   vm.deleteTag = deleteTag;
   vm.newComment= {
@@ -28,7 +28,7 @@ function beatsCtrl($scope, $http, $state, $document, appEvent, appService,tagsSe
     text: "",
     featured: false,
     safe: true,
-    tags:null
+    tags:[]
   };
 
   //Temporarily treat vm.dataSource as a local datasource
@@ -122,6 +122,16 @@ function beatsCtrl($scope, $http, $state, $document, appEvent, appService,tagsSe
     }
   }
 
+  function clearCurrentBeat(){
+    vm.newBeat = {
+      // time: 0,  to be populated in backend
+      text: "",
+      featured: false,
+      safe: true,
+      tags:[]
+    };
+
+  }
   function activate() {
     topicsService.fetchBySkipAndLimit(0, 3).success(res=>vm.topicList = res);
     generatejcSubNavTabs().then(function (tabs) {
@@ -202,6 +212,7 @@ function beatsCtrl($scope, $http, $state, $document, appEvent, appService,tagsSe
   }
 
   function handleComment(event, content) {
+    vm.newComment = {};
     vm.newComment.beat = content._id;
   }
 

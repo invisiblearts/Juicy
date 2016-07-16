@@ -36,7 +36,7 @@
 
         <ul>
             <li>
-                <a ng-if="vm.isAdmin" class="btn-floating" href='#composeBeats' modal>
+                <a ng-if="vm.isAdmin" class="btn-floating" href='#composeBeats' ng-click="vm.clearCurrentBeat()"modal>
                     <i class="material-icons">mode_edit</i>
                 </a>
             </li>
@@ -86,7 +86,7 @@
             </div>
 
         </div>
-        tags
+
 
 
         <div ng-repeat="tag in vm.newBeat.tags" class="chip">
