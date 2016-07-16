@@ -36,7 +36,7 @@
 		 */
 		var subscribe = function (msg, func, scope) {
 			if (!angular.isFunction(func)) {
-				console.log(msg + ": Needs a callback function");
+				//console.log(msg + ": Needs a callback function");
 				return;
 			}
 			msg = msg || _DATA_UPDATED_;
