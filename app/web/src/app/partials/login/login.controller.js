@@ -23,6 +23,9 @@ function loginCtrl($scope, $http, $state, $document, appEvent, jwtHelper,loginSe
     var userPromise = appService.getCurrentUser().then(res=>vm.currentUser = res.data);
   }
   function loginOrReg() {
+    if(!vm.userLogin || !vm.userLogin.username || vm.userLogin.username === '' || !vm.userLogin.password || vm.userLogin.password === '' ){
+      return;
+    }
     loginService.login(vm.userLogin).success(setToken)
         .error(res=>loginService.reg(vm.userLogin).success(setToken))
   }

@@ -8,7 +8,7 @@
         </div>
         <div class="card-action">
             <div class="right">
-                <a class="clickable" ng-click="vm.loginOrReg()">Login/Reg</a>
+                <a class="btn clickable waves-effect waves-light" ng-click="vm.loginOrReg()">Login/Reg</a>
             </div>
             &nbsp;
         </div>
@@ -16,14 +16,14 @@
     <div class="card">
         <div class="card-content" ng-show="vm.currentUser._id !== undefined && vm.currentUser._id !== null">
             <div class="card-panel pink lighten-2 white-text card-title">{{vm.currentUser.username}} , 传个头像填个联系方式啦...用来互粉什么的</div>
-            <p>写商城好累 这个模块做不动了 然而功能还是有的 不用太担心密码的问题 这里用的是Bcrypt 然而还没上https —— 16/07/16 0:02</p>
+            <p>吐槽:写商城好累 这个模块做不动了 然而功能还是有的 不用太担心密码的问题 这里用的是Bcrypt 然而还没上https —— 16/07/16 0:02</p>
             <div flow-init
                  flow-files-submitted="vm.upload( $files, $event, $flow )"
                  flow-file-success="$file.msg = $message"
-                 flow-btn class="btn">传图</div>
+                 flow-btn class="btn">1.传头像 成功了会在这个div里直接显示出来</div>
             <img ng-src="{{vm.currentUser.avatar}}" ng-if="vm.currentUser.avatar"/>
-            <input ng-model="vm.currentUser.contact" placeholder="填联系方式...微博微信Telegram邮箱企鹅都可以" type="text"/>
-            <div ng-click="vm.updateUser()" class="btn">提交才会生效啦w</div>
+            <input ng-model="vm.currentUser.contact" placeholder="2.填联系方式...微博微信Telegram邮箱企鹅都可以 暂时不会展示在前端里=。=" type="text"/>
+            <div ng-click="vm.updateUser()" class="btn">3.提交才会生效啦w</div>
             <!--
             <div class="btn" ng-click="vm.evict()">如果没生效的话就清一下缓存试试啦....</div>
             -->
