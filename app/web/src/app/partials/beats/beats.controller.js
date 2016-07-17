@@ -64,9 +64,6 @@ function beatsCtrl($scope, $http, $state, $document, appEvent, appService,tagsSe
   activate();
   ////////////////////////////////
 
-  function deleteImages() {
-    vm.newBeat.images;
-  }
 
   function pushBeatsPaginated() {
     var skipCount = vm.pageForCustomRefresh * beatsPerPage;
@@ -167,6 +164,7 @@ function beatsCtrl($scope, $http, $state, $document, appEvent, appService,tagsSe
   }
 
   function switchTab(event, tab) {
+    vm.currentSelectedTab = tab;
     vm.lock = false;
     if (tab.stateParam && tab.stateParam.month) {
       vm.selectedBeats = [];
