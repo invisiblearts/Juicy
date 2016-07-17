@@ -1,13 +1,13 @@
 <div class="container">
-    <div class="row" style="margin-top:10px" >
-        <div class="card hoverable grey lighten-4 grey-text col s12 m12 l6">
-            <div class="card-content">
-                <p style="margin-bottom: 10px">
+    <div class="row" style="overflow: hidden">
+        <div class="card hoverable grey lighten-4 grey-text col s12 m12 l6" style="height: 280px">
+            <div class="card-content" >
+                <p >
                     <span style="margin-right: 10px" >CATEGORIES</span>
                     <span ng-class="vm.settings.current === 'all' ? 'pink-text' : 'black-text'" style="margin-right: 10px" class="clickable " ng-click="vm.all()">ALL</span>
                 <span ng-class="vm.settings.current === 'moe' ? 'pink-text' : 'black-text'" style="margin-right: 10px" class="clickable " ng-click="vm.moe()">MOE</span>
                 </p>
-                <div class="row">
+                <div style="margin-top:10px;margin-bottom:0px" class="row">
                 <p class="col s6" style="width: 230px">
                     <span>EMOTION </span>
                     <input ng-model="vm.settings.emo.neg" type="checkbox" class="filled-in" id="EMO-1" checked="checked" />
@@ -29,8 +29,8 @@
                 </div>
             </div>
         </div>
-            <div class="col l6 hide-on-med-and-down">
-                <div class="card-panel pink">
+            <div class="col l6 hide-on-med-and-down " style="min-height: 280px">
+                <div class="card-panel pink " style="min-height: 280px">
           <span class="white-text">
               <a class="cyan-text text-lighten-4" href="https://fr.wikipedia.org/wiki/Baladeur"> Baladeur </a>is almost identical to CD Walkman but in French, known as the official expression suggested by French and Canada gov to cope with culture invasion(?), but sadly nobody tends to use it.<del>Quite funny right?</del><br><br>
               I call this section baladeur because I've got taste in rock of late 70s - 00s.<br>
