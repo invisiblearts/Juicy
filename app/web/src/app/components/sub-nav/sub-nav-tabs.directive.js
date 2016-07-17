@@ -22,7 +22,6 @@ function jcSubNavTabs() {
 
     vm.displaySection = displaySection;
     vm.displaySettings = false;
-
     ///////////////////////////
 
     function scrollTop() {
@@ -34,6 +33,10 @@ function jcSubNavTabs() {
       $state.go(tab.state, tab.stateParam);
       appEvent.publish('jcSubNavSectionSwitched', tab);
     }
+    
+    $scope.$watch('subNavCtrl.sections',function(){
+      vm.reload = true;      
+    })
   }
 }
 })();

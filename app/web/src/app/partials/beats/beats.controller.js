@@ -139,6 +139,10 @@ function beatsCtrl($scope, $http, $state, $document, appEvent, appService,tagsSe
         vm.customRefreshEnabled = false;
         getBeatOfMonth($state.params.month);
       } else {
+        vm.currentSelectedTab = {
+          title: 'Recent',
+          state: 'beats'
+        };
         vm.customRefreshEnabled = true;
         pushBeatsPaginated();
       }
