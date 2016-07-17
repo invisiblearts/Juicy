@@ -45,7 +45,9 @@ gulp.task('vendorjs', function () {
     'libs/angulargrid.js',
     'node_modules/ng-infinite-scroll/build/ng-infinite-scroll.js',
     'libs/angular-materialize.js',
-      'libs/ne-music.js'
+      'libs/ne-music.js',
+    'libs/angular-matchheight.js'
+
   ])
     .pipe(concat('vendor.js'))
     .pipe(uglify({compress:{hoist_vars:true}}).on('error', gutil.log))

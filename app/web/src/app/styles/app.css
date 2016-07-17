@@ -19,6 +19,15 @@ pre{
 #card-ctrl{
     z-index:0;!important;
 }
+.chip{
+    margin-right: 2px;
+    display: inline-block;
+    height: 20px !important;
+    font-size: 13px;
+    line-height: 20px !important;
+    padding: 0 6px !important;
+    border-radius: 16px;
+}
 
 img {
     width: 100%;

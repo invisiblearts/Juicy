@@ -31,6 +31,7 @@ function beatsCtrl($scope, $http, $state, $document, appEvent, appService,tagsSe
     tags:[]
   };
 
+  vm.login = login;
   //Temporarily treat vm.dataSource as a local datasource
   vm.customRefreshEnabled = false;
   vm.monthNeeded = [];
@@ -133,6 +134,7 @@ function beatsCtrl($scope, $http, $state, $document, appEvent, appService,tagsSe
 
   }
   function activate() {
+    vm.isUser = appService.isUser();
     topicsService.fetchBySkipAndLimit(0, 3).success(res=>vm.topicList = res);
     generatejcSubNavTabs().then(function (tabs) {
       vm.tabs = tabs;
@@ -202,6 +204,10 @@ function beatsCtrl($scope, $http, $state, $document, appEvent, appService,tagsSe
     $state.go("topics-detail", id);
   }
 
+  function login() {
+    $state.go("login");
+  }
+
   function submitBeat() {
     beatsService.postBeat(vm.newBeat);
   }
@@ -261,8 +267,10 @@ function beatsCtrl($scope, $http, $state, $document, appEvent, appService,tagsSe
 
   function submitComment(){
     var id = angular.copy(vm.newComment.beat);
-    delete vm.newComment.beat;
-    return beatsService.postComment(id,vm.newComment).success(res=>appEvent.publish('card_update_'+id, res));
+    if(vm.newComment.body && vm.newComment.body!=='') {
+      delete vm.newComment.beat;
+      return beatsService.postComment(id, vm.newComment).success(res=>appEvent.publish('card_update_' + id, res));
+    }
   }
   ///////////////////
   appEvent.subscribe('jcSubNavSectionSwitched', switchTab, $scope);

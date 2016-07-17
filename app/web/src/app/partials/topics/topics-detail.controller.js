@@ -8,6 +8,8 @@ function topicsDetailCtrl($scope, $http, $state, $document, appEvent,appService,
   vm.topicId = $state.params.id;
   vm.submitComment = submitComment;
   vm.isUser = appService.isUser();
+  vm.login = login;
+
   init();
 
   /////////
@@ -25,6 +27,11 @@ function topicsDetailCtrl($scope, $http, $state, $document, appEvent,appService,
   
   function submitComment(){
     return topicsService.postComment(vm.topicId,vm.newComment).success(res=>vm.topicData = res);
+  }
+
+
+  function login() {
+    $state.go("login");
   }
   
   appEvent.subscribe("editTopic", handleEditTopic, $scope);

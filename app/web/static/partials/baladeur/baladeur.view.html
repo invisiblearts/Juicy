@@ -1,14 +1,15 @@
 <div class="container">
-    <div style="margin-top:10px" >
-        <div class="card grey lighten-4 grey-text">
-            <div class="card-content col s12">
-                <p>
+    <div class="row" iln-match-height>
+        <div class="card hoverable grey lighten-4 grey-text col s12 m12 l6">
+            <div class="card-content" >
+                <p >
                     <span style="margin-right: 10px" >CATEGORIES</span>
                     <span ng-class="vm.settings.current === 'all' ? 'pink-text' : 'black-text'" style="margin-right: 10px" class="clickable " ng-click="vm.all()">ALL</span>
                 <span ng-class="vm.settings.current === 'moe' ? 'pink-text' : 'black-text'" style="margin-right: 10px" class="clickable " ng-click="vm.moe()">MOE</span>
                 </p>
-                <p>
-                    <span style="margin-right: 41px">EMOTION </span>
+                <div style="margin-top:10px;margin-bottom:0px" class="row">
+                <p class="col s6" style="width: 230px">
+                    <span>EMOTION </span>
                     <input ng-model="vm.settings.emo.neg" type="checkbox" class="filled-in" id="EMO-1" checked="checked" />
                 <label for="EMO-1">NEGATIVE</label>
                 <input ng-model="vm.settings.emo.soso" type="checkbox" class="filled-in" id="EMO0" checked="checked" />
@@ -16,8 +17,8 @@
                 <input  ng-model="vm.settings.emo.pos" type="checkbox" class="filled-in" id="EMO1" checked="checked" />
                 <label for="EMO1">POSITIVE</label>
                 </p>
-                <p>
-                <span style="margin-right: 10px">EXPRESSION </span>
+                <p class="col s6" style="width: 230px">
+                <span>STYLE OF EXPRESSION </span>
                 <input ng-model="vm.settings.express.neg" type="checkbox" class="filled-in" id="EXPRESS-1" checked="checked" />
                 <label for="EXPRESS-1">TIMID</label>
                 <input ng-model="vm.settings.express.soso" type="checkbox" class="filled-in" id="EXPRESS0" checked="checked" />
@@ -25,8 +26,18 @@
                 <input ng-model="vm.settings.express.pos" type="checkbox" class="filled-in" id="EXPRESS1" checked="checked" />
                 <label for="EXPRESS1">AGGRESSIVE</label>
                 </p>
+                </div>
             </div>
         </div>
+            <div class="col l6 hide-on-med-and-down " >
+                <div class="card-panel pink " style="height:100%">
+          <span class="white-text">
+              <a class="cyan-text text-lighten-4" href="https://fr.wikipedia.org/wiki/Baladeur"> Baladeur </a>is almost identical to CD Walkman but in French, known as the official expression suggested by French and Canada gov to cope with culture invasion(?), but sadly nobody tends to use it.<del>Quite funny right?</del><br><br>
+              I call this section baladeur because I've got taste in rock of late 70s - 00s.<br>
+              You could see a filter on the left-side , classified by Contents , Emotions and Expressions , pretty handy if you want to exclude something.
+          </span>
+                </div>
+            </div>
     </div>
 
 
@@ -93,9 +104,9 @@
 
 
 
-    <div infinite-scroll-distance="1" infinite-scroll="vm.loadMore()">
-        <div ng-repeat="b in vm.baladeurList track by $index">
-            <div class="card big">
+    <div class="row" infinite-scroll-distance="1" infinite-scroll="vm.loadMore()">
+        <div class="col s12" style="padding: 0" ng-repeat="b in vm.baladeurList track by $index">
+            <div class="card big hoverable">
             <div style="height:200px;overflow:hidden"
                  class="card-image">
                 <img ng-src="{{b.image[0]}}"/>
