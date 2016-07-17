@@ -6,6 +6,12 @@ function aboutCtrl() {
   var vm = this;
   vm.aboutData = [
     {
+      title: '设计思想 Conception',
+      time: 1468747661698,
+      text: '这个 Blog 原先只是过年时候练手 Angular 的小作品,后于当年七月在此基础上二次开发。\n两期前后代码风格和质量相当巨大,第二期没有封装组件,查询基本写进了 URL ,也全然没有考查第三方库的质量,不过我相信它们是不错的(大概\n\n第二期是在公司一个重要项目启动的同时进行开发的,为了体验极限编程的快感、体验另类的编程思想,POJO 桑仍然作死推进了开发任务。\n\n每日的开发时间为 22:00 - 24:00+,处于疲劳驾驶状态,但受到 EDP 式编程的启发,仍然在两周左右顺利完成了开发。\n\nEDP (Exhausted Driven Programming) 是一种基于身体被掏空的主观感受的软件工程模型，蜚声海外，国内鲜有布道者。利用此模型，你依然可以在累成 poi 的身体不够实诚的时候开发出想要的轮子，主要方法是 npm install 或者大幅度修改 pom.xml 、从 StackOverflow 上拷贝程式代码，次要方法是氪金买模板或者等别人 commit ，总之是老少咸宜、居家旅行通用的新型模型。\nEDP 编程的分支(包括但不限于散弹枪编程、撞大运编程、Cargo-Cult 编程等)已经造成了巨大的影响力,成为了互联网圈内的话题和新宠,详见CSDN的这篇文章: http://www.csdn.net/article/2012-10-01/2810526\n\nDon\'t mind If you didn\'t get it, just don\'t mind , nothing serious:)',
+      featured: false
+    },
+    {
       title: 'Road to V3',
       time: 1468747661698,
       text: 'Maybe we do some emotion analysis?(optional)\nAngular 2!',
