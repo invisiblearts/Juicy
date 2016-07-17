@@ -96,5 +96,6 @@ gulp.task('views', function() {
   // Any other view files from app/views
   gulp.src(['app/**/*.html','!app/index.html'])
   // Will be put in the public/views folder
+    .pipe(htmlmin({collapseWhitespace: true}))
     .pipe(gulp.dest('../static'));
 });

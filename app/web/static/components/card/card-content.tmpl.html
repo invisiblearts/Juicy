@@ -1,15 +1,6 @@
 <!--
   TODO MINOR: Enhancement of Image displaying
--->
-<div class="grid">
-    <div ng-if="vm.content.image.length" class="card-image" ng-repeat="url in ::vm.content.image track by $index" ng-init="$last && vm.content.masonryInit ? vm.refreshInit() : angular.noop()">
-        <div class="progress" ng-if="!vm.hideProgress">
-            <div class="indeterminate"></div>
-        </div>
-        <img materialboxed class="materialboxed" ng-src="{{::url}}" class="grid-img"></img>
-    </div>
-
-    <!--
+--><div class="grid"><div ng-if="vm.content.image.length" class="card-image" ng-repeat="url in ::vm.content.image track by $index" ng-init="$last && vm.content.masonryInit ? vm.refreshInit() : angular.noop()"><div class="progress" ng-if="!vm.hideProgress"><div class="indeterminate"></div></div><img materialboxed class="materialboxed" ng-src="{{::url}}" class="grid-img"></div><!--
       <div class="slider" ng-if="vm.content.image">
         <ul class="slides" slider imgs="vm.content.image">
             <li ng-repeat="url in vm.content.image track by $index" style="z-index:{{$index}}">
@@ -17,22 +8,4 @@
             </li>
         </ul>
      </div>
-     -->
-    <div class="card-content" style="padding-bottom: 40px">
-    <span ng-if="vm.content.title" class="card-title">
-      <span>{{::vm.content.title}}</span>
-    </span>
-        <div>
-            <pre>{{::vm.content.text}}</pre>
-        </div>
-        <div ng-repeat="tag in ::vm.content.tags"  class="chip white-text {{tag.class}}">
-            {{::tag.name}}
-        </div>
-        <div style="margin-top:20px;" ng-class="vm.content.featured? 'yellow-text': noop">
-            <span ng-class="vm.content.featured ? 'left' : 'right'">{{::vm.timeMessage}}</span>
-            <div class="yellow-text right" ng-if="vm.content.featured">
-                ★Featured
-            </div>
-        </div>
-    </div>
-</div>
+     --><div class="card-content" style="padding-bottom: 40px"><span ng-if="vm.content.title" class="card-title"><span>{{::vm.content.title}}</span></span><div><pre>{{::vm.content.text}}</pre></div><div ng-repeat="tag in ::vm.content.tags" class="chip white-text {{tag.class}}">{{::tag.name}}</div><div style="margin-top:20px" ng-class="vm.content.featured? 'yellow-text': noop"><span ng-class="vm.content.featured ? 'left' : 'right'">{{::vm.timeMessage}}</span><div class="yellow-text right" ng-if="vm.content.featured">★Featured</div></div></div></div>

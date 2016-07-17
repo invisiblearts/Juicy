@@ -1,5 +1,5 @@
 function key() {
-  return 'yoyochecknow';
+  return 'wkefjnblkqwjeglkqwjeflkwjneflakjwneflajwnef';
 }
 
 module.exports = key();
