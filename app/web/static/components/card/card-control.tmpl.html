@@ -1,1 +1,14 @@
-<div id="card-ctrl" ng-class="vm.content.featured? 'card-action cyan darken-2' : 'card-action grey lighten-4'" style="border:top:1px solid rgba(255,255,255,0.2)"><a ng-if="vm.isAdmin" ng-class="vm.content.featured? 'white-text clickable' : 'clickable'" ng-click="vm.deleteBeats()">Delete</a> <a ng-if="vm.isAdmin" ng-class="vm.content.featured? 'white-text clickable' : 'clickable'" ng-click="vm.modifyBeats()" href="#composeBeats" modal>Modify</a> <a ng-class="vm.content.featured? 'white-text clickable' : 'clickable'" ng-click="vm.comment()" href="#comment" modal>Comment</a></div><ul style="margin-top:0;border:0" ng-if="vm.content.comments.length" class="collection"><li ng-repeat="c in vm.content.comments" class="collection-item avatar" style="background-color: transparent;padding-bottom: 0px;min-height:68px;{{vm.content.featured? 'border-bottom:1px solid #54dbec   ' : 'border-bottom:1px solid #e0e0e0 '}}"><img ng-if="c.user[0] && c.user[0].avatar" ng-src="{{c.user[0].avatar}}" alt="" class="circle"> <span class="title">{{c.user[0] ? c.user[0].username : '阿卡林'}}</span><p class="{{vm.content.featured? 'grey-text text-lighten-3':'grey-text text-darken-2'}}">{{c.body}}</p></li></ul>
+<div id="card-ctrl" ng-class="vm.content.featured? 'card-action cyan darken-2' : 'card-action grey lighten-4'" style="border:top:1px solid rgba(255,255,255,0.2)">
+    <a ng-if="vm.isAdmin" ng-class="vm.content.featured? 'white-text clickable' : 'clickable'" ng-click="vm.deleteBeats()">Delete</a>
+    <a ng-if="vm.isAdmin" ng-class="vm.content.featured? 'white-text clickable' : 'clickable'" ng-click="vm.modifyBeats()" href='#composeBeats' modal>Modify</a>
+    <a ng-class="vm.content.featured? 'white-text clickable' : 'clickable'" ng-click="vm.comment()" href='#comment' modal>Comment</a>
+</div>
+<ul style="margin-top:0;border:0;" ng-if="vm.content.comments.length" class="collection">
+    <li ng-repeat="c in vm.content.comments" class="collection-item avatar" style="background-color: transparent;padding-bottom: 0px;min-height:68px;{{vm.content.featured? 'border-bottom:1px solid #54dbec   ' : 'border-bottom:1px solid #e0e0e0 '}}">
+        <img ng-if="c.user[0] && c.user[0].avatar" ng-src="{{c.user[0].avatar}}" alt="" class="circle">
+
+        <span class="title">{{c.user[0] ? c.user[0].username : '阿卡林'}} </span>
+
+        <p class="{{vm.content.featured? 'grey-text text-lighten-3':'grey-text text-darken-2'}}">{{c.body}}</p>
+    </li>
+</ul>
