@@ -1,0 +1,18 @@
+<div class="container">
+    <jc-topic-card
+            jc-topic="vm.topicData"
+            jc-topic-share="true"
+    >
+    </jc-topic-card>
+    <!-- Modal Structure -->
+    <div id="comment" class="card">
+        <div class="card-content">
+            <span class="card-title">Comment</span>
+            <textarea class="materialize-textarea" ng-model="vm.newComment.body"></textarea>
+            <a ng-class="vm.newComment.body ? 'enabled' : 'disabled'" class="modal-action modal-close waves-effect waves-green btn clickable" ng-click="vm.submitComment()">SEND!</a>
+            <div ng-if="!vm.isUser" class="clickable" ng-click="vm.login()" >不去注册/登录一下么?评论会变成阿卡林的噢 -><a class="pink-text"> 听取诱导 Register/Login</a>  </div>
+
+        </div>
+    </div>
+
+</div>

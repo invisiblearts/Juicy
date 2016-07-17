@@ -7,15 +7,27 @@ function aboutCtrl() {
   vm.aboutData = [
     {
       title: 'Road to V3',
-      time: 1468342287378,
-      text: 'TODO:(V3)Analysis module to add in further releases(optional)\nTODO:(V3)Unit Tests\nTODO:(V3+)Angular 2',
+      time: 1468747661698,
+      text: 'Maybe we do some emotion analysis?(optional)\nAngular 2!',
+      featured: true
+    },
+    {
+      title: 'Libs',
+      time: 1468747661698,
+      text: 'Modified Angular-materialize + Materializecss\nModified Angular-grid \nModified ngNeteaseMusic \n偷揉图床 http://x.mouto.org/wb/\nexpress-restify-mongoose\nRedis + Modified cachegoose',
+      featured: false
+    },
+    {
+      title: 'v2 alpha6',
+      time: 1468747661698,
+      text: 'Fixes, Styles , Resume',
       featured: true
     },
     {
       title: 'v2 alpha5',
       time: 1468604591080,
       text: 'Comment, Avatar',
-      featured: true
+      featured: false
     },
     {
       title: 'v2 alpha4',
@@ -46,12 +58,6 @@ function aboutCtrl() {
       time: 1467649952611,
       text: 'Topic Modules with Markdown , ExpressJS Backend and UserLogin',
       featured: false
-    },
-    {
-      title: 'AngularJS Libs',
-      time: 1456420305000,
-      text: 'Modified Angular-materialize(including Materialize)\nModified Angular-grid by s-yadav (https://github.com/s-yadav/angulargrid)',
-      featured: false,
     },
     {
       title: 'About Me',

@@ -10,17 +10,18 @@ function topicsService($http, $state, $document, APP_CONST) {
     fetchAvailableMonths: fetchAvailableMonths,
     fetchOne: fetchOne,
     postTopic: postTopic,
-    postComment:postComment
+    postComment:postComment,
+    findOneByStaticType:findOneByStaticType
   };
 
   return service;
 
   function fetchAll() {
-    return $http.get(APP_CONST.api + 'v1/topics&populate=tags');
+    return $http.get(APP_CONST.api + 'v1/topics&populate=tags&staticType=null');
   }
 
   function fetchBySkipAndLimit(skip, limit) {
-    return $http.get(APP_CONST.api + 'v1/topics?sort=-createdAt&skip=' + skip + '&limit=' + limit + '&select=_id,title,featured,createdAt,summary,content,tags&populate=tags');
+    return $http.get(APP_CONST.api + 'v1/topics?sort=-createdAt&skip=' + skip + '&limit=' + limit + '&select=_id,title,featured,createdAt,summary,content,tags,staticType&populate=tags&query={"staticType":{"$in":[null,""]}}');
   }
 
 
@@ -48,7 +49,9 @@ function topicsService($http, $state, $document, APP_CONST) {
     return $http.post(APP_CONST.api + 'topic/'+id+'/comment', comment);
   }
 
-
+  function findOneByStaticType(type) {
+    return $http.get(APP_CONST.api + 'v1/topics?query={"staticType":"'+type+'"}&populate=[{"path":"tags"},{"path":"comments","populate":{"path":"user"}}]');
+  }
 
 }
 })();

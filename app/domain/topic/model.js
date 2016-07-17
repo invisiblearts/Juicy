@@ -15,7 +15,8 @@ function UserModel() {
     thumbnail:{type:String,default:null},
     createdAt:{type:Date,default:new Date()},
     tags: [{ type: mongoose.Schema.Types.ObjectId, ref: 'tag' }],
-    comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'comment' }]
+    comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'comment' }],
+    staticType:{type:String,default:null}
   });
   return mongoose.model('topic', topicSchema);
 }

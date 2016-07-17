@@ -60,6 +60,11 @@ function routeProvider($stateProvider, $urlRouterProvider) {
     templateUrl: 'partials/baladeur/baladeur.view.html',
     controller: 'baladeurCtrl',
     controllerAs: 'vm'
+  }).state('resume', {
+    url: '/resume',
+    templateUrl: 'partials/resume/resume.view.html',
+    controller: 'resumeCtrl',
+    controllerAs: 'vm'
   });
 
 }
