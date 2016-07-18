@@ -107,7 +107,7 @@
     <div class="row" infinite-scroll-distance="1" infinite-scroll="vm.loadMore()">
         <div class="col s12" style="padding: 0" ng-repeat="b in vm.baladeurList track by $index">
             <div class="card big hoverable">
-            <div style="height:400px;overflow:hidden"
+            <div style="max-height:400px;overflow:hidden"
                  class="card-image">
                 <img ng-src="{{b.image[0]}}"/>
                 <span class="card-title">{{b.artist + ' - ' + b.title + ' | ' + b.genre}}</span>
