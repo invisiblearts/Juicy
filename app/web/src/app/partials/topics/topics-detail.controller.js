@@ -26,7 +26,7 @@ function topicsDetailCtrl($scope, $http, $state, $document, appEvent,appService,
   }
   
   function submitComment(){
-    if(vm.newComment.body && vm.newComment.body!=='') {
+    if(vm.newComment && vm.newComment.body && vm.newComment.body!=='') {
       return topicsService.postComment(vm.topicId, vm.newComment).success(res=>vm.topicData = res);
     }
   }
