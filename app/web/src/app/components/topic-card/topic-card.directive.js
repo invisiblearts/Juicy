@@ -46,8 +46,7 @@ function jcTopicCard() {
     }
 
     function share() {
-      vm.nowUrl = 'https://src.moe/#' + $location.url();
-      console.log(vm.nowUrl);
+      vm.nowUrl = 'http://src.moe/#' + $location.url();
       (function (s, d, e) {
         try {
         } catch (e) {
