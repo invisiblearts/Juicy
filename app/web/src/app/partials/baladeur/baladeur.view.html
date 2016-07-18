@@ -72,7 +72,7 @@
                 </div>
 
                 <div class="card-content">
-                    <input ng-model="vm.newBaladeur.description" />
+                    <textarea ng-model="vm.newBaladeur.description" class="materialize-textarea"></textarea>
 
                 </div>
 
@@ -115,7 +115,7 @@
             </div>
 
             <div class="card-content">
-                <p>{{b.description}}</p>
+                <p markdown-to-html="b.description"></p>
 
             </div>
             <div class="card-action" style="padding-left: 0px;padding-right: 0px;">

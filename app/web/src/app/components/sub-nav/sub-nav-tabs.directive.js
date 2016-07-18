@@ -34,8 +34,10 @@ function jcSubNavTabs() {
       appEvent.publish('jcSubNavSectionSwitched', tab);
     }
     
-    $scope.$watch('subNavCtrl.sections',function(){
-      vm.reload = true;      
+    $scope.$watch('subNavCtrl.sections',()=>{
+      if($scope.subNavCtrl.sections.length>1) {
+        vm.reload = true;
+      }
     })
   }
 }
