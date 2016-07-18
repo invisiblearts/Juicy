@@ -107,20 +107,19 @@
     <div class="row" infinite-scroll-distance="1" infinite-scroll="vm.loadMore()">
         <div class="col s12" style="padding: 0" ng-repeat="b in vm.baladeurList track by $index">
             <div class="card big hoverable">
-            <div style="height:200px;overflow:hidden"
+            <div style="height:400px;overflow:hidden"
                  class="card-image">
                 <img ng-src="{{b.image[0]}}"/>
                 <span class="card-title">{{b.artist + ' - ' + b.title + ' | ' + b.genre}}</span>
 
             </div>
+                <music-player ng-model="b.ids" play-config="vm.playConfig"></music-player>
 
             <div class="card-content">
                 <p markdown-to-html="b.description"></p>
 
             </div>
-            <div class="card-action" style="padding-left: 0px;padding-right: 0px;">
-                <music-player ng-model="b.ids" play-config="vm.playConfig"></music-player>
-            </div>
+
             <div ng-if="vm.isAdmin">
                 <span class="btn-large" href='#addSong' ng-click="vm.edit(b)" modal>edit</span>
             </div>

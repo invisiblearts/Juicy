@@ -98,21 +98,8 @@
         <div class="@' + namespace + '"> \
             <div>\
                 <iframe sandbox="allow-scripts allow-same-origin" ng-src={{other.firstItem}} ng-show="!!other.firstItem" class="main-iframe" id="netease"></iframe> \
-                <div style="padding: 0 10px;" ng-show="other.showBar"> \
-                    <ul class="option-bar">\
-                        <li class="option-bar-title">\
-                            <a ng-href="{{other.currentSong}}" target="_blank" \
-                            ng-if="false" style="text-decoration:none;">网易云音乐</a> \
-                            <span style="color: red;" ng-show="other.isError">(刚刚的输入有误)</span> \
-                            <span ng-show="other.isLoading">正在加载...</span> \
-                            <input name="addSongInput" type="url" autofocus placeholder="请输入网易云音乐链接" ng-model="other.theAddSongLink" ng-show="other.addMode" class="option-bar-input"/> \
-                        </li> \
-                        <li ng-if="false" ng-click="addSong()" title="添加歌曲" class="option-bar-btn">{{other.addMode ? \'&#10004;\' : \'&#10010;\'}}</li>\
-                        <li ng-click="other.showList = !other.showList" class="option-bar-btn" title="{{other.showList ? \'收起列表\' : \'展开列表\'}}">&#8801;</li>\
-                    </ul>\
-                </div> \
             </div> \
-            <div ng-show="other.showList" class="play-list"></div> \
+            <div  class="play-list"></div> \
         </div>');
             var playerHtmlStyle = {
                 mainIframe: {

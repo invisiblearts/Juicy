@@ -51,11 +51,11 @@
                 return JSON.stringify(query);
             }
             var query = genQuery(settings.current === 'moe');
-            return $http.get(APP_CONST.api + 'v1/baladeurs?sort=-time&populate=tags&skip=' + skip + '&limit=' + limit + '&query=' + query);
+            return $http.get(APP_CONST.api + 'v1/baladeurs?sort=-createdAt&populate=tags&skip=' + skip + '&limit=' + limit + '&query=' + query);
         }
 
         function fetchBySkipAndLimitMoe(skip, limit,settings) {
-            return $http.get(APP_CONST.api + 'v1/baladeurs?sort=-time&populate=tags&skip=' + skip + '&limit=' + limit + '&query={"genre":{"$regex":"[Mm]oe"}}');
+            return $http.get(APP_CONST.api + 'v1/baladeurs?sort=-createdAt&populate=tags&skip=' + skip + '&limit=' + limit + '&query={"genre":{"$regex":"[Mm]oe"}}');
         }
 
         function postBaladeur(baladeur) {
