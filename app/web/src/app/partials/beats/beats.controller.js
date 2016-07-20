@@ -226,7 +226,12 @@ function beatsCtrl($scope, $http, $state, $document, appEvent, appService,tagsSe
 
   function upload($files, $event, $flow) {
     appService.uploadImage($flow.files[0].file)
-      .success(data=>vm.newBeat.image.push('http://ww4.sinaimg.cn/large/' + data.pid));
+      .success(data=>{
+        if(!vm.newBeat.image){
+          vm.newBeat.image = [];
+        }
+        vm.newBeat.image.push('http://ww4.sinaimg.cn/large/' + data.pid)
+      });
   }
 
   function addTag(){

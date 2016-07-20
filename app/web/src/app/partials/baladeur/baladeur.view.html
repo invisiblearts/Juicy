@@ -13,18 +13,18 @@
                     <input ng-model="vm.settings.emo.neg" type="checkbox" class="filled-in" id="EMO-1" checked="checked" />
                 <label for="EMO-1">NEGATIVE</label>
                 <input ng-model="vm.settings.emo.soso" type="checkbox" class="filled-in" id="EMO0" checked="checked" />
-                <label for="EMO0">CAN'T TELL</label>
+                <label for="EMO0">FUZZY</label>
                 <input  ng-model="vm.settings.emo.pos" type="checkbox" class="filled-in" id="EMO1" checked="checked" />
                 <label for="EMO1">POSITIVE</label>
                 </p>
                 <p class="col s6" style="width: 230px">
                 <span>STYLE OF EXPRESSION </span>
                 <input ng-model="vm.settings.express.neg" type="checkbox" class="filled-in" id="EXPRESS-1" checked="checked" />
-                <label for="EXPRESS-1">TIMID</label>
+                <label for="EXPRESS-1">SOFT</label>
                 <input ng-model="vm.settings.express.soso" type="checkbox" class="filled-in" id="EXPRESS0" checked="checked" />
                 <label for="EXPRESS0">NORMAL</label>
                 <input ng-model="vm.settings.express.pos" type="checkbox" class="filled-in" id="EXPRESS1" checked="checked" />
-                <label for="EXPRESS1">AGGRESSIVE</label>
+                <label for="EXPRESS1">HARDCORE</label>
                 </p>
                 </div>
             </div>
@@ -32,9 +32,9 @@
             <div class="col l6 hide-on-med-and-down " >
                 <div class="card-panel pink " style="height:100%">
           <span class="white-text">
-              <a class="cyan-text text-lighten-4" href="https://fr.wikipedia.org/wiki/Baladeur"> Baladeur </a>is almost identical to CD Walkman but in French, known as the official expression suggested by French and Canada gov to cope with culture invasion(?), but sadly nobody tends to use it.<del>Quite funny right?</del><br><br>
-              I call this section baladeur because I've got taste in rock of late 70s - 00s.<br>
-              You could see a filter on the left-side , classified by Contents , Emotions and Expressions , pretty handy if you want to exclude something.
+              <a class="cyan-text text-lighten-4" href="https://fr.wikipedia.org/wiki/Baladeur"> Baladeur </a>is almost identical to CD Walkman but in French, known as the official expression suggested by French and Canada gov to cope with culture invasion(?), but sadly nobody tends to use it. <del>Quite funny right?</del><br>
+              You could see a filter on the left-side , classified by Contents , Emotions and Expressions , pretty handy if you want to exclude something.<br>
+              The indicator below each image is not a decoration , its color represents EMOTION , and its length shows STYLE OF EXPRESSION.
           </span>
                 </div>
             </div>
@@ -60,7 +60,7 @@
     </div>
 
     <!-- Modal Structure -->
-    <div id="addSong" class="modal">
+    <div id="addSong" class="modal" style="width: 100%;height: 100%;">
         <div class="container" ng-if="vm.isAdmin">
                 <div flow-init
                      flow-files-submitted="vm.upload( $files, $event, $flow )"
@@ -71,8 +71,9 @@
 
                 </div>
 
-                <div class="card-content">
-                    <textarea ng-model="vm.newBaladeur.description" class="materialize-textarea"></textarea>
+                <div class="card-content row">
+                    <textarea ng-model="vm.newBaladeur.description" style="min-height:40rem" class="col s6 materialize-textarea"></textarea>
+                    <div class="col s6" markdown-to-html="vm.newBaladeur.description"></div>
 
                 </div>
 
@@ -113,6 +114,9 @@
                 <span class="card-title">{{b.artist + ' - ' + b.title + ' | ' + b.genre}}</span>
 
             </div>
+                <div class="progress">
+                    <div class="determinate {{b.style}}" style="width: {{b.express === 2 ? 100 : (b.express+1) * 30}}%"></div>
+                </div>
                 <music-player ng-model="b.ids" play-config="vm.playConfig"></music-player>
 
             <div class="card-content">

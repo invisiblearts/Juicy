@@ -105,6 +105,17 @@
             vm.settings.current="all";
             reinit(vm.settings);
         }
+
+        function genClass(baladeur){
+            var res = '';
+            if(baladeur.emo === 0)
+                res += 'cyan darken-2';
+            if(baladeur.emo === 2)
+                res += 'pink lighten-1';
+            if(baladeur.emo === 1)
+                res += 'lime';
+            return res;
+        }
         function reinit(){
             vm.baladeurList = [];
             vm.lock = false;
@@ -122,6 +133,7 @@
                     if (res && res.length) {
                         angular.forEach(res, r => {
                                 r.init = paginationInit;
+                                r.style = genClass(r);
                                 if (!vm.baladeurList) {
                                     vm.baladeurList = [];
                                 }
