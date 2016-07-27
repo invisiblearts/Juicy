@@ -41,7 +41,7 @@ function composeCtrl($scope, $http, $state, $document, appEvent, appService, top
   function upload($files, $event, $flow) {
     console.log($flow.files)
     appService.uploadImage($flow.files[$flow.files.length-1].file)
-      .success(data=>vm.newTopic.content += ('![image](http://ww4.sinaimg.cn/large/' + data.pid + ')'));
+      .success(data=>vm.newTopic.content += ('![image](https://ws4.sinaimg.cn/large/' + data.pid + ')'));
   }
 
 

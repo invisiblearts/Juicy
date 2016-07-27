@@ -40,7 +40,7 @@ function loginCtrl($scope, $http, $state, $document, appEvent, jwtHelper,loginSe
 
   function upload($files, $event, $flow) {
     appService.uploadImage($flow.files[0].file)
-        .success(data=>vm.currentUser.avatar = 'http://ww4.sinaimg.cn/large/' + data.pid );
+        .success(data=>vm.currentUser.avatar = 'https://ws4.sinaimg.cn/large/' + data.pid );
   }
 
   function evict() {

@@ -98,6 +98,9 @@ function beatsCtrl($scope, $http, $state, $document, appEvent, appService,tagsSe
 
   function modifyBeats(event, beats) {
     vm.newBeat = beats;
+    if(vm.newBeat.image && vm.newBeat.image.length) {
+      vm.newBeat.image = vm.newBeat.image.map(i=>i.replace('https://ww4', 'https://ws4'));
+    }
   }
 
   function deleteBeats(event, id) {
@@ -230,7 +233,7 @@ function beatsCtrl($scope, $http, $state, $document, appEvent, appService,tagsSe
         if(!vm.newBeat.image){
           vm.newBeat.image = [];
         }
-        vm.newBeat.image.push('http://ww4.sinaimg.cn/large/' + data.pid)
+        vm.newBeat.image.push('https://ws4.sinaimg.cn/large/' + data.pid)
       });
   }
 

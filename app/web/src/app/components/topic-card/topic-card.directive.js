@@ -46,12 +46,12 @@ function jcTopicCard() {
     }
 
     function share() {
-      vm.nowUrl = 'http://src.moe/#' + $location.url();
+      vm.nowUrl = 'https://src.moe/#' + $location.url();
       (function (s, d, e) {
         try {
         } catch (e) {
         }
-        var f = 'http://v.t.sina.com.cn/share/share.php?', u = vm.nowUrl, p = ['url=', e(u), '&title=', e(vm.jcTopic.title), '&pic=', e(vm.jcTopic.thumbnail)].join('');
+        var f = 'https://v.t.sina.com.cn/share/share.php?', u = vm.nowUrl, p = ['url=', e(u), '&title=', e(vm.jcTopic.title), '&pic=', e(vm.jcTopic.thumbnail)].join('');
 
         function a() {
           if (!window.open([f, p].join(''), 'mb', ['toolbar=0,status=0,resizable=1,width=620,height=450,left=', (s.width - 620) / 2, ',top=', (s.height - 450) / 2].join('')))u.href = [f, p].join('');

@@ -84,6 +84,9 @@
         function edit(baladeur){
             vm.newBaladeur = angular.copy(baladeur);
             vm.newBaladeur.ids = vm.newBaladeur.ids.join(',');
+            if(vm.newBaladeur.image && vm.newBaladeur.image.length) {
+                vm.newBaladeur.image = vm.newBaladeur.image.map(i=>i.replace('https://ww4', 'https://ws4'));
+            }
 
         }
         function loadMore() {
@@ -93,7 +96,7 @@
 
         function upload($files, $event, $flow) {
             appService.uploadImage($flow.files[0].file)
-                .success(data=>vm.newBaladeur.image[0]='http://ww4.sinaimg.cn/large/' + data.pid);
+                .success(data=>vm.newBaladeur.image[0]='https://ws4.sinaimg.cn/large/' + data.pid);
         }
 
         function moe(){
@@ -120,8 +123,10 @@
             vm.baladeurList = [];
             vm.lock = false;
             vm.pageForCustomRefresh = 0;
+            paginationInit = true;
             pushBaladeurPaginated();
         }
+        
         function pushBaladeurPaginated() {
             var skipCount = vm.pageForCustomRefresh * baladeurPerPage;
             if (paginationInit) {
@@ -137,6 +142,7 @@
                                 if (!vm.baladeurList) {
                                     vm.baladeurList = [];
                                 }
+                                console.log(vm.baladeurList);
                                 vm.baladeurList.push(r);
                             }
                         );

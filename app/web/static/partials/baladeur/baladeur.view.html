@@ -106,7 +106,7 @@
 
 
     <div class="row" infinite-scroll-distance="1" infinite-scroll="vm.loadMore()">
-        <div class="col s12" style="padding: 0" ng-repeat="b in vm.baladeurList track by $index">
+        <div class="col s12" style="padding: 0" ng-repeat="b in vm.baladeurList track by b._id">
             <div class="card big hoverable">
             <div style="max-height:400px;overflow:hidden"
                  class="card-image">

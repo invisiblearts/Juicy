@@ -5,6 +5,6 @@
     title: 'src | moe',
     version: 'v2 alpha5',
     production: true,
-    api: '/api/'
+    api: 'https://src.moe/api/'
   });
 })();

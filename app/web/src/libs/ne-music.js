@@ -274,7 +274,7 @@
                         var list = playListContainer.children(),
                             allLoad = true;
                         for (var i = 0, len = list.length; i < len; i++) {
-                            if (!list.eq(i).isolateScope().iframeReady) {
+                            if (list.eq(i).isolateScope() && !list.eq(i).isolateScope().iframeReady) {
                                 allLoad = false;
                                 break;
                             }
@@ -325,7 +325,7 @@
                             });
                             autoPlayFlag = playConfig.autoPlay ? 1 : 0;
                             heightValue = playConfig.size === 'small' ? 32 : 66;
-                            scope.other.firstItem = ngModelCtrl.$modelValue[0] ? $sce.trustAsResourceUrl('http://music.163.com/outchain/player?type=2&id=' + ngModelCtrl.$modelValue[0] + '&auto=' + autoPlayFlag + '&height=' + heightValue) : '';
+                            scope.other.firstItem = ngModelCtrl.$modelValue[0] ? $sce.trustAsResourceUrl('https://music.163.com/outchain/player?type=2&id=' + ngModelCtrl.$modelValue[0] + '&auto=' + autoPlayFlag + '&height=' + heightValue) : '';
                         } else {
                             var list = playListContainer.children('div');
                             listLength = list.length;
@@ -343,12 +343,12 @@
                             }
                             if (changeFirst) {
                                 if (ngModelCtrl.$modelValue[0]) {
-                                    scope.other.currentSong = 'http://music.163.com/#/song?id=' + ngModelCtrl.$modelValue[0];
+                                    scope.other.currentSong = 'https://music.163.com/#/song?id=' + ngModelCtrl.$modelValue[0];
                                 } else {
-                                    scope.other.currentSong = 'http://music.163.com/';
+                                    scope.other.currentSong = 'https://music.163.com/';
                                 }
                                 heightValue = playConfig.size === 'small' ? 32 : 66;
-                                scope.other.firstItem = ngModelCtrl.$modelValue[0] ? $sce.trustAsResourceUrl('http://music.163.com/outchain/player?type=2&id=' + ngModelCtrl.$modelValue[0] + '&auto=1&height=' + heightValue) : '';
+                                scope.other.firstItem = ngModelCtrl.$modelValue[0] ? $sce.trustAsResourceUrl('https://music.163.com/outchain/player?type=2&id=' + ngModelCtrl.$modelValue[0] + '&auto=1&height=' + heightValue) : '';
                             }
                         }
                         firstRender = false;
@@ -377,7 +377,7 @@
                     }
 
                     function getSrc(id) {
-                        return 'http://music.163.com/outchain/player?type=2&id=' + id + '&auto=0&height=32';
+                        return 'https://music.163.com/outchain/player?type=2&id=' + id + '&auto=0&height=32';
                     }
 
                     element.find('input').on('keydown', function(e) {

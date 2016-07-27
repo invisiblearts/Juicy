@@ -31,7 +31,7 @@
 
     function upload($files, $event, $flow) {
       appService.uploadImage($flow.files[0].file)
-        .success(data=>vm.newLink.img = 'http://ww4.sinaimg.cn/large/' + data.pid);
+        .success(data=>vm.newLink.img = 'https://ws4.sinaimg.cn/large/' + data.pid);
     }
 
     function open(href) {
