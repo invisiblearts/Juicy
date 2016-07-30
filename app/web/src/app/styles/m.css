@@ -1704,7 +1704,8 @@
  *    without disabling user zoom.
  */
 html {
-  font-family: Helvetica, Tahoma, Arial, STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif;
+  font-family: Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, serif,Helvetica,Tahoma,Arial,"Hiragino Sans GB", "STHeiti","Microsoft YaHei","WenQuanYi Micro Hei",SimSun,sans-serif;
+  font-weight: lighter;
   -ms-text-size-adjust: 100%;
   /* 2 */
   -webkit-text-size-adjust: 100%;
@@ -2387,7 +2388,7 @@ td, th {
   position: relative; }
 .collection .collection-item {
   background-color: #fff;
-  line-height: 1.5rem;
+  line-height: 2rem;
   padding: 10px 20px;
   margin: 0;
   border-bottom: 1px solid #e0e0e0; }
@@ -3173,9 +3174,9 @@ a {
   text-decoration: none; }
 
 html {
-  line-height: 1.5;
-  font-family: Helvetica, Tahoma, Arial, STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif;
-  font-weight: normal;
+  line-height: 2;
+  font-family: Helvetica,Tahoma, Arial,"Hiragino Sans GB", "STHeiti","Microsoft YaHei","WenQuanYi Micro Hei",SimSun,sans-serif;
+  font-weight: lighter;
   color: rgba(0, 0, 0, 0.87); }
 @media only screen and (min-width: 0) {
   html {
@@ -3429,7 +3430,7 @@ small {
   max-width: 100%;
   height: auto;
   min-height: 48px;
-  line-height: 1.5em;
+  line-height: 2em;
   word-break: break-all;
   background-color: #323232;
   padding: 10px 25px;
@@ -3703,7 +3704,7 @@ button.btn-floating {
   color: rgba(0, 0, 0, 0.87);
   cursor: pointer;
   min-height: 50px;
-  line-height: 1.5rem;
+  line-height: 2rem;
   width: 100%;
   text-align: left;
   text-transform: none; }
@@ -4957,7 +4958,7 @@ input[type=range]:focus::-ms-fill-upper {
   color: #757575;
   padding-left: 20px;
   height: 1.5rem;
-  line-height: 1.5rem;
+  line-height: 2rem;
   letter-spacing: .4;
   display: inline-block; }
 .table-of-contents a:hover {

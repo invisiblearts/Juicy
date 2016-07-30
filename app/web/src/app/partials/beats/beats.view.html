@@ -6,6 +6,42 @@
                 jc-settings="vm.jcSubNavSettings">
         </jc-sub-nav>
     </div>
+    <nav class="top-nav cyan" style="margin-bottom: 15px">
+        <div class="container">
+            <div class="nav-wrapper row">
+                <a class="page-title col l9 m9 hide-on-small-only ">
+                    <span class="titre">Métro/boulot/dodo</span>
+
+                </a>
+                <div class="page-title col s12 l3 m3 right" style="height: 122px;padding-right: 0px;padding-left: 0px;">
+                    <a>
+                        &nbsp;
+                        <span class="hide-on-med-and-up titre">
+                        Métro/boulot/dodo
+                        </span>
+                    </a>
+
+                    <div class="row valign-wrapper" style="margin-bottom: 10px;line-height: 10px;margin-right: 0px">
+                        <small class="col s1 valign" style="margin-right: 8px">HP</small>
+                        <div class="progress col s11 valign" style="height: 12px">
+                            <div class="determinate pink lighten-4" style="width: 30%;height: 12px">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row valign-wrapper" style="margin-bottom: 0;line-height: 10px;margin-right: 0px">
+                        <small class="col s1 valign" style="margin-right: 8px">MP</small>
+                        <div class="progress col s11 valign" style="height: 12px">
+                            <div class="determinate pink lighten-4" style="width: 20%;height: 12px"></div>
+                        </div>
+                    </div>
+                    <small class="valign-wrapper right"  style="margin-bottom: 0;margin-top:10px;line-height: 10px;">
+                        Update 2016/07/30
+                    </small>
+                </div>
+            </div>
+        </div>
+    </nav>
+
     <div ng-class="vm.customRefreshEnabled? 'col s12 m8 l8' : 'col s12 m12 l12'">
         <jc-masonry-cards
                 jc-custom-refresh="vm.pushBeatsPaginated"
@@ -16,7 +52,7 @@
         </jc-masonry-cards>
     </div>
     <div class="wrapper-topic-list col m4 l4" style="width: 31.5%;padding: 0" ng-if="vm.customRefreshEnabled">
-        <div class="wrapper-topic-list-elem hide-on-small-only" pushpin pushpin-top="64" pushpin-bottom="Infinity">
+        <div class="wrapper-topic-list-elem hide-on-small-only" pushpin pushpin-top="186" pushpin-bottom="Infinity">
             <div ng-repeat="top in vm.topicList track by $index">
                 <jc-topic-card
                         class="repeated-item"

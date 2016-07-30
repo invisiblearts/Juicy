@@ -1,7 +1,7 @@
-<nav>
+<nav class="card white cyan-text" style="margin: 0px;">
     <div class="container">
-        <div class="nav-wrapper">
-            <a href="#" class="brand-logo left clickable">
+        <div class="nav-wrapper cyan-text text-darken-1">
+            <a href="#" class="brand-logo left clickable pink-text">
                 {{::vm.appTitle}}
             </a>
             <a class="button-collapse right clickable" data-activates="nav-mobile" data-sidenav="right" data-menuwidth="300" data-closeonclick="true">
@@ -9,13 +9,13 @@
             </a>
             <ul class="right hide-on-med-and-down">
                 <li class="right" ng-repeat="nav in vm.navs" ng-class="nav.state === vm.state.current.name? 'active': angular.noop" >
-                    <a class="clickable" ng-click="vm.gotoState(nav.state)">{{::nav.title}}
+                    <a class="clickable cyan-text" ng-click="vm.gotoState(nav.state)">{{::nav.title}}
                     </a>
                 </li>
             </ul>
             <ul id="nav-mobile" class="side-nav">
                 <li ng-repeat="nav in vm.navs" ng-class="nav.state === vm.state.current.name? 'active': angular.noop">
-                    <a class="clickable" ng-click="vm.gotoState(nav.state)">{{::nav.title}}
+                    <a class="clickable cyan-text" ng-click="vm.gotoState(nav.state)">{{::nav.title}}
                     </a>
                 </li>
             </ul>

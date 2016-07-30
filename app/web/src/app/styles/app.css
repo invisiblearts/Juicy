@@ -1,9 +1,21 @@
 .date-nav .btn-flat {
     padding: 0 0.6rem;
 }
-
+nav .brand-logo{
+    font-family: Avenir,Tahoma, Arial,"Hiragino Sans GB", "STHeiti","Microsoft YaHei","WenQuanYi Micro Hei",SimSun,sans-serif;
+    font-weight: normal;
+}
+.titre{
+    font-family: Lucida Grande,Tahoma, Arial,"Hiragino Sans GB", "STHeiti","Microsoft YaHei","WenQuanYi Micro Hei",SimSun,sans-serif;
+    font-weight: bolder;
+}
 pre{
-    font-family: Helvetica, Tahoma, Arial, STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif;
+    font-family: Helvetica,Tahoma, Arial,"Hiragino Sans GB", "STHeiti","Microsoft YaHei","WenQuanYi Micro Hei",SimSun,sans-serif;
+    font-weight: lighter;
+}
+
+nav ul li:hover, nav ul li.active{
+    background-color: lightcyan !important;
 }
 
 .date-nav {
@@ -76,7 +88,7 @@ label{
 }
 
 div.wrapper-topic-list-elem.pinned {
-    top: 48px !important;
+    /*top: 48px !important;*/
     width: inherit;
 !important;
 }

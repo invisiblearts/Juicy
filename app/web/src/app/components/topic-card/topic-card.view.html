@@ -7,7 +7,7 @@
             <div class="right">
                 <a ng-if="vm.isAdmin" ng-click="vm.editTopic(vm.jcTopic._id)" class="modal-action waves-effect waves-green btn clickable">Edit</a>
             </div>
-            <span class="card-title activator" ng-class="!vm.jcTopic.featured || !vm.jcTopicBrief? 'pink-text':'yellow-text'" style="margin-left:0">{{::vm.jcTopic.title}}</span>
+            <span class="card-title activator" ng-class="!vm.jcTopic.featured || !vm.jcTopicBrief? 'cyan-text':'yellow-text'" style="margin-left:0">{{::vm.jcTopic.title}}</span>
             <p>
                 <span>{{::vm.jcTopic.createdAt | date:"yyyy-MM-dd HH:mm:ss"}}</span>
                 <div ng-repeat="tag in vm.jcTopic.tags"  class="chip white-text {{tag.class}}">

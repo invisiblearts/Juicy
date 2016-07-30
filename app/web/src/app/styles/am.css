@@ -451,7 +451,9 @@ pre[class*="language-"]:before {
     background: #e8e6e3;
     top: 0;
     left: 0;
-    font-family: "Roboto", sans-serif;
+    font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, serif,Helvetica,Tahoma,Arial,"Hiragino Sans GB", "STHeiti","Microsoft YaHei","WenQuanYi Micro Hei",SimSun,sans-serif;
+    font-weight: lighter;
+
     -webkit-font-smoothing: antialiased;
     color: #555;
     content: attr(class);
