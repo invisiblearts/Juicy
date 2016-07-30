@@ -19,6 +19,13 @@ pre{
 #card-ctrl{
     z-index:0;!important;
 }
+
+.blur{
+    -webkit-filter: blur(10px); /* Chrome, Opera */
+    -moz-filter: blur(10px);
+    -ms-filter: blur(10px);
+    filter: blur(10px);
+}
 .chip{
     margin-right: 2px;
     display: inline-block;
