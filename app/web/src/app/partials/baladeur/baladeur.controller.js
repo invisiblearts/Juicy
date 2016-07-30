@@ -55,7 +55,7 @@
         var paginationInit = true;
         var paginationInitBaladeurNum = 3;
         var baladeurPerPage = 3;
-        
+
 
         init();
         $scope.$watch('vm.settings',reinit,true);
@@ -80,7 +80,7 @@
             });
 
         }
-        
+
         function edit(baladeur){
             vm.newBaladeur = angular.copy(baladeur);
             vm.newBaladeur.ids = vm.newBaladeur.ids.join(',');
@@ -126,7 +126,7 @@
             paginationInit = true;
             pushBaladeurPaginated();
         }
-        
+
         function pushBaladeurPaginated() {
             var skipCount = vm.pageForCustomRefresh * baladeurPerPage;
             if (paginationInit) {
@@ -142,7 +142,7 @@
                                 if (!vm.baladeurList) {
                                     vm.baladeurList = [];
                                 }
-                                console.log(vm.baladeurList);
+                                //console.log(vm.baladeurList);
                                 vm.baladeurList.push(r);
                             }
                         );

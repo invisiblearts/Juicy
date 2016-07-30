@@ -7,7 +7,8 @@ function appService(jwtHelper, $http,APP_CONST,$q) {
     uploadImage: uploadImage,
     isAdmin: isAdmin,
     isUser: isUser,
-    getCurrentUser:getCurrentUser
+    getCurrentUser:getCurrentUser,
+    getNameRand:getNameRand
   };
   return service;
 
@@ -23,6 +24,14 @@ function appService(jwtHelper, $http,APP_CONST,$q) {
       }
     }
     return false;
+  }
+
+  function getNameRand(id) {
+    if (localStorage.getItem('juicy_ano_name')) {
+      return localStorage.getItem('juicy_ano_name');
+    }else{
+      localStorage.setItem('juicy_ano_name','阿卡林'+id);
+    }
   }
 
   function isUser() {
@@ -42,6 +51,6 @@ function appService(jwtHelper, $http,APP_CONST,$q) {
     }
     return $q.all('');
   }
-  
+
 }
 })();

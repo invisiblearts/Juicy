@@ -1,4 +1,4 @@
-<div class="top-nav cyan" style="position:fixed;top:0px;width:100%;height: 288px;z-index:-1">
+<div class="top-nav cyan" style="position:fixed;top:0px;width:100%;height: 144px;z-index:-1">
     <div class="nav-wrapper row">
         <a class="page-title col l9 m9 hide-on-small-only ">
             <span class="titre">&nbsp;</span>
@@ -6,8 +6,8 @@
     </div>
 </div>
 <div class="container">
-    <div class="row" iln-match-height>
-        <div class="card hoverable grey lighten-4 grey-text col s12 m12 l6">
+    <div class="row">
+        <div class="card hoverable grey lighten-4 grey-text col s12 m12 l12">
             <div class="card-content" >
                 <p >
                     <span style="margin-right: 10px" >CATEGORIES</span>
@@ -36,15 +36,6 @@
                 </div>
             </div>
         </div>
-            <div class="col l6 hide-on-med-and-down " >
-                <div class="card-panel pink " style="height:100%">
-          <span class="white-text">
-              <a class="cyan-text text-lighten-4" href="https://fr.wikipedia.org/wiki/Baladeur"> Baladeur </a>is almost identical to CD Walkman but in French, known as the official expression suggested by French and Canada gov to cope with culture invasion(?), but sadly nobody tends to use it. <del>Quite funny right?</del><br>
-              You could see a filter on the left-side , classified by Contents , Emotions and Expressions , pretty handy if you want to exclude something.<br>
-              The indicator below each image is not a decoration , its color represents EMOTION , and its length shows STYLE OF EXPRESSION.
-          </span>
-                </div>
-            </div>
     </div>
 
 
@@ -114,27 +105,30 @@
 
     <div class="row" infinite-scroll-distance="1" infinite-scroll="vm.loadMore()">
         <div class="col s12" style="padding: 0" ng-repeat="b in vm.baladeurList track by b._id">
-            <div class="card big hoverable">
+            <div class="card big hoverable" style="padding-bottom: 25px">
             <div style="max-height:400px;overflow:hidden"
                  class="card-image">
                 <img ng-src="{{b.image[0]}}"/>
                 <span class="card-title">{{b.artist + ' - ' + b.title + ' | ' + b.genre}}</span>
 
             </div>
+
                 <div class="progress">
                     <div class="determinate {{b.style}}" style="width: {{b.express === 2 ? 100 : (b.express+1) * 30}}%"></div>
                 </div>
                 <music-player ng-model="b.ids" play-config="vm.playConfig"></music-player>
 
-            <div class="card-content">
-                <p markdown-to-html="b.description"></p>
+                <div class="card-content">
+                    <p ng-show="b.showContent" markdown-to-html="b.description"></p>
+
+                    <div style="margin-right: 0px;margin-top:0px;padding-top:0px" class="right clickable btn-primary btn" ng-click="b.showContent = !b.showContent">
+                        {{b.showContent ? 'Hide Comments' : 'Expand Comments'}}
+                    </div>
+                        <div ng-if="vm.isAdmin" class="btn btn-primary" href='#addSong' ng-click="vm.edit(b)" modal>edit</div>
+                </div>
+
 
             </div>
-
-            <div ng-if="vm.isAdmin">
-                <span class="btn-large" href='#addSong' ng-click="vm.edit(b)" modal>edit</span>
-            </div>
-        </div>
     </div>
 </div>
 

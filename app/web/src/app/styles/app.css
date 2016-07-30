@@ -13,6 +13,17 @@ pre{
     font-family: Helvetica,Tahoma, Arial,"Hiragino Sans GB", "STHeiti","Microsoft YaHei","WenQuanYi Micro Hei",SimSun,sans-serif;
     font-weight: lighter;
 }
+.collection .collection-item{
+    border-bottom: 0px !important;
+    border-top: 1px solid #e0e0e0 !important;
+
+}
+
+li.collection-item.featured{
+    border-bottom: 0px !important;
+    border-top: 1px solid #54dbec !important;
+
+}
 
 nav ul li:hover, nav ul li.active{
     background-color: lightcyan !important;
