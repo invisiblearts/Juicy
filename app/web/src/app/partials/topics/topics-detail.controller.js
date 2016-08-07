@@ -5,7 +5,7 @@
 function topicsDetailCtrl($scope, $http, $state, $document, appEvent,appService, topicsService) {
   var vm = this;
   vm.topicData = {};
-  vm.topicId = $state.params.id;
+  vm.topicTitle = $state.params.title;
   vm.submitComment = submitComment;
   vm.isUser = appService.isUser();
   vm.login = login;
@@ -15,10 +15,10 @@ function topicsDetailCtrl($scope, $http, $state, $document, appEvent,appService,
   /////////
 
   function init() {
-    if (!vm.topicId) {
+    if (!vm.topicTitle) {
       $state.go("beats");
     }
-    topicsService.fetchOne(vm.topicId).success(res=>vm.topicData = res[0]);
+    topicsService.fetchByTitle(vm.topicTitle).success(res=>vm.topicData = res[0]);
   }
 
   function handleEditTopic(event, id) {

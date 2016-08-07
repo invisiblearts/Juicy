@@ -7,7 +7,7 @@ function composeCtrl($scope, $http, $state, $document, appEvent, appService, top
   vm.submitTopic = submitTopic;
   vm.upload = upload;
   vm.addTag = addTag;
-
+  vm.del = del;
   vm.modifyTag = modifyTag;
   vm.deleteTag = deleteTag;
 
@@ -81,6 +81,10 @@ function composeCtrl($scope, $http, $state, $document, appEvent, appService, top
 
   function deleteTag(tag){
     tagsService.deleteOne(tag._id);
+  }
+
+  function del(id) {
+    topicsService.del(id);
   }
   
 }

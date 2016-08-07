@@ -205,8 +205,8 @@ function beatsCtrl($scope, $http, $state, $document, appEvent, appService,tagsSe
    })
    }*/
 
-  function handleTopicSelected(event, id) {
-    $state.go("topics-detail", id);
+  function handleTopicSelected(event, title) {
+    $state.go("topics-detail", title);
   }
 
   function login() {

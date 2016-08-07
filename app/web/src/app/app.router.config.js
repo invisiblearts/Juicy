@@ -1,7 +1,8 @@
 (function() {
   angular.module('app')
   .config(routeProvider);
-function routeProvider($stateProvider, $urlRouterProvider) {
+function routeProvider($stateProvider,$locationProvider,$urlRouterProvider) {
+  $locationProvider.html5Mode({ enabled: true});
 
   $urlRouterProvider.otherwise("beats");
 
@@ -51,7 +52,7 @@ function routeProvider($stateProvider, $urlRouterProvider) {
     controller: 'linksCtrl',
     controllerAs: 'vm'
   }).state('topics-detail', {
-    url: '/topics/:id',
+    url: '/topics/:title',
     templateUrl: 'partials/topics/topics-detail.view.html',
     controller: 'topicsDetailCtrl',
     controllerAs: 'vm'

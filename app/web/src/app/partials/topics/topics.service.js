@@ -11,13 +11,20 @@ function topicsService($http, $state, $document, APP_CONST) {
     fetchOne: fetchOne,
     postTopic: postTopic,
     postComment:postComment,
-    findOneByStaticType:findOneByStaticType
+    findOneByStaticType:findOneByStaticType,
+    fetchByTitle:fetchByTitle,
+    del:del
   };
 
   return service;
 
   function fetchAll() {
     return $http.get(APP_CONST.api + 'v1/topics&populate=tags&staticType=null');
+  }
+
+
+  function del(id) {
+    return $http.delete(APP_CONST.api + 'v1/topics/'+id);
   }
 
   function fetchBySkipAndLimit(skip, limit) {
@@ -28,6 +35,11 @@ function topicsService($http, $state, $document, APP_CONST) {
   function fetchOne(id){
    return $http.get(APP_CONST.api + 'v1/topics?query={"_id":"'+id+'"}&populate=[{"path":"tags"},{"path":"comments","populate":{"path":"user"}}]');
   }
+
+  function fetchByTitle(t){
+    return $http.get(APP_CONST.api + 'v1/topics?query={"title":"'+t+'"}&populate=[{"path":"tags"},{"path":"comments","populate":{"path":"user"}}]');
+  }
+
 
   function fetchByMonth(yymm, duration) {
     return $http.get(APP_CONST.api + 'topics/yymm/' + yymm + '/duration/' + duration);

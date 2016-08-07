@@ -37,8 +37,8 @@ function jcTopicCard() {
       }
     }
 
-    function selectTopic(id) {
-      appEvent.publish('topicSelected', {id: id});
+    function selectTopic(title) {
+      appEvent.publish('topicSelected', {title: title});
     }
 
     function editTopic(id) {
@@ -51,7 +51,7 @@ function jcTopicCard() {
         try {
         } catch (e) {
         }
-        var f = 'https://v.t.sina.com.cn/share/share.php?', u = vm.nowUrl, p = ['url=', e(u), '&title=', e(vm.jcTopic.title), '&pic=', e(vm.jcTopic.thumbnail)].join('');
+        var f = 'http://v.t.sina.com.cn/share/share.php?', u = vm.nowUrl, p = ['url=', e(u), '&title=', e(vm.jcTopic.title), '&pic=', e(vm.jcTopic.thumbnail)].join('');
 
         function a() {
           if (!window.open([f, p].join(''), 'mb', ['toolbar=0,status=0,resizable=1,width=620,height=450,left=', (s.width - 620) / 2, ',top=', (s.height - 450) / 2].join('')))u.href = [f, p].join('');

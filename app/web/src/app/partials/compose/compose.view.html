@@ -43,8 +43,12 @@
         <div class="card">
             <input style="width:150px" ng-model="vm.newTag.name"/>
             <input style="width:150px" ng-model="vm.newTag.class"/>
-            <span class="btn" ng-click="vm.addTag()">Add Tag</span>
+            <span class="btn" ng-click="vm.addTag(vm.newTopic._id)">Add Tag</span>
+            <span class="btn" ng-if="vm.newTopic._id" ng-click="vm.del(vm.newTopic._id)">DELETE</span>
+
             <input style="width:150px" placeholder="staticType" ng-model="vm.newTopic.staticType"/>
+            <input style="width:150px" placeholder="createdAt" ng-model="vm.newTopic.createdAt"/>
+
         </div>
     </div>
 </div>

@@ -49,9 +49,10 @@ function topicsCtrl($scope, $http, $state, $document, appEvent, topicsService) {
     }
   }
 
-  function handleTopicSelected(event, id) {
-    $state.go("topics-detail", id);
+  function handleTopicSelected(event, title) {
+    $state.go("topics-detail", title);
   }
+  
 
   function handleEditTopic(event, id) {
     $state.go("compose-edit", id);

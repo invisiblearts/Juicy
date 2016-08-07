@@ -1,4 +1,4 @@
-<div class="card hoverable" ng-click="vm.selectTopic(vm.jcTopic._id)" ng-class="vm.jcTopic.featured && vm.jcTopicBrief? 'light-blue darken-1' : 'white'">
+<div class="card hoverable" ng-click="vm.selectTopic(vm.jcTopic.title)" ng-class="vm.jcTopic.featured && vm.jcTopicBrief? 'light-blue darken-1' : 'white'">
     <div ng-class="vm.jcTopicBrief? 'clickable' : noop">
         <div ng-if="vm.jcTopicBrief" class="card-image waves-effect waves-block waves-light">
             <img class="activator" ng-src="{{::vm.jcTopic.thumbnail}}"/>
