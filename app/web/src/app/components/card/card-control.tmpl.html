@@ -1,28 +1,25 @@
-<div id="card-ctrl" ng-class="vm.content.featured? 'card-action cyan darken-2' : 'card-action grey lighten-4'" style="border:top:1px solid rgba(255,255,255,0.2)">
-    <a ng-if="vm.isAdmin" ng-class="vm.content.featured? 'white-text clickable' : 'cyan-text clickable'" ng-click="vm.deleteBeats()">Delete</a>
-    <a ng-if="vm.isAdmin" ng-class="vm.content.featured? 'white-text clickable' : 'cyan-text clickable'" ng-click="vm.modifyBeats()" href='#composeBeats' modal>Modify</a>
-    <a ng-class="vm.content.featured? 'white-text clickable' : 'cyan-text clickable'" ng-click="vm.comment()" href='#comment' modal>Comment</a>
-</div>
-<ul style="margin-top:0;border:0;" ng-if="vm.content.comments.length" class="collection">
-    <li ng-show="!vm.showAllComments" ng-repeat="c in vm.commentBrief" class="collection-item {{vm.content.featured? 'featured' : ''}}" style="background-color: transparent;padding-bottom: 7px;min-height:68px;">
+
+<div style="padding: 5px" class="testimonials-name" ng-if="vm.content.comments.length">
+    <div style="width:100%" ng-show="!vm.showAllComments" ng-repeat="c in vm.commentBrief" >
         <!--
         <img ng-if="c.user[0] && c.user[0].avatar" ng-src="{{c.user[0].avatar}}" alt="" class="circle">
 -->
-        <span class="title">{{::vm.getName(c)}} </span>
+        <hr>
+        <h4>{{::vm.getName(c)}} </h4>
 
-        <p class="{{vm.content.featured? 'grey-text text-lighten-3':'grey-text text-darken-2'}}" style="margin-top:0px;margin-bottom:20px">{{c.body}}</p>
-    </li>
-    <li ng-show="vm.showAllComments" ng-repeat="c in vm.content.comments" class="collection-item {{vm.content.featured? 'featured' : ''}}" style="background-color: transparent;padding-bottom: 7px;min-height:68px;{{vm.content.featured? 'border-top:1px solid #54dbec   ' : 'border-top:1px solid #e0e0e0 '}}">
+        <p>{{c.body}}</p>
+    </div>
+    <div ng-show="vm.showAllComments" ng-repeat="c in vm.content.comments">
         <!--
         <img ng-if="c.user[0] && c.user[0].avatar" ng-src="{{c.user[0].avatar}}" alt="" class="circle">
         -->
+        <hr>
+        <h4>{{::vm.getName(c)}} </h4>
 
-        <span class="title">{{::vm.getName(c)}} </span>
-
-        <p class="{{vm.content.featured? 'grey-text text-lighten-3':'grey-text text-darken-2'}}">{{c.body}}</p>
-    </li>
+        <p>{{c.body}}</p>
+    </div>
     <div align="right" style="padding-right:5px" class="clickable {{vm.content.featured? 'white-text':'pink-text'}}" ng-if="vm.commentBrief.length !== vm.content.comments.length" ng-click="vm.showMoreComments()">
         {{!vm.showAllComments ? 'Show All Comments' : 'Hide \'em'}}
     </div>
 
-</ul>
+</div>

@@ -8,6 +8,7 @@
         </jc-sub-nav>
     </div>
     -->
+    <!--
     <nav class="top-nav cyan" style="margin-bottom: 15px">
         <div class="container">
             <div class="nav-wrapper row">
@@ -43,28 +44,19 @@
             </div>
         </div>
     </nav>
+    -->
 
+    <!--
     <div ng-class="vm.customRefreshEnabled? 'col s12 m8 l8' : 'col s12 m12 l12'">
+    -->
+    <div class="container-color-two" style="padding: 50px">
         <jc-masonry-cards
                 jc-custom-refresh="vm.pushBeatsPaginated"
                 jc-custom-refresh-enabled="vm.customRefreshEnabled"
-                jc-init-num="15"
-                jc-refresh-num="6"
+                jc-init-num="6"
+                jc-refresh-num="3"
                 jc-data="vm.selectedBeats.beats">
         </jc-masonry-cards>
-    </div>
-    <div class="wrapper-topic-list col m4 l4" style="width: 31.5%;padding: 0" ng-if="vm.customRefreshEnabled">
-        <div class="wrapper-topic-list-elem hide-on-small-only" pushpin pushpin-top="186" pushpin-bottom="Infinity">
-            <div ng-repeat="top in vm.topicList track by $index">
-                <jc-topic-card
-                        class="repeated-item"
-                        jc-topic="top"
-                        jc-topic-brief="true"
-                >
-                </jc-topic-card>
-            </div>
-        </div>
-
     </div>
     <!-- FAB -->
     <div class="fixed-action-btn horizontal">

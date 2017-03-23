@@ -1,3 +1,77 @@
+<div>
+    <div class="top_block">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-7 col-sm-7 col-xs-6 pull-left">
+                    <div class="contant-top-block">
+                        <ul class="contact-top">
+                            <li><i class="icon-basic-home"></i> 455 Martinson, Los Angeles</li>
+                            <li><i class="icon-basic-smartphone"></i> 8 (043) 567 - 89 - 30</li>
+                            <li><i class="icon-basic-mail" style="top: 5px;"></i> support@email.com</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-5 col-sm-5 col-xs-6 pull-right">
+                    <ul class="social-links">
+                        <li><a href="#"><i class="ti-twitter"></i></a></li>
+                        <li><a href="#"><i class="ti-tumblr"></i></a></li>
+                        <li><a href="#"><i class="ti-dropbox"></i></a></li>
+                        <li><a href="#"><i class="ti-dribbble"></i></a></li>
+                        <li><a href="#"><i class="ti-apple"></i></a></li>
+                        <li><a href="#"><i class="ti-vimeo"></i></a></li>
+                        <li><a href="#"><i class="ti-instagram"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <header>
+        <div class="page_head classic-vers">
+            <div sticky id="nav-container" class="nav-container" style="height: auto;">
+                <nav>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 pull-left">
+                                <div class="logo">
+                                    <a href="index.html">
+                                        <img class="pull-left" src="assets/images/logo.png" alt="Logo"><span class="pull-left logo-text classic-vers">Pioneer</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-9 col-md-9 col-sm-6 col-xs-6 pull-right">
+                                <div class="menu menu-wrapper classic-vers">
+                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"></button>
+                                    <div class="navbar-collapse collapse">
+                                        <div class="menu-main-menu-container">
+                                            <ul>
+                                                <li ng-repeat="nav in vm.navs" ng-class="nav.state === vm.state.current.name? 'current-menu-item': angular.noop">
+                                                    <a href="#" ng-click="vm.gotoState(nav.state)">{{::nav.title}}</a>
+                                                    <!--
+                                                    <ul class="sub-menu">
+                                                        <li><a href="index.html">Corporate Layout</a></li>
+                                                        <li><a href="index-business.html">Business Layout</a></li>
+                                                        <li><a href="index-agency.html">Agency Layout</a></li>
+                                                        <li><a href="index-minimal.html">Minimal Layout</a></li>
+                                                        <li><a href="index-boxed.html">Boxed Version</a></li>
+                                                    </ul>
+                                                    -->
+                                                </li>
+
+
+                                                <li><a href="http://themeforest.net/item/pioneer-multipurpose-html-5-css-3-corporate-template/16029242?ref=Dankov">Buy</a></li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+<!--
 <nav class="card white cyan-text" style="margin: 0px;">
     <div class="container">
         <div class="nav-wrapper cyan-text text-darken-1">
@@ -22,3 +96,5 @@
         </div>
     </div>
 </nav>
+-->
+</div>

@@ -37,7 +37,7 @@ function jcCardContent(angularGridInstance) {
     }
 
     function getTimeMessage(date) {
-      var timeMessage = $filter('date')(new Date(date), 'yyyy-MM-dd HH:mm:ss', checkAndOutputUTC(date));
+      var timeMessage = $filter('date')(new Date(date), 'yyyy-MM-dd', checkAndOutputUTC(date));
       if (vm.showDst) {
         timeMessage += checkAndOutputUTC(date) === '+0100' ? ' Winter Time' : ' Summer Time';
         ;

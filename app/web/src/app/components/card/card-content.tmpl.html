@@ -1,3 +1,4 @@
+<!--
 <div class="grid">
     <div ng-if="vm.content.image.length" class="card-image" ng-repeat="url in ::vm.content.image track by $index" ng-init="$last && vm.content.masonryInit ? vm.refreshInit() : angular.noop()">
         <div class="progress" ng-if="!vm.hideProgress">
@@ -10,7 +11,7 @@
       <span>{{::vm.content.title}}</span>
     </span>
         <div>
-            <pre>{{::vm.content.text}}</pre>
+            {{::vm.content.text}}
         </div>
         <div ng-repeat="tag in ::vm.content.tags"  class="chip white-text {{tag.class}}">
             {{::tag.name}}
@@ -22,4 +23,38 @@
             </div>
         </div>
     </div>
+</div>
+-->
+<div>
+    <!--
+        <div class="blog-name"><a href="#">{{::vm.content.title}}</a></div>
+        -->
+        <div style="padding:10px;" class="testimonials-desc">
+            <div ng-if="vm.content.image.length" ng-repeat="url in ::vm.content.image track by $index" ng-init="$last && vm.content.masonryInit ? vm.refreshInit() : angular.noop()" class="blog-images">
+                <!--
+                <div class="progress" ng-if="!vm.hideProgress">
+                    <div class="indeterminate"></div>
+                </div>
+                <img materialboxed class="materialboxed" ng-src="{{::url}}" class="grid-img" />
+                -->
+                <div class="post-thumbnail" style="max-height: 400px">
+                    <div class="single-item"></div>
+                    <div class="single-action">
+                        <span><a href="#"><i class="simple-software-pen"></i></a></span>
+                    </div>
+                    <img ng-src="{{::url}}" alt="">
+                </div>
+            </div>
+            <h4>{{::vm.content.text}}</h4></div>
+
+        <div class="testimonials-name">
+                <i class="icon-basic-clock"></i>
+                <h4>{{::vm.timeMessage}}</h4>
+                <i ng-if="vm.content.tags.length" class="icon-basic-signs"></i>
+                <span ng-repeat="tag in ::vm.content.tags">{{::tag.name}} </span>
+
+
+
+
+        </div>
 </div>
