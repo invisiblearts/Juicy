@@ -25,20 +25,20 @@
                         </div>
                     </div>
                     <div class="testimonials-photo">
-                        <img ng-src="{{::link.img}}" alt=""  > <!-- notice the "circle" class -->
+                        <img ng-src="{{::link.img}}" alt=""  >
                     </div>
                 </div>
             </div>
         </div>
     </div>
+        <div class="promo-border marg50"></div>
+
 
     <div ng-if="vm.isAdmin" class="col s12 m8 offset-m2 l6 offset-l3">
         <div class="card {{vm.newLink.color}} z-depth-1">
             <div class="card-content">
 
-            <span class="card-title activator">
-                <input ng-model="vm.newLink.title"/>
-            </span>
+                <input type="text" name="name" placeholder="Name" class="input-cont-textarea" ng-model="vm.newLink.title">
 
                 <div class="row valign-wrapper" style="border-top:1px">
                     <div
@@ -50,19 +50,17 @@
                         <img ng-src="{{vm.newLink.img}}" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
                     </div>
                     <div class="col s10">
-                        <blockquote class="{{vm.newLink.color}} accent-1">
-                            <input ng-model="vm.newLink.description"/>
-                        </blockquote>
-                        <input width="20px" class="right" ng-model="vm.newLink.alias"/>
+                        <input type="text" name="name" placeholder="Name" class="input-cont-textarea" ng-model="vm.newLink.description">
+                        <input type="text" name="name" placeholder="Name" class="input-cont-textarea" ng-model="vm.newLink.alias">
 
                     </div>
                 </div>
             </div>
 
         </div>
-        <input width="20px" class="right" ng-model="vm.newLink.color"/>
-        <input ng-model="vm.newLink.href"/>
-        <button class="btn-large waves-effect waves-light" ng-click="vm.submit()">Submit</button>
+        <input type="text" name="name" placeholder="Name" class="input-cont-textarea" ng-model="vm.newLink.color">
+        <input type="text" name="name" placeholder="Name" class="input-cont-textarea" ng-model="vm.newLink.href">
+        <button class="btn-pioneer btn" ng-click="vm.submit()">Submit</button>
     </div>
     </div>
 </div>
