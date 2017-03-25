@@ -78,11 +78,11 @@
             <div flow-init
                  flow-files-submitted="vm.upload( $files, $event, $flow )"
                  flow-file-success="$file.msg = $message"
-                 class="right">
+                 class="pull-right">
                 <input type="checkbox" ng-model="vm.newBeat.featured" class="filled-in" id="feature-box" checked="checked"/>
                 <label for="feature-box">Featured</label>
-                <span class="modal-action waves-effect waves-green btn clickable" flow-btn>Images({{vm.newBeat.image.length}})</span>
-                <span class="modal-action waves-effect waves-green btn clickable" ng-click="vm.newBeat.image=[]">KillAll</span>
+                <button class="modal-action btn btn-default btn-lg" flow-btn>Images({{vm.newBeat.image.length}})</button>
+                <button class="modal-actionbtn btn-default btn-lg" ng-click="vm.newBeat.image=[]">KillAll</button>
 
             </div>
             <span class="card-title pink-text" style="margin-left:0px">Compose A New Beat</span>
@@ -141,10 +141,15 @@
 
         <div id="comment" class="modal">
             <div class="modal-content">
-                <input type="text" placeholder="Comment" ng-model="vm.newComment.body">
-                <a ng-class="vm.newComment.body ? 'enabled' : 'disabled'" class="modal-action modal-close waves-effect waves-green btn clickable" ng-click="vm.submitComment()">SEND!</a>
-                <div ng-if="!vm.isUser" class="modal-action modal-close" ng-click="vm.login()" >可以匿名评论泥萌就不注册，都快变匿名版了QAQ -><a class="pink-text modal-action modal-close"> 这就去注册！</a> </div>
-                <div ng-if="!vm.isUser" class="modal-action modal-close" ng-click="vm.login()" >Dude you're anonymous, no good , no good. -><a class="pink-text modal-action modal-close"> Register/Login</a> </div>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+
+                <p class="text_cont"><textarea name="message" ng-model="vm.newComment.body" placeholder="Message" id="message" class="input-cont-textarea" cols="40" rows="10"></textarea></p>
+
+                <button ng-class="vm.newComment.body ? 'enabled' : 'disabled'" class="btn btn-default btn-lg" ng-click="vm.submitComment()" data-dismiss="modal">SEND!</button>
+                <div ng-if="!vm.isUser" data-dismiss="modal" ng-click="vm.login()" >可以匿名评论泥萌就不注册，都快变匿名版了QAQ -><button class="btn btn-pioneer modal-action modal-close"> 这就去注册！</button> </div>
 
 
             </div>

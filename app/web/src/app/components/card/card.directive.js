@@ -18,11 +18,15 @@ function jcCard() {
   };
   return directive;
   /*@ngInject*/
-  function cardCtrl(APP_CONST, appService) {
+  function cardCtrl(APP_CONST, appService,appEvent) {
     var vm = this;
     vm.deleted = false;
     vm.prod = APP_CONST.production;
     vm.isAdmin = appService.isAdmin();
+    vm.comment = comment;
+    function comment() {
+      appEvent.publish('comment', vm.content);
+    }
 
   }
 }

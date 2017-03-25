@@ -1,36 +1,32 @@
-<div class="container">
-
-    <div class="row">
-
-        <div ng-repeat="link in vm.links track by $index" class="col s12 m6 l6 ">
-            <div class="card {{::link.color}} z-depth-1 hoverable">
-                <div class="card-content">
-   <span class="right right-align">
-                        {{::link.alias}}
-                        </span>
-                <span class="card-title activator">
-
-                    <span ng-click="vm.open(link.href)">{{::link.title}}</span>
-
-                </span>
-
-                    <div ng-click="vm.open(link.href)" class="row valign-wrapper clickable" style="border-top:1px">
-                        <div class="col s3">
-                            <div class="box">
-                            <img ng-src="{{::link.img}}" alt="" class="circle content link" style="margin-left: 10px"> <!-- notice the "circle" class -->
-                            </div>
-                            </div>
-                            <blockquote class="{{::link.color}} accent-1 col s9" style="margin-top: 0;margin-bottom: 0; margin-right:15px;height: 100%">
-                                <h5>{{::link.description}}</h5>
-                            </blockquote>
-
-
-                    </div>
-
+<div class="container-color-two">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="promo-block">
+                    <div class="promo-text">We Are</div>
+                    <div class="promo-name">Happy Tree Friends</div>
+                    <div class="promo-border marg50"></div>
                 </div>
-                <div ng-if="vm.isAdmin">
-                <div class="btn-flat" ng-click="vm.modify(link)">Modify</div>
-                <div ng-click="vm.del(link)" class="btn-flat">Delete</div>
+            </div>
+        </div>
+    <div class="row marg30">
+
+        <div ng-repeat="link in vm.links track by $index" style="margin-bottom: 60px" class="col-lg-3 col-md-3 col-sm-6 col-xs-12 ">
+            <div class="testimonials-main">
+                <div class="testimonials-block">
+                    <div ng-click="vm.open(link.href)" class="testimonials-text">
+                        <div class="testimonials-desc">
+                            <button class="btn btn-default" ng-click="vm.modify(link)">Modify</button>
+                            <button ng-click="vm.del(link)" class="btn btn-default">Delete</button>
+                            <p>{{::link.description}}</p>
+                        </div>
+                        <div class="testimonials-name" ng-click="vm.open(link.href)">
+                            <h4>{{::link.title}}</h4> - {{::link.alias}}
+                        </div>
+                    </div>
+                    <div class="testimonials-photo">
+                        <img ng-src="{{::link.img}}" alt=""  > <!-- notice the "circle" class -->
+                    </div>
                 </div>
             </div>
         </div>
@@ -67,5 +63,6 @@
         <input width="20px" class="right" ng-model="vm.newLink.color"/>
         <input ng-model="vm.newLink.href"/>
         <button class="btn-large waves-effect waves-light" ng-click="vm.submit()">Submit</button>
+    </div>
     </div>
 </div>

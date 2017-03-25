@@ -1,38 +1,12 @@
-<div class="top-nav cyan" style="position:fixed;top:0px;width:100%;height: 144px;z-index:-1">
-    <div class="nav-wrapper row">
-        <a class="page-title col l9 m9 hide-on-small-only ">
-            <span class="titre">&nbsp;</span>
-        </a>
-    </div>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="card hoverable grey lighten-4 grey-text col s12 m12 l12">
-            <div class="card-content" >
-                <p >
-                    <span style="margin-right: 10px" >CATEGORIES</span>
-                    <span ng-class="vm.settings.current === 'all' ? 'pink-text' : 'black-text'" style="margin-right: 10px" class="clickable " ng-click="vm.all()">ALL</span>
-                <span ng-class="vm.settings.current === 'moe' ? 'pink-text' : 'black-text'" style="margin-right: 10px" class="clickable " ng-click="vm.moe()">MOE</span>
-                </p>
-                <div style="margin-top:10px;margin-bottom:0px" class="row">
-                <p class="col s6" style="width: 230px">
-                    <span>EMOTION </span>
-                    <input ng-model="vm.settings.emo.neg" type="checkbox" class="filled-in" id="EMO-1" checked="checked" />
-                <label for="EMO-1">NEGATIVE</label>
-                <input ng-model="vm.settings.emo.soso" type="checkbox" class="filled-in" id="EMO0" checked="checked" />
-                <label for="EMO0">FUZZY</label>
-                <input  ng-model="vm.settings.emo.pos" type="checkbox" class="filled-in" id="EMO1" checked="checked" />
-                <label for="EMO1">POSITIVE</label>
-                </p>
-                <p class="col s6" style="width: 230px">
-                <span>STYLE OF EXPRESSION </span>
-                <input ng-model="vm.settings.express.neg" type="checkbox" class="filled-in" id="EXPRESS-1" checked="checked" />
-                <label for="EXPRESS-1">SOFT</label>
-                <input ng-model="vm.settings.express.soso" type="checkbox" class="filled-in" id="EXPRESS0" checked="checked" />
-                <label for="EXPRESS0">NORMAL</label>
-                <input ng-model="vm.settings.express.pos" type="checkbox" class="filled-in" id="EXPRESS1" checked="checked" />
-                <label for="EXPRESS1">HARDCORE</label>
-                </p>
+<div class="wrapper multi-purp">
+
+
+    <div class="page-in">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="page-in-name">视音安利</div>
+                    <div class="page-in-bread">自顾自地推一些动画和音乐</div>
                 </div>
             </div>
         </div>
@@ -42,95 +16,708 @@
 
 
 
-
-
-
-
-    <!-- FAB -->
-
-    <div class="fixed-action-btn horizontal">
-        <a class="btn-floating btn-large" ng-click="vm.scrollTop()">
-            <i class="material-icons">publish</i></a>
-
-        <ul>
-            <li><a ng-if="vm.isAdmin" class="btn-floating" href='#addSong' modal><i class="material-icons">mode_edit</i></a></li>
-        </ul>
-    </div>
-
-    <!-- Modal Structure -->
-    <div id="addSong" class="modal" style="width: 100%;height: 100%;">
-        <div class="container" ng-if="vm.isAdmin">
-                <div flow-init
-                     flow-files-submitted="vm.upload( $files, $event, $flow )"
-                     flow-file-success="$file.msg = $message"
-                     class="card-image">
-                    <img ng-src="{{vm.newBaladeur.image[0]}}" class="clickable" flow-btn/>
-                    <span class="card-title">{{vm.newBaladeur.artist + ' - ' + vm.newBaladeur.title}}</span>
-
+    <div class="container marg75">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="promo-block">
+                    <div class="promo-name">Songs - Ambitious</div>
+                    <div class="promo-border"></div>
                 </div>
 
-                <div class="card-content row">
-                    <textarea ng-model="vm.newBaladeur.description" style="min-height:40rem" class="col s6 materialize-textarea"></textarea>
-                    <div class="col s6" markdown-to-html="vm.newBaladeur.description"></div>
-
-                </div>
-
-             <input ng-model="vm.newBaladeur.artist" />
-                <input ng-model="vm.newBaladeur.title" />
-                <input ng-model="vm.newBaladeur.genre" />
-                <div class="row">
-
-                    <div input-field class="input-field col s6">
-                        <p class="range-field">
-                            <span>Emo</span>
-                            <input type="range" id="test4" ng-model="vm.newBaladeur.emo" min="0" max="2" />
-                        </p>
-                    </div>
-                    <div input-field class="input-field col s6">
-                        <p class="range-field">
-                            <span>Express</span>
-                            <input type="range" id="test5" ng-model="vm.newBaladeur.express" min="0" max="2" />
-                        </p>
+                <div class="marg75">
+                    <h4 style="margin-bottom:50px">在寂寥的漫漫长夜，静静地打打鸡血。以流行摇滚为主。</h4>
+                    <div class="ac-container">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="http://bangumi.tv/subject/110600">
+                                    <img alt="64x64" class="media-object" style="width: 84px; height: 106px;" src="http://lain.bgm.tv/pic/cover/c/d2/52/110600_8rZ1F.jpg" data-holder-rendered="true">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">THE ROLLING GIRLS</h4>
+                                友情、理想与勇气，走马观花的公路片，日本民俗大赏。画风清丽，摇滚Tribute，青春讴歌，偶尔神作画。心目中的TOP1作品，要是有24集就更好了。
+                            </div>
+                        </div>
                     </div>
 
+                    <div class="ac-container">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="http://bangumi.tv/subject/80442">
+                                    <img alt="64x64" class="media-object" style="width: 84px; height: 106px;" src="http://lain.bgm.tv/pic/cover/s/dc/cd/91987_TUDvv.jpg" data-holder-rendered="true">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">摸索吧！部活剧</h4>
+                                看一眼OP就会有意向追下去的实验性动画，共三季。内容是声优聊天，越放越开，收不住了，玩梗把监督也玩跑了。画面全3D完美省钱体验，反正内容劲爆，做个样子就行了。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ac-container">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="http://bangumi.tv/subject/37897">
+                                    <img alt="64x64" class="media-object" style="width: 84px; height: 106px;" src="http://lain.bgm.tv/pic/cover/s/93/b0/37897_gjhU7.jpg" data-holder-rendered="true">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">女子落语</h4>
+                                虽说是落语但讲的是幕后的事情，纯吐槽系，每集还有日本都市观光。原作是个右翼，一上来就开地图炮，然而不影响作品很有趣的评价。桃草的ED很劲爆，ED的Live更劲爆。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ac-container">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="http://bangumi.tv/subject/75702">
+                                    <img alt="64x64" class="media-object" style="width: 84px; height: 106px;" src="http://lain.bgm.tv/pic/cover/c/12/e0/75702_1RxLZ.jpg" data-holder-rendered="true">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">帰宅部活動記録</h4>
+                                社团-日常吐槽动画应该是很俗套的，但这部不一样，是新人声优的实验场。动画开头稀烂，后面越来越玩得开，各种作死，玩不出梗就造梗，比如伪装下一季的新番。棒读、弃疗、突兀的BGM都是微妙的亮点。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ac-container">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="http://bangumi.tv/subject/917">
+                                    <img alt="64x64" class="media-object" style="width: 84px; height: 106px;" src="http://lain.bgm.tv/pic/cover/c/da/0d/917_9b1Jd.jpg" data-holder-rendered="true">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">亡念的扎姆德</h4>
+                                作品的主旨是一起活下去，唯一的方法是不断思考，光这点就把逼格抬上来了。画风一看就是骨头社的。虽然烂尾，但作品的世界观却让人印象深刻，例如南北冲突、教派冲突、伦理问题，在夹缝中生存的人们，个个都有现实世界的影子。
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="promo-block">
+                    <div class="promo-name">Songs - Melodic</div>
+                    <div class="promo-border"></div>
                 </div>
-                <input ng-model="vm.newBaladeur.ids" placeholder="Songs"/>
 
-                <span ng-click="vm.submit()" class="btn-large waves-effect waves-light">Submit</span>
+                <div class="marg75">
+                    <h4 style="margin-bottom:50px">讨好耳朵或者有生活气息的歌。以流行摇滚为主。</h4>
+                    <div class="ac-container">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="http://bangumi.tv/subject/110600">
+                                    <img alt="64x64" class="media-object" style="width: 84px; height: 106px;" src="http://lain.bgm.tv/pic/cover/c/d2/52/110600_8rZ1F.jpg" data-holder-rendered="true">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">THE ROLLING GIRLS</h4>
+                                友情、理想与勇气，走马观花的公路片，日本民俗大赏。画风清丽，摇滚Tribute，青春讴歌，偶尔神作画。心目中的TOP1作品，要是有24集就更好了。
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="ac-container">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="http://bangumi.tv/subject/80442">
+                                    <img alt="64x64" class="media-object" style="width: 84px; height: 106px;" src="http://lain.bgm.tv/pic/cover/s/dc/cd/91987_TUDvv.jpg" data-holder-rendered="true">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">摸索吧！部活剧</h4>
+                                看一眼OP就会有意向追下去的实验性动画，共三季。内容是声优聊天，越放越开，收不住了，玩梗把监督也玩跑了。画面全3D完美省钱体验，反正内容劲爆，做个样子就行了。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ac-container">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="http://bangumi.tv/subject/37897">
+                                    <img alt="64x64" class="media-object" style="width: 84px; height: 106px;" src="http://lain.bgm.tv/pic/cover/s/93/b0/37897_gjhU7.jpg" data-holder-rendered="true">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">女子落语</h4>
+                                虽说是落语但讲的是幕后的事情，纯吐槽系，每集还有日本都市观光。原作是个右翼，一上来就开地图炮，然而不影响作品很有趣的评价。桃草的ED很劲爆，ED的Live更劲爆。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ac-container">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="http://bangumi.tv/subject/75702">
+                                    <img alt="64x64" class="media-object" style="width: 84px; height: 106px;" src="http://lain.bgm.tv/pic/cover/c/12/e0/75702_1RxLZ.jpg" data-holder-rendered="true">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">帰宅部活動記録</h4>
+                                社团-日常吐槽动画应该是很俗套的，但这部不一样，是新人声优的实验场。动画开头稀烂，后面越来越玩得开，各种作死，玩不出梗就造梗，比如伪装下一季的新番。棒读、弃疗、突兀的BGM都是微妙的亮点。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ac-container">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="http://bangumi.tv/subject/917">
+                                    <img alt="64x64" class="media-object" style="width: 84px; height: 106px;" src="http://lain.bgm.tv/pic/cover/c/da/0d/917_9b1Jd.jpg" data-holder-rendered="true">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">亡念的扎姆德</h4>
+                                作品的主旨是一起活下去，唯一的方法是不断思考，光这点就把逼格抬上来了。画风一看就是骨头社的。虽然烂尾，但作品的世界观却让人印象深刻，例如南北冲突、教派冲突、伦理问题，在夹缝中生存的人们，个个都有现实世界的影子。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="promo-block">
+                    <div class="promo-name">Anime - Alternative</div>
+                    <div class="promo-border"></div>
+                </div>
+
+                <div class="marg75">
+                    <h4 style="margin-bottom:50px">在有特色的或是稍有年代的、有新鲜感和冲击力的、不算热门的动画。</h4>
+                    <div class="ac-container">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="http://bangumi.tv/subject/110600">
+                                    <img alt="64x64" class="media-object" style="width: 84px; height: 106px;" src="http://lain.bgm.tv/pic/cover/c/d2/52/110600_8rZ1F.jpg" data-holder-rendered="true">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">THE ROLLING GIRLS</h4>
+                                友情、理想与勇气，走马观花的公路片，日本民俗大赏。画风清丽，摇滚Tribute，青春讴歌，偶尔神作画。心目中的TOP1作品，要是有24集就更好了。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ac-container">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="http://bangumi.tv/subject/80442">
+                                    <img alt="64x64" class="media-object" style="width: 84px; height: 106px;" src="http://lain.bgm.tv/pic/cover/s/dc/cd/91987_TUDvv.jpg" data-holder-rendered="true">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">摸索吧！部活剧</h4>
+                                看一眼OP就会有意向追下去的实验性动画，共三季。内容是声优聊天，越放越开，收不住了，玩梗把监督也玩跑了。画面全3D完美省钱体验，反正内容劲爆，做个样子就行了。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ac-container">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="http://bangumi.tv/subject/37897">
+                                    <img alt="64x64" class="media-object" style="width: 84px; height: 106px;" src="http://lain.bgm.tv/pic/cover/s/93/b0/37897_gjhU7.jpg" data-holder-rendered="true">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">女子落语</h4>
+                                虽说是落语但讲的是幕后的事情，纯吐槽系，每集还有日本都市观光。原作是个右翼，一上来就开地图炮，然而不影响作品很有趣的评价。桃草的ED很劲爆，ED的Live更劲爆。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ac-container">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="http://bangumi.tv/subject/75702">
+                                    <img alt="64x64" class="media-object" style="width: 84px; height: 106px;" src="http://lain.bgm.tv/pic/cover/c/12/e0/75702_1RxLZ.jpg" data-holder-rendered="true">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">帰宅部活動記録</h4>
+                                社团-日常吐槽动画应该是很俗套的，但这部不一样，是新人声优的实验场。动画开头稀烂，后面越来越玩得开，各种作死，玩不出梗就造梗，比如伪装下一季的新番。棒读、弃疗、突兀的BGM都是微妙的亮点。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ac-container">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="http://bangumi.tv/subject/917">
+                                    <img alt="64x64" class="media-object" style="width: 84px; height: 106px;" src="http://lain.bgm.tv/pic/cover/c/da/0d/917_9b1Jd.jpg" data-holder-rendered="true">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">亡念的扎姆德</h4>
+                                作品的主旨是一起活下去，唯一的方法是不断思考，光这点就把逼格抬上来了。画风一看就是骨头社的。虽然烂尾，但作品的世界观却让人印象深刻，例如南北冲突、教派冲突、伦理问题，在夹缝中生存的人们，个个都有现实世界的影子。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ac-container">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="http://bangumi.tv/subject/14749">
+                                    <img alt="64x64" class="media-object" style="width: 84px; height: 106px;" src="http://lain.bgm.tv/pic/cover/s/e1/dd/14749_R0ZDJ.jpg" data-holder-rendered="true">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">京騒戯画</h4>
+                                哪怕不知道它讲了什么，它也是一部视觉盛宴，非常过瘾。作品讲的本身就是一部神话，包含着世界大同和共存的理念，其实和物语挺像的，只不过历哥哥开了后宫（不
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ac-container">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="http://bangumi.tv/subject/1451">
+                                    <img alt="64x64" class="media-object" style="width: 84px; height: 106px;" src="http://lain.bgm.tv/pic/cover/c/80/a8/1451_uU8k9.jpg" data-holder-rendered="true">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">东之伊甸</h4>
+                                比悲剧更让人心酸的是荒诞剧。“传达不到，解决不了”，哪怕有再大的主角光环依然无解。这是烂尾吗？我觉得它是刻意要演成这样，不然它就是另一部夏日大作战或Psycho-Pass了，也没必要拿Oasis的慵懒的调调当OP。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ac-container">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="http://bangumi.tv/subject/174584">
+                                    <img alt="64x64" class="media-object" style="width: 84px; height: 106px;" src="http://lain.bgm.tv/pic/cover/s/a4/cb/174584_7tQO4.jpg" data-holder-rendered="true">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">Flip Flappers</h4>
+                                听名字就有一种 FLCL 的感觉，其实和 The Rolling Girls 的班子有很多重合的地方，风格和主题也像，不过有些场景有黑童话的味道。友人棒棒写过一篇<a style="color:#EC0B5B" href="http://weibo.com/ttarticle/p/show?id=2309404036971386282177">很详尽的考据贴</a> ，足以体现动画的信息量之大。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ac-container">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="http://bangumi.tv/subject/3471">
+                                    <img alt="64x64" class="media-object" style="width: 84px; height: 106px;" src="http://lain.bgm.tv/pic/cover/c/73/51/3471_974gQ.jpg" data-holder-rendered="true">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">刀语</h4>
+                                西尾维新的原作，古风poi，人物刻画细腻，音乐也很精致。不算带感，但能真正做好一部有特点的、深刻的作品不容易。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ac-container">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="http://bangumi.tv/subject/26449">
+                                    <img alt="64x64" class="media-object" style="width: 84px; height: 106px;" src="http://lain.bgm.tv/pic/cover/s/41/39/26449_5XXHN.jpg" data-holder-rendered="true">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">人类衰退之后</h4>
+                                人类药丸的慢悠悠奇幻系，带有飞翔的魔女一样的治愈气息。既然都是写衰退，为什么一定要是星之梦、Rewrite、自新世界这样的致郁作呢，和次世代很软很萌的共存也是可以有的。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ac-container">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="http://bangumi.tv/subject/1730">
+                                    <img alt="64x64" class="media-object" style="width: 84px; height: 106px;" src="http://lain.bgm.tv/pic/cover/c/85/13/1730_gIWXl.jpg" data-holder-rendered="true">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">简明易懂的现代魔法</h4>
+                                有点年头的动画，题材和剧情也有些老套，但是女主只会变出铁水盆这也太喜感了。另外它有和11eyes类似的可以用电子设备咏唱的魔法，正好击中我的甜区。虽然动画总体不受太大好评，但敲代码可以玩出魔法，我很喜欢。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ac-container">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="http://bangumi.tv/subject/29073">
+                                    <img alt="64x64" class="media-object" style="width: 84px; height: 106px;" src="http://lain.bgm.tv/pic/cover/s/c8/44/29073_Hl6lu.jpg" data-holder-rendered="true">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">军火女王</h4>
+                                讲的是船运大佬和军火贩子的武装团伙搞乱世界秩序顺便做做生意的故事，不仅抗中而且抗美，女主coco英气十足，不是眯眯眼senpai或者暴力宇宙海贼能比的等级。总体来说战斗场景不出色，但剧情和对话都有足够的架势。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ac-container">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="http://bangumi.tv/subject/2108">
+                                    <img alt="64x64" class="media-object" style="width: 84px; height: 106px;" src="http://lain.bgm.tv/pic/cover/c/93/1a/2108_09A0Z.jpg" data-holder-rendered="true">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">Detroit Metal City</h4>
+                                又名金属摇滚双面人。这本来就是一部很喜感的佳作，加上我自己也很喜欢Kiss以及GnR这样的流行金属乐队，所以它是一定上榜的。男主是个弱气的家伙，但一上台就不受控地变成了黑嗓和舞台行为艺术的大师。评论里有人说这是悲剧，然而我觉得男主只是发掘了自己Hardcore的癖好而已。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ac-container">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="http://bangumi.tv/subject/4019">
+                                    <img alt="64x64" class="media-object" style="width: 84px; height: 106px;" src="http://lain.bgm.tv/pic/cover/c/7f/c6/4019_39lIs.jpg" data-holder-rendered="true">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">四叠半神话大系</h4>
+                                平行世界设定，大学掉坑里人参完蛋的一万条死路，唯有和妹子LOVELOVE才是正确的出路。四叠半神话让人想到“我们的日常就是连续不断的奇迹”，包括掉坑的方式。画风也很神奇，不过个人感觉总体气氛较为阴暗...最后不是BE，看得很过瘾。据说最近会有续集。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ac-container">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="http://bangumi.tv/subject/64140">
+                                    <img alt="64x64" class="media-object" style="width: 84px; height: 106px;" src="http://lain.bgm.tv/pic/cover/c/82/3d/64140_t3Qq3.jpg" data-holder-rendered="true">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">LOG HORIZON</h4>
+                                设定和SAO有点像，进了网游世界出不来了，但主角用的是大人的开挂方式，包括金融开挂，即使不如Overlord那么龙傲天，也是挺有看头的，总之看上去更加正常一些，刻意讨好萌豚们的设定比较少。ED很欢！
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ac-container">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="http://bangumi.tv/subject/10844">
+                                    <img alt="64x64" class="media-object" style="width: 84px; height: 106px;" src="http://lain.bgm.tv/pic/cover/s/96/97/10844_1GJ7V.jpg" data-holder-rendered="true">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">C</h4>
+                                看得比较糊涂，大概就是奇幻系的影子银行拿未来做抵押可以生出一些货币，每次金融风暴之后国际就会相对萧条一些，为了抢钱还可以拿使魔对战。最终结局就是日本的财政彻底被美帝控制了，失败英雄最赞了。股市崩盘的时候还有标准上海话的吐槽，吓我一跳。说不明白，去看就是了。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ac-container">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="http://bangumi.tv/subject/86517">
+                                    <img alt="64x64" class="media-object" style="width: 84px; height: 106px;" src="http://lain.bgm.tv/pic/cover/s/79/cd/86517_1rpC8.jpg" data-holder-rendered="true">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">放學後的昴星團</h4>
+                                冷门。剧情就像天体的秩序一样平淡，但有一切的萌要素，很温馨，OP是鹿乃唱的。很少有动画没有无聊的肉，把萌和清新当作最大的卖点了。一点也没看出这是斯巴鲁用来宣传自家车的动画。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ac-container">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="http://bangumi.tv/subject/56091">
+                                    <img alt="64x64" class="media-object" style="width: 84px; height: 106px;" src="http://lain.bgm.tv/pic/cover/c/9d/2b/56091_ZDqtV.jpg" data-holder-rendered="true">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">翠星之加尔刚蒂亚</h4>
+                                老虚的作品，没有变成悲剧实在是太好了。如果喜欢颠倒的帕特码、银翼的飞梦和乐园追放这样的动画，这部肯定适合你。缺点就是太短了。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="promo-block">
+                    <div class="promo-name">Anime - Generic</div>
+                    <div class="promo-border"></div>
+                </div>
+
+                <div class="marg75">
+                    <h4 style="margin-bottom:50px">主观上最喜欢的动画，并附上主观色彩很强的点评。</h4>
+                    <div class="ac-container">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="http://bangumi.tv/subject/110600">
+                                    <img alt="64x64" class="media-object" style="width: 84px; height: 106px;" src="http://lain.bgm.tv/pic/cover/c/d2/52/110600_8rZ1F.jpg" data-holder-rendered="true">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">THE ROLLING GIRLS</h4>
+                                在法国期间，每周最期待的事情就是看新的TRG。全剧贯穿对The Blue Hearts的致敬，其中ED《月の爆撃機》表现的决心和勇气更是鼓舞人心，看着窗外的月亮，倒杯餐酒奋战到黎明，拿下一根根难啃的骨头。第八话的神回插曲《STONES》燃式催泪。力荐。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ac-container">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="http://bangumi.tv/subject/68812">
+                                    <img alt="64x64" class="media-object" style="width: 84px; height: 106px;" src="http://lain.bgm.tv/pic/cover/s/a1/67/68812_QUpB2.jpg" data-holder-rendered="true">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">物語 系列</h4>
+                                夭寿啦历哥哥又开后宫啦。其实真正吸引我的还是大杂居、包容和世界大同的理念，意识流的画风也是一级棒。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ac-container">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="http://bangumi.tv/subject/2463">
+                                    <img alt="64x64" class="media-object" style="width: 84px; height: 106px;" src="http://lain.bgm.tv/pic/cover/s/18/43/2463_FGJkn.jpg" data-holder-rendered="true">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">无头骑士异闻录</h4>
+                                贵乱的都市群相剧，虽然不少是讲帮派械斗的事情，但却没有Gangster那样的肌肉大叔。氛围比较轻松，非常过瘾，从冲突的角度表达了大杂居、包容和世界大同的理念。不要看有四季，补起来很快，就像看美剧。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ac-container">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="http://bangumi.tv/subject/9912">
+                                    <img alt="64x64" class="media-object" style="width: 84px; height: 106px;" src="http://lain.bgm.tv/pic/cover/s/0e/14/9912_LZML8.jpg" data-holder-rendered="true">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">日常</h4>
+                                一看名字就很王道，姑且主题还是“我们所过的每个平凡的日常，也许就是连续发生的奇迹。”你京一直很细腻，一旦这种用来表现女生情感的细腻被用来玩梗就要命了，这完全是一部很微妙的搞笑动画，不是感觉太冷了，就是感觉太好笑了，全程高能，小腹抽筋。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ac-container">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="http://bangumi.tv/subject/917">
+                                    <img alt="64x64" class="media-object" style="width: 84px; height: 106px;" src="http://lain.bgm.tv/pic/cover/s/48/9d/1424_tteBx.jpg" data-holder-rendered="true">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">K-ON!</h4>
+                                著名的轻音少女。喝茶动画，不过喝茶喝出国际影响力，连有噜有力也做不到吧。英配的剧场版好神奇，听得汗毛倒竖。我是摇滚迷，K-ON虽然是喝茶喝出世界级流朋乐队的动画，但音乐制作方面还是佷用心的。TV上一般听不出来，但一首歌会为了还原各种场景下的Live情况重混四回，就像早年Punk Revival时代贩卖的Bootleg一样，很有情怀。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ac-container">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="http://bangumi.tv/subject/1606">
+                                    <img alt="64x64" class="media-object" style="width: 84px; height: 106px;" src="http://lain.bgm.tv/pic/cover/s/49/5d/1606_QDzW1.jpg" data-holder-rendered="true">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">凉宫春日 系列</h4>
+                                无需多言，定义了萌文化的神作什么时候出续集？
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ac-container">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="http://bangumi.tv/subject/110467">
+                                    <img alt="64x64" class="media-object" style="width: 84px; height: 106px;" src="http://lain.bgm.tv/pic/cover/s/73/26/110467_o4AEr.jpg" data-holder-rendered="true">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">SHIROBAKO</h4>
+                                著名的白箱。比花开物语、跟班x服务、NEW GAME、这就是声优等更有现实感的工作励志动画，部分场景很催泪，不管是否正确还原了业界的细节，但作为曾经的社畜不得不说，“工作的确就像那么回事”。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ac-container">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="http://bangumi.tv/subject/54433">
+                                    <img alt="64x64" class="media-object" style="width: 84px; height: 106px;" src="http://lain.bgm.tv/pic/cover/s/1e/f1/54433_9YSP6.jpg" data-holder-rendered="true">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">我的青春恋爱物语果然有问题</h4>
+                                娇情的作品，大老师的世界观算不上哲学，但嘴里含着金钥匙的人是不会懂的，甚至会感到不屑。但有这样一部作品说出心声，并且作为进一步思考的引子，让人感到很欣慰。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ac-container">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="http://bangumi.tv/subject/27364">
+                                    <img alt="64x64" class="media-object" style="width: 84px; height: 106px;" src="http://lain.bgm.tv/pic/cover/s/cd/38/27364_f432B.jpg" data-holder-rendered="true">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">氷菓</h4>
+                                著名的 I Scream ! 京都的校园推理动画。仔细想想没有非常出众的地方，但它无疑是一部质量上乘的作品。最具有冲击性的应该是千反田的那句“我很好奇！”
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ac-container">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="http://bangumi.tv/subject/115908">
+                                    <img alt="64x64" class="media-object" style="width: 84px; height: 106px;" src="http://lain.bgm.tv/pic/cover/s/37/df/115908_6n60U.jpg" data-holder-rendered="true">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">吹响吧！悠风号</h4>
+                                著名的京吹！看的时候正值考研，很受丽奈自命不凡的感染。但对我来说它最有魅力的地方不是励志，不是百合，而是“社会森严的等级制在校园的影响”与青春、理想和信念的直接冲突，立意上比K-ON上了一个台阶。OP和ED非常有特色，听一遍就不会忘。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ac-container">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="http://bangumi.tv/subject/276">
+                                    <img alt="64x64" class="media-object" style="width: 84px; height: 106px;" src="http://lain.bgm.tv/pic/cover/s/db/8e/276_J7390.jpg" data-holder-rendered="true">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">Lucky☆Star</h4>
+                                著名的脑残星！又又又又是京都，欢乐的校园吐槽系，玩了很多老动画的梗，依然是为萌文化奠基的作品之一。最喜欢吐槽的柊镜，然而谁能告诉我暧昧3CM到底是什么？
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ac-container">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="http://bangumi.tv/subject/283">
+                                    <img alt="64x64" class="media-object" style="width: 84px; height: 106px;" src="http://lain.bgm.tv/pic/cover/s/0f/49/283_qtWfz.jpg" data-holder-rendered="true">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">南家三姐妹</h4>
+                                尽管每一季的画风都不一样，但仍然是常盛不衰的吐槽系日常动画。在工作的时候补着看，领导惊呼“这都没看过！”。最喜欢胆大心细(?)的二傻，希望还有续集。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ac-container">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="http://bangumi.tv/subject/37897">
+                                    <img alt="64x64" class="media-object" style="width: 84px; height: 106px;" src="http://lain.bgm.tv/pic/cover/s/93/b0/37897_gjhU7.jpg" data-holder-rendered="true">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">女子落语</h4>
+                                看出日本特定人群的精神状态，对传统文化的矜持、对不景气的戏谑，哪怕很沉重的话题也能玩起来，同时也值得我们警醒和反思。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ac-container">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="http://bangumi.tv/subject/80442">
+                                    <img alt="64x64" class="media-object" style="width: 84px; height: 106px;" src="http://lain.bgm.tv/pic/cover/s/dc/cd/91987_TUDvv.jpg" data-holder-rendered="true">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">摸索吧！部活剧</h4>
+                                声优聊天，很新鲜的模式。刚开始是在去瑞士的火车上看的，彻底被OP雷到了，接着彻底被画面雷到了，想着下了个雷作该怎么办却越看越起劲了。后来声优也越来越熟，话题也越来越大胆，节操掉光光。不会有续作了，欧派梗把监督玩怒走人了。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ac-container">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="http://bangumi.tv/subject/2585">
+                                    <img alt="64x64" class="media-object" style="width: 84px; height: 106px;" src="http://lain.bgm.tv/pic/cover/s/36/e7/2585_bXs9U.jpg" data-holder-rendered="true">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">某科学的超电磁炮</h4>
+                                著名的炮姐，著名的fripSide，刚入坑的时候大家都会看一下吧？什么时候有续集？贩卖机修好了没？
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ac-container">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="http://bangumi.tv/subject/10844">
+                                    <img alt="64x64" class="media-object" style="width: 84px; height: 106px;" src="http://lain.bgm.tv/pic/cover/s/43/d9/14588_bDB2r.jpg" data-holder-rendered="true">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">摇曳百合</h4>
+                                著名百合动画，樱kiss对心脏不好，还是有噜有力比较适合我。虽然主角是&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;，但一如既往地喜欢吐槽角色。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ac-container">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="http://bangumi.tv/subject/72266">
+                                    <img alt="64x64" class="media-object" style="width: 84px; height: 106px;" src="http://lain.bgm.tv/pic/cover/s/76/f3/72266_p0Nxo.jpg" data-holder-rendered="true">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">少女与战车</h4>
+                                不是军宅但我仍然力荐。在废校危机这种级别的设定下，仍然能作出和STRIKE WITCHES一样扣人心弦的动画，而且轻松有趣的地方也恰到好处。看过Anitama翻译的访谈，能感受到制作团队对动画甚至对生活的热爱。（而且还可以开开地图炮
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ac-container">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="http://bangumi.tv/subject/10380">
+                                    <img alt="64x64" class="media-object" style="width: 84px; height: 106px;" src="http://lain.bgm.tv/pic/cover/s/a9/79/10380_HrKrm.jpg" data-holder-rendered="true">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">Steins;Gate</h4>
+                                El Psy Congroo , 本身也是一部神作，科幻迷应该会喜欢，不过整体氛围太压抑，看着比较累。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ac-container">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="http://bangumi.tv/subject/37785">
+                                    <img alt="64x64" class="media-object" style="width: 84px; height: 106px;" src="http://lain.bgm.tv/pic/cover/s/9a/64/37785_aBBEd.jpg" data-holder-rendered="true">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">自新世界</h4>
+                                人类自相残杀的故事。科幻神作，反乌托邦，据说小说更棒，不太习惯致郁作品。
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </div>
     </div>
-
-
-
-    <div class="row" infinite-scroll-distance="1" infinite-scroll="vm.loadMore()">
-        <div class="col s12" style="padding: 0" ng-repeat="b in vm.baladeurList track by b._id">
-            <div class="card big hoverable" style="padding-bottom: 25px">
-            <div style="max-height:400px;overflow:hidden"
-                 class="card-image">
-                <img ng-src="{{b.image[0]}}"/>
-                <span class="card-title">{{b.artist + ' - ' + b.title + ' | ' + b.genre}}</span>
-
-            </div>
-
-                <div class="progress">
-                    <div class="determinate {{b.style}}" style="width: {{b.express === 2 ? 100 : (b.express+1) * 30}}%"></div>
-                </div>
-                <music-player ng-model="b.ids" play-config="vm.playConfig"></music-player>
-
-                <div class="card-content">
-                    <p ng-show="b.showContent" markdown-to-html="b.description"></p>
-
-                    <div style="margin-right: 0px;margin-top:0px;padding-top:0px" class="right clickable btn-primary btn" ng-click="b.showContent = !b.showContent">
-                        {{b.showContent ? 'Hide Comments' : 'Expand Comments'}}
-                    </div>
-                        <div ng-if="vm.isAdmin" class="btn btn-primary" href='#addSong' ng-click="vm.edit(b)" modal>edit</div>
-                </div>
-
-
-            </div>
-    </div>
-</div>
-
 
 </div>
