@@ -1,11 +1,6 @@
 <div class="testimonials-main">
 
     <div class="testimonials-block" style="width:100%" ng-if="!vm.deleted">
-        <div class="row" align="right">
-            <button type="button" class="btn btn-default btn-xs" ng-if="vm.isAdmin" ng-click="vm.deleteBeats()">Delete</button>
-            <button type="button" class="btn btn-default btn-xs" ng-if="vm.isAdmin" ng-click="vm.modifyBeats()" href='#composeBeats' modal>Modify</button>
-            <button type="button" class="btn btn-pioneer btn-xs" data-toggle="modal" data-target="#comment" ng-click="vm.comment()">Comment</button>
-        </div>
         <jc-card-content></jc-card-content>
         <jc-card-control ng-if="!vm.hideCtrl"></jc-card-control>
     </div>

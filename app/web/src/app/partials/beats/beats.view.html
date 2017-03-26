@@ -1,56 +1,21 @@
 <div class="row">
 
-    <!--
-    <div class="wrapper-date-nav" pushpin pushpin-top="64">
-        <jc-sub-nav
-                jc-sections="vm.tabs"
-                jc-active="vm.currentSelectedTab"
-                jc-settings="vm.jcSubNavSettings">
-        </jc-sub-nav>
-    </div>
-    -->
-    <!--
-    <nav class="top-nav cyan" style="margin-bottom: 15px">
-        <div class="container">
-            <div class="nav-wrapper row">
-                <a class="page-title col l9 m9 hide-on-small-only ">
-                    <span class="titre">Métro-boulot-dodo</span>
-
-                </a>
-                <div class="page-title col s12 l3 m3 right" style="height: 122px;padding-right: 0px;padding-left: 0px;">
-                    <a>
-                        &nbsp;
-                        <span class="hide-on-med-and-up titre">
-                        地铁-干活-睡觉
-                        </span>
-                    </a>
-
-                    <div class="row valign-wrapper" style="margin-bottom: 10px;line-height: 10px;margin-right: 0px">
-                        <small class="col s1 valign" style="margin-right: 12px">HP</small>
-                        <div class="progress col s11 valign" style="height: 12px">
-                            <div class="determinate cyan lighten-4" style="width: 30%;height: 12px">
-                            </div>
-                        </div>
+    <div class="container-color-two" style="padding: 50px">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="promo-block">
+                    <div class="page-in-name">造句</div>
+                    <div class="page-in-bread">A Rush of Blood to the Head
+                        <button ng-if="vm.isAdmin" class="btn btn-default" data-toggle="modal" data-target="#compose" href='#compose' ng-click="vm.clearCurrentBeat()">
+                            <i class="icon-basic-sheet-pencil"></i>
+                        </button>
                     </div>
-                    <div class="row valign-wrapper" style="margin-bottom: 0;line-height: 10px;margin-right: 0px">
-                        <small class="col s1 valign" style="margin-right: 12px">MP</small>
-                        <div class="progress col s11 valign" style="height: 12px">
-                            <div class="determinate cyan lighten-4" style="width: 20%;height: 12px"></div>
-                        </div>
-                    </div>
-                    <small class="valign-wrapper right"  style="margin-bottom: 0;margin-top:10px;line-height: 10px;">
-                        MAJ le 30/07/16
-                    </small>
                 </div>
             </div>
         </div>
-    </nav>
-    -->
 
-    <!--
-    <div ng-class="vm.customRefreshEnabled? 'col s12 m8 l8' : 'col s12 m12 l12'">
-    -->
-    <div class="container-color-two" style="padding: 50px">
+        <div class="promo-border marg50"></div>
+
         <jc-masonry-cards
                 jc-custom-refresh="vm.pushBeatsPaginated"
                 jc-custom-refresh-enabled="vm.customRefreshEnabled"
@@ -59,100 +24,63 @@
                 jc-data="vm.selectedBeats.beats">
         </jc-masonry-cards>
     </div>
-    <!-- FAB -->
-    <div class="fixed-action-btn horizontal">
-        <a class="btn-floating btn-large" ng-click="vm.scrollTop()">
-            <i class="material-icons">publish</i></a>
 
-        <ul>
-            <li>
-                <a ng-if="vm.isAdmin" class="btn-floating" href='#composeBeats' ng-click="vm.clearCurrentBeat()"modal>
-                    <i class="material-icons">mode_edit</i>
-                </a>
-            </li>
-        </ul>
-    </div>
 
     <!-- Modal Structure -->
-    <div id="composeBeats" class="modal">
+    <div id="compose" class="modal container marg75">
         <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Compose</h4>
+            </div>
+
+
+            <textarea id="new-beat" ng-model="vm.newBeat.text" placeholder="Contents goes here" class="input-cont-textarea" style="min-height:15rem;position:relative"/>
+
             <div flow-init
                  flow-files-submitted="vm.upload( $files, $event, $flow )"
                  flow-file-success="$file.msg = $message"
                  class="pull-right">
                 <input type="checkbox" ng-model="vm.newBeat.featured" class="filled-in" id="feature-box" checked="checked"/>
                 <label for="feature-box">Featured</label>
-                <button class="modal-action btn btn-default btn-lg" flow-btn>Images({{vm.newBeat.image.length}})</button>
-                <button class="modal-actionbtn btn-default btn-lg" ng-click="vm.newBeat.image=[]">KillAll</button>
-
+                <button class="modal-action btn btn-default" flow-btn>Images({{vm.newBeat.image.length}})</button>
+                <button class="modal-action btn btn-default" ng-click="vm.newBeat.image=[]">KillAll</button>
             </div>
-            <span class="card-title pink-text" style="margin-left:0px">Compose A New Beat</span>
-            <textarea id="new-beat" ng-model="vm.newBeat.text" placeholder="Contents goes here" class="materialize-textarea" style="min-height:4rem;position:relative"/>
 
-            <div class="card hoverable" ng-class="vm.newBeat.content.featured? 'light-blue darken-1' : 'red lighten-2'">
-
-                <div class="grid">
-                    <div ng-if="vm.newBeat.image.length" class="card-image" ng-repeat="url in vm.newBeat.image track by $index">
-                        <div class="progress" ng-if="!vm.hideProgress">
-                            <div class="indeterminate"></div>
-                        </div>
-                        <img materialboxed class="materialboxed" ng-src="{{url}}" class="grid-img"></img>
-                    </div>
-                    <div class="card-content white-text">
-    <span ng-if="vm.newBeat.content.title" class="card-title">
-      <span>{{vm.newBeat.title}}</span>
-    </span>
-                        <div>
-                            <pre>{{vm.newBeat.text}}</pre>
-                        </div>
-                        <div class="left-align" ng-class="vm.newBeat.content.featured? 'yellow-text' : 'white-text'">
-                            <span>{{vm.newBeat.time}}</span>
-                        </div>
-                        <div class="yellow-text right-align" ng-if="vm.newBeat.content.featured">
-                            ★Featured
-                        </div>
-                    </div>
+            <div ng-repeat="tag in vm.newBeat.tags" class="chip">
+                <div class="chip white-text {{tag.class}}">
+                    {{tag.name}}
                 </div>
+                <i class="material-icons" ng-click="vm.deleteTag(tag)" >close</i>
+                <i class="clickable" ng-click="vm.modifyTag(tag)">edit</i>
             </div>
-
-        </div>
-
-
-
-        <div ng-repeat="tag in vm.newBeat.tags" class="chip">
-            <div class="chip white-text {{tag.class}}">
-                {{tag.name}}
-            </div>
-            <i class="material-icons" ng-click="vm.deleteTag(tag)" >close</i>
-            <i class="clickable" ng-click="vm.modifyTag(tag)">edit</i>
-        </div>
-        <div class="modal-footer row">
             <div class="col s8">
-                <input style="width:150px" ng-model="vm.newTag.name"/>
-                <input style="width:150px" ng-model="vm.newTag.class"/>
-                <span class="btn" ng-click="vm.addTag()">Add Tag</span>
+                <input class="input-cont-textarea" style="width:150px" ng-model="vm.newTag.name"/>
+                <input class="input-cont-textarea" style="width:150px" ng-model="vm.newTag.class"/>
+                <button class="btn btn-default" ng-click="vm.addTag()">Add Tag</button>
             </div>
-            <a class="modal-action modal-close waves-effect waves-green btn-flat clickable" ng-click="vm.submitBeat()">Submit</a>
-            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Abandon</a>
+            <button data-dismiss="modal" class="btn btn-pioneer" ng-click="vm.submitBeat()">Submit</button>
+            <button data-dismiss="modal" href="#!" class=" btn btn-pioneer-dark">Abandon</button>
+
         </div>
 
     </div>
 
 </div>
 
-        <div id="comment" class="modal">
-            <div class="modal-content">
+<!--评论框-->
+        <div id="comment" class="modal marg75">
+            <div class="modal-content container">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Modal Header</h4>
+                    <h4 class="modal-title">Comment</h4>
                 </div>
 
-                <p class="text_cont"><textarea name="message" ng-model="vm.newComment.body" placeholder="Message" id="message" class="input-cont-textarea" cols="40" rows="10"></textarea></p>
+                <textarea name="message" ng-model="vm.newComment.body" placeholder="Message" id="message" class="input-cont-textarea" cols="40" rows="10"></textarea>
 
-                <button ng-class="vm.newComment.body ? 'enabled' : 'disabled'" class="btn btn-default btn-lg" ng-click="vm.submitComment()" data-dismiss="modal">SEND!</button>
+                <button ng-class="vm.newComment.body ? 'enabled' : 'disabled'" class="btn btn-pioneer" ng-click="vm.submitComment()" data-dismiss="modal" style="margin-bottom: 20px">SEND!</button>
                 <div ng-if="!vm.isUser" data-dismiss="modal" ng-click="vm.login()" >可以匿名评论泥萌就不注册，都快变匿名版了QAQ -><button class="btn btn-pioneer modal-action modal-close"> 这就去注册！</button> </div>
 
 
             </div>
         </div>
-</div>

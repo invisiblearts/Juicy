@@ -1,6 +1,11 @@
-
+<div align="right" style="bottom:60px;position:relative">
+    <button type="button" class="btn btn-default btn-xs" ng-if="vm.isAdmin" ng-click="vm.deleteBeats()">Delete</button>
+    <button type="button" class="btn btn-default btn-xs" ng-if="vm.isAdmin" ng-click="vm.modifyBeats()" href='#compose' data-toggle="modal" data-target="#compose" >Modify</button>
+    <button type="button" class="btn btn-pioneer btn-xs" data-toggle="modal" data-target="#comment" ng-click="vm.comment()">Comment</button>
+</div>
 <div style="padding: 5px" class="testimonials-name" ng-if="vm.content.comments.length">
-    <div style="width:100%" ng-show="!vm.showAllComments" ng-repeat="c in vm.commentBrief" >
+
+    <div ng-show="!vm.showAllComments" ng-repeat="c in vm.commentBrief" >
         <!--
         <img ng-if="c.user[0] && c.user[0].avatar" ng-src="{{c.user[0].avatar}}" alt="" class="circle">
 -->

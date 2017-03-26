@@ -1,7 +1,7 @@
 (function() {
   angular.module('app', [
-  'ui.router', 'ui.materialize',
+  'ui.router',
   'app.modules', 'app.components',
-      'neteaseMusic','angular-matchheight'
+   'angular-matchheight'
 ]);
 })();

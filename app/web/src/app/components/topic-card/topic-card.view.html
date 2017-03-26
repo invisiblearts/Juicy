@@ -12,10 +12,13 @@
             <div ng-if="vm.jcTopicBrief" class="cl-blog-naz">
                 <div class="cl-blog-type"><i class="icon-basic-video"></i></div>
                 <div class="cl-blog-name" ng-click="vm.selectTopic(vm.jcTopic.title)"><a href="#">{{::vm.jcTopic.title}}</a></div>
-                <div class="cl-blog-detail">{{::vm.jcTopic.createdAt | date:"yyyy-MM-dd HH:mm:ss"}}
-                    <span ng-repeat="tag in vm.jcTopic.tags">{{tag.name+' '}} </span>
+                <div class="cl-blog-detail">
+                    <i class="icon-basic-clock" style="padding-right: 6px"></i>
+                    <span style="padding-right: 10px">{{::vm.jcTopic.createdAt | date:"yyyy-MM-dd HH:mm:ss"}}</span>
+                    <i ng-if="vm.jcTopic.tags.length" class="icon-basic-signs" style="padding-right: 6px"></i>
+                    <span ng-repeat="tag in ::vm.jcTopic.tags">{{::tag.name}} </span>
                 </div>
-                <div ng-if="vm.jcTopicBrief" class="cl-blog-text">{{::vm.jcTopic.summary}} </div>
+                <h4 ng-if="vm.jcTopicBrief" class="cl-blog-text title-light">{{::vm.jcTopic.summary}} </h4>
             </div>
 
             <div ng-if="!vm.jcTopicBrief" class="cl-blog-text" ng-bind-html="vm.jcTopic.html"></div>
@@ -31,13 +34,13 @@
                 <div ng-if="vm.jcTopicShare" ng-click="vm.share()" class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                     <div class="soc-blog-single">
                         <ul class="soc-blog">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <button class="btn btn-pioneer btn-large"><a href="#"><i class="fa fa-weibo"></i> &nbsp; Share To Weibo</a></button>
                         </ul>
                     </div>
                 </div>
             </div>
             <div ng-if="vm.jcTopicBrief">
-            <div class="cl-blog-read"><a ng-click="vm.selectTopic(vm.jcTopic.title)" href="#">Read More</a></div>
+            <div class="cl-blog-read" style="margin-right: 20px"><a ng-click="vm.selectTopic(vm.jcTopic.title)" href="#">Read More</a></div>
             <div class="cl-blog-read"><a ng-if="vm.isAdmin" ng-click="vm.editTopic(vm.jcTopic._id)" href="#">Edit</a></div>
             <div class="cl-blog-line"></div>
             </div>
