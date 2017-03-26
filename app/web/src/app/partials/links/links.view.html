@@ -18,10 +18,10 @@
                         <div class="testimonials-desc">
                             <button class="btn btn-default" ng-click="vm.modify(link)">Modify</button>
                             <button ng-click="vm.del(link)" class="btn btn-default">Delete</button>
-                            <h4>{{::link.description}}</h4>
+                            <h4 class="title-light">{{::link.description}}</h4>
                         </div>
                         <div class="testimonials-name" ng-click="vm.open(link.href)">
-                            <h4 class="title-bold">{{::link.title}}</h4> - {{::link.alias}}
+                            <h4>{{::link.title}}</h4> - {{::link.alias}}
                         </div>
                     </div>
                     <div class="testimonials-photo">

@@ -39,11 +39,15 @@
                 <img materialboxed class="materialboxed" ng-src="{{::url}}" class="grid-img" />
                 -->
                 <div class="post-thumbnail" style="max-height: 400px">
+                    <!--
                     <div class="single-item"></div>
                     <div class="single-action">
                         <span><a href="#"><i class="simple-software-pen"></i></a></span>
                     </div>
-                    <img ng-src="{{::url}}" alt="">
+                    -->
+                    <a id="img" href="{{::url + '.jpg'}}"  lightboxed>
+                        <img ng-src="{{::url+ '.jpg'}}" alt="">
+                    </a>
                 </div>
             </div>
             <h3 class="title-light">{{::vm.content.text}}</h3></div>

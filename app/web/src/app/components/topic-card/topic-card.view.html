@@ -1,15 +1,29 @@
-<div>
+<div style="margin-top:60px">
 
 
+
+
+    <!--
         <div ng-if="vm.jcTopicBrief" class="card-image waves-effect waves-block waves-light">
             <img class="activator" ng-src="{{::vm.jcTopic.thumbnail}}"/>
         </div>
-
+-->
         <div class="classic-blog">
             <!--
             <div class="cl-blog-video"><iframe src="http://player.vimeo.com/video/84759655?title=0&amp;byline=0&amp;portrait=0&amp;color=00c0e1" width="100%" height="741" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>
             -->
             <div ng-if="vm.jcTopicBrief" class="cl-blog-naz">
+                <div ng-if="vm.jcTopic.thumbnail" class="post-thumbnail" style="max-height: 400px">
+                    <!--
+                    <div class="single-item"></div>
+                    <div class="single-action">
+                        <span><a href="#"><i class="simple-software-pen"></i></a></span>
+                    </div>
+                    -->
+                    <a id="img" href="{{::vm.jcTopic.thumbnail + '.jpg'}}"  lightboxed>
+                        <img ng-src="{{::vm.jcTopic.thumbnail + '.jpg'}}" alt="">
+                    </a>
+                </div>
                 <div class="cl-blog-type"><i class="icon-basic-video"></i></div>
                 <div class="cl-blog-name" ng-click="vm.selectTopic(vm.jcTopic.title)"><a href="#">{{::vm.jcTopic.title}}</a></div>
                 <div class="cl-blog-detail">
