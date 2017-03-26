@@ -6,7 +6,7 @@ function navConfig(jcNavProvider, appServiceProvider) {
   if (appServiceProvider.$get().isAdmin()) {
     jcNavProvider.$get().addMenu(
       [
-        {title: 'Compose', state: 'compose', order: 13}
+        {title: '写文', state: 'compose', order: 2}
       ]
     );
   }

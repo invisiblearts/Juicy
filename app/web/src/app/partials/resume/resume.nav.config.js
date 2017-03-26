@@ -5,7 +5,7 @@
 function navConfig(jcNavProvider) {
   jcNavProvider.$get().addMenu(
     [
-      {title: 'Resume', state: 'resume', order: 14}
+      {title: '自述', state: 'resume', order: 14}
     ]
   );
 

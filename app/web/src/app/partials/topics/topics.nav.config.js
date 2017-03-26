@@ -5,7 +5,7 @@
 function navConfig(jcNavProvider) {
   jcNavProvider.$get().addMenu(
     [
-      {title: 'Topics', state: 'topics', order: 5}
+      {title: '作文', state: 'topics', order: 13}
     ]
   );
 

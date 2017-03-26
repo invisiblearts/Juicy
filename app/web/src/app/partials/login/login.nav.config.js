@@ -5,7 +5,7 @@
 function navConfig(jcNavProvider, appServiceProvider) {
     jcNavProvider.$get().addMenu(
       [
-        {title: 'Login', state: 'login', order: 14}
+        {title: '登录', state: 'login', order: 1}
       ]
     );
 }

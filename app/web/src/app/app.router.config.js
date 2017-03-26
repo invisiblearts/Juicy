@@ -4,22 +4,17 @@
 function routeProvider($stateProvider,$locationProvider,$urlRouterProvider) {
   $locationProvider.html5Mode({ enabled: true});
 
-  $urlRouterProvider.otherwise("beats");
+  $urlRouterProvider.otherwise("tweets");
 
-  $stateProvider.state('beats', {
-    url: '/beats',
+  $stateProvider.state('tweets', {
+    url: '/tweets',
     templateUrl: 'partials/beats/beats.view.html',
     controller: 'beatsCtrl',
     controllerAs: 'vm'
-  }).state('beats.specified', {
+  }).state('tweets.specified', {
     url: '/month/:month',
     templateUrl: 'partials/beats/beats.view.html',
     controller: 'beatsCtrl',
-    controllerAs: 'vm'
-  }).state('about', {
-    url: '/about',
-    templateUrl: 'partials/about/about.view.html',
-    controller: 'aboutCtrl',
     controllerAs: 'vm'
   }).state('compose', {
     url: '/compose',
