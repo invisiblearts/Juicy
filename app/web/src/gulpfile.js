@@ -17,7 +17,7 @@ var cleanCSS = require('gulp-clean-css');
 
 // Dev task
 //gulp.task('dev', ['views', 'styles', 'lint', 'browserify', 'watch'], function() {});
-gulp.task('default', ['appjs','vendorjs','minify-css','views'], function() {});
+gulp.task('default', ['appjs','vendorjs','minify-css','minify-css2','views'], function() {});
 
 gulp.task('appjs', function () {
   return gulp.src(['app/*.module.js','app/*.js','app/**/*.module.js','app/**/*.js'])
@@ -33,7 +33,6 @@ gulp.task('appjs', function () {
 gulp.task('vendorjs', function () {
   return gulp.src([
     'node_modules/jquery/dist/jquery.js',
-    'node_modules/materialize-css/dist/js/materialize.js',
     'node_modules/angular/angular.js',
     'node_modules/angular-jwt/dist/angular-jwt.js',
     'node_modules/showdown/dist/showdown.js',
@@ -44,9 +43,10 @@ gulp.task('vendorjs', function () {
     'node_modules/angular-ui-router/release/angular-ui-router.js',
     'libs/angulargrid.js',
     'node_modules/ng-infinite-scroll/build/ng-infinite-scroll.js',
-    'libs/angular-materialize.js',
       'libs/ne-music.js',
-    'libs/angular-matchheight.js'
+    'libs/angular-matchheight.js',
+    'assets/js/nivo-lightbox.min.js',
+    'assets/js/waypoints.min.js'
 
   ])
     .pipe(concat('vendor.js'))
@@ -74,8 +74,17 @@ gulp.task('vendorjs', function () {
 });
 
 gulp.task('minify-css', function() {
-  return gulp.src(['app/styles/*.css'])
-    .pipe(cleanCSS({compatibility: 'ie8'}))
+
+  return gulp.src(['assets/css/layouts/default.css','assets/css/responsive.css','assets/css/nivo-lightbox.css'])
+    .pipe(concat('app.css'))
+    .pipe(cleanCSS({compatibility: 'ie8',processImport:true}))
+    .pipe(gulp.dest('../static/styles'));
+});
+
+gulp.task('minify-css2', function() {
+
+  return gulp.src(['assets/css/style.css'])
+    .pipe(cleanCSS({compatibility: 'ie8',processImport:true}))
     .pipe(gulp.dest('../static/styles'));
 });
 

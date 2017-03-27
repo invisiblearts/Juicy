@@ -1,6 +1,3 @@
-<!--
-  TODO MAJOR: Build up a compiling workflow with Gulp + Browserify
--->
 <!DOCTYPE html>
 <html lang="en" ng-app="app" ng-strict-di>
 <head>
@@ -9,20 +6,88 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <title>src.moe - POJO blogging.</title>
+    <title>src.moe</title>
     <link rel="stylesheet" href="styles/app.css">
-    <link rel="stylesheet" href="styles/am.css">
-    <link rel="stylesheet" href="styles/m.css">
+    <link rel="stylesheet" href="styles/style.css">
 
-    <link href="https://fonts.lug.ustc.edu.cn/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic,700,700italic">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700">
+
 
     <script src="vendor.js"></script>
 
     <script src="app.js"></script>
 
 </head>
-<body>
+<div>
+<div class="wrapper multi-purp">
 <jc-nav></jc-nav>
 <div id="jc-view" ui-view></div>
+
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="footer-widget">
+                    <div class="footer-title">Follow Me</div>
+                    <div class="text_footer">
+                        欢迎动画爱好者、计算机或软件技术爱好者一起互动。
+                    </div>
+                    <ul class="soc-footer">
+                        <li><a href="https://twitter.com/POJOrz"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="http://weibo.com/678687590"><i class="fa fa-weibo"></i></a></li>
+                        <li><a href="https://github.com/POJOa"><i class="fa fa-github"></i></a></li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="footer-widget">
+                    <div class="footer-title">Contact Me</div>
+                    <ul class="contact-footer contact-composer">
+                        <li><i class="icon-basic-home"></i> <span>Shanghai Normal University , Shanghai , China</span></li>
+                        <li><i class="icon-basic-smartphone"></i> <span>QQ: 978522749 | Telegram: @POJOa</span></li>
+                        <li><i class="icon-basic-mail"></i> <span>hzjdev#foxmail.com</span></li>
+                        <li><i class="icon-basic-clock"></i> <span>from 9 am to 6 pm</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="footer-widget">
+                    <div class="footer-title">Related Projects</div>
+                    <div class="tagcloud">
+                        <!--
+                        <a href="#">tags</a>
+                        <a href="#">html</a>
+                        -->
+                        Under Development
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-ms-12 pull-left">
+                    <div class="copyright">Powered By POJO </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-ms-12 pull-right">
+                    <!--
+                    <div class="foot_menu">
+                        <div class="menu-footer-menu-container">
+                            <ul>
+                                <li><a href="index.html">Home</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
 </body>
 </html>
