@@ -24,7 +24,7 @@
                         <img ng-src="{{::vm.jcTopic.thumbnail + '.jpg'}}" alt="">
                     </a>
                 </div>
-                <div class="cl-blog-type"><i class="icon-basic-video"></i></div>
+                <div class="cl-blog-type"><i class="{{::vm.jcTopic.staticType}}"></i></div>
                 <div class="cl-blog-name" ng-click="vm.selectTopic(vm.jcTopic.title)"><a href="#">{{::vm.jcTopic.title}}</a></div>
                 <div class="cl-blog-detail">
                     <i class="icon-basic-clock" style="padding-right: 6px"></i>

@@ -45,8 +45,11 @@ gulp.task('vendorjs', function () {
     'node_modules/ng-infinite-scroll/build/ng-infinite-scroll.js',
       'libs/ne-music.js',
     'libs/angular-matchheight.js',
-    'assets/js/nivo-lightbox.min.js',
-    'assets/js/waypoints.min.js'
+    'assets/js/waypoints.min.js',
+    'assets/js/bootstrap.min.js',
+    'assets/js/retina.min.js',
+    'assets/js/jquery.bxslider.min.js',
+    'assets/js/nivo-lightbox.min.js'
 
   ])
     .pipe(concat('vendor.js'))

@@ -21,7 +21,7 @@ function jcCardControl() {
 
   }
   /*@ngInject*/
-  function cardControlCtrl($scope, appEvent,appService,beatsService,angularGridInstance) {
+  function cardControlCtrl($scope, appEvent,appService,beatsService,angularGridInstance,$state) {
     var vm = this;
     vm.deleteBeats = deleteBeats;
     vm.modifyBeats = modifyBeats;
@@ -64,7 +64,11 @@ function jcCardControl() {
     }
 
     function comment() {
-      appEvent.publish('comment', vm.content);
+      if(vm.isUser) {
+        appEvent.publish('comment', vm.content);
+      }else{
+        $state.go("login");
+      }
     }
 
     function submitComment(){

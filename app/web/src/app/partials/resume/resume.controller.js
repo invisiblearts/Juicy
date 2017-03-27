@@ -15,7 +15,7 @@ function resumeCtrl($scope, $http, $state, $document, appEvent,appService, topic
   /////////
 
   function init() {
-    topicsService.findOneByStaticType('resume').success(res=>{
+    topicsService.findOneByStaticType('draft').success(res=>{
       if(!res[0]){
         $state.go('beats');
       }
