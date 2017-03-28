@@ -1,4 +1,4 @@
-<div class="container-color-two">
+<div>
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -9,9 +9,11 @@
                 </div>
             </div>
         </div>
-    <div class="row marg30">
-
-        <div ng-repeat="link in vm.links track by $index" style="margin-bottom: 60px;height: 300px" class="col-lg-3 col-md-6 col-sm-6 col-xs-12 ">
+        </div>
+    <div class="container-color-two">
+        <div class="row marg30" style="padding-top: 60px;margin-bottom: 60px">
+            <div class="container">
+        <div ng-repeat="link in vm.links track by $index" style="margin-top: 30px;margin-bottom: 30px;height: 300px" class="col-lg-3 col-md-6 col-sm-6 col-xs-12 ">
             <div class="testimonials-main">
                 <div class="testimonials-block">
                     <div class="testimonials-text">
@@ -30,11 +32,14 @@
                 </div>
             </div>
         </div>
+            </div>
+        </div>
     </div>
-        <div class="promo-border marg50"></div>
 
 
     <div ng-if="vm.isAdmin" class="col s12 m8 offset-m2 l6 offset-l3">
+        <div class="promo-border marg50"></div>
+
         <div class="card {{vm.newLink.color}} z-depth-1">
             <div class="card-content">
 

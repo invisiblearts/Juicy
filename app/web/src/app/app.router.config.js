@@ -4,7 +4,7 @@
 function routeProvider($stateProvider,$locationProvider,$urlRouterProvider) {
   $locationProvider.html5Mode({ enabled: true});
 
-  $urlRouterProvider.otherwise("tweets");
+  $urlRouterProvider.otherwise("resume");
 
   $stateProvider.state('tweets', {
     url: '/tweets',

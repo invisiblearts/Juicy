@@ -3,7 +3,7 @@
         .controller('baladeurCtrl', baladeurCtrl);
 
     function baladeurCtrl($scope, $http, $state, $window,$document, appEvent, appService,baladeurService, jwtHelper, beatsService) {
-
+/*
         var vm = this;
         window.alert = null;
         vm.playConfig={
@@ -59,7 +59,7 @@
 
         init();
         $scope.$watch('vm.settings',reinit,true);
-
+*/
         ///////////////////
 
         function init(){

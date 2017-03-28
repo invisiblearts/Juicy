@@ -15,12 +15,14 @@ function resumeCtrl($scope, $http, $state, $document, appEvent,appService, topic
   /////////
 
   function init() {
+    /*
     topicsService.findOneByStaticType('draft').success(res=>{
       if(!res[0]){
         $state.go('beats');
       }
       vm.topicData = res[0]
     });
+    */
   }
 
   function handleEditTopic(event, id) {
