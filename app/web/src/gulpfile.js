@@ -5,6 +5,10 @@ var gulp = require('gulp'),
   source = require('vinyl-source-stream'),
   browserify = require('browserify'),
   concat = require('gulp-concat'),
+  concatCss = require('gulp-concat-css'),
+  stripCss = require('gulp-strip-css-comments'),
+  cssMin = require('gulp-cssmin'),
+
   autoprefixer = require('gulp-autoprefixer'),
   nodemon = require('gulp-nodemon');
 var ngAnnotate = require('gulp-ng-annotate');
@@ -17,7 +21,7 @@ var cleanCSS = require('gulp-clean-css');
 
 // Dev task
 //gulp.task('dev', ['views', 'styles', 'lint', 'browserify', 'watch'], function() {});
-gulp.task('default', ['appjs','vendorjs','minify-css','minify-css2','views'], function() {});
+gulp.task('default', ['appjs','vendorjs','minify-css','views'], function() {});
 
 gulp.task('appjs', function () {
   return gulp.src(['app/*.module.js','app/*.js','app/**/*.module.js','app/**/*.js'])
@@ -78,18 +82,12 @@ gulp.task('vendorjs', function () {
 
 gulp.task('minify-css', function() {
 
-  return gulp.src(['assets/css/layouts/default.css','assets/css/responsive.css','assets/css/nivo-lightbox.css'])
-    .pipe(concat('app.css'))
-    .pipe(cleanCSS({compatibility: 'ie8',processImport:true}))
+  return gulp.src(['assets/css/style.css','assets/css/responsive.css','assets/css/nivo-lightbox.css'])
+    .pipe(concatCss('bundle.css'))
+    .pipe(cssMin())
     .pipe(gulp.dest('../static/styles'));
 });
 
-gulp.task('minify-css2', function() {
-
-  return gulp.src(['assets/css/style.css'])
-    .pipe(cleanCSS({compatibility: 'ie8',processImport:true}))
-    .pipe(gulp.dest('../static/styles'));
-});
 
 // JSLint task
 gulp.task('lint', function() {

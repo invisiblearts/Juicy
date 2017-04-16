@@ -22,8 +22,8 @@
                             <button ng-if="vm.isAdmin" ng-click="vm.del(link)" class="btn btn-default">Delete</button>
                             <h4 class="title-light">{{::link.description}}</h4>
                         </div>
-                        <div ng-click="vm.open(link.href)" class="testimonials-name clickable" ng-click="vm.open(link.href)">
-                            <h4>{{::link.title}}</h4> - {{::link.alias}}
+                        <div ng-click="vm.open(link.href)" class="testimonials-name clickable"">
+                            <h4>{{::link.title}}</h4> <br> <a ng-href="{{::link.href}}">{{::link.alias}}</a>
                         </div>
                     </div>
                     <div ng-click="vm.open(link.href)" class="testimonials-photo clickable">
@@ -40,8 +40,8 @@
     <div ng-if="vm.isAdmin" class="col s12 m8 offset-m2 l6 offset-l3">
         <div class="promo-border marg50"></div>
 
-        <div class="card {{vm.newLink.color}} z-depth-1">
-            <div class="card-content">
+        <div class="container">
+            <div class="row">
 
                 <input type="text" name="name" placeholder="Name" class="input-cont-textarea" ng-model="vm.newLink.title">
 
@@ -52,20 +52,20 @@
                             flow-file-success="$file.msg = $message"
                             flow-btn
                             class="col s2 clickable">
-                        <img ng-src="{{vm.newLink.img}}" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+                        <img ng-src="{{vm.newLink.img}}" alt="" class="circle responsive-img">
                     </div>
                     <div class="col s10">
                         <input type="text" name="name" placeholder="Name" class="input-cont-textarea" ng-model="vm.newLink.description">
                         <input type="text" name="name" placeholder="Name" class="input-cont-textarea" ng-model="vm.newLink.alias">
-
                     </div>
+                    <input type="text" name="name" placeholder="Name" class="input-cont-textarea" ng-model="vm.newLink.color">
+                    <input type="text" name="name" placeholder="Name" class="input-cont-textarea" ng-model="vm.newLink.href">
+                    <button class="btn-pioneer btn" ng-click="vm.submit()">Submit</button>
                 </div>
             </div>
 
         </div>
-        <input type="text" name="name" placeholder="Name" class="input-cont-textarea" ng-model="vm.newLink.color">
-        <input type="text" name="name" placeholder="Name" class="input-cont-textarea" ng-model="vm.newLink.href">
-        <button class="btn-pioneer btn" ng-click="vm.submit()">Submit</button>
+
     </div>
     </div>
 </div>

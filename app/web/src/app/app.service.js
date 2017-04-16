@@ -13,7 +13,7 @@ function appService(jwtHelper, $http,APP_CONST,$q) {
   return service;
 
   function uploadImage(img) {
-    return $http.post('http://x.mouto.org/wb/x.php?up', img);
+    return $http.post('https://x.mouto.org/wb/x.php?up', img);
   }
 
   function isAdmin() {

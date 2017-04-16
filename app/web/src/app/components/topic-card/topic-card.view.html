@@ -1,31 +1,13 @@
 <div style="margin-top:60px">
-
-
-
-
-    <!--
-        <div ng-if="vm.jcTopicBrief" class="card-image waves-effect waves-block waves-light">
-            <img class="activator" ng-src="{{::vm.jcTopic.thumbnail}}"/>
-        </div>
--->
         <div class="classic-blog">
-            <!--
-            <div class="cl-blog-video"><iframe src="http://player.vimeo.com/video/84759655?title=0&amp;byline=0&amp;portrait=0&amp;color=00c0e1" width="100%" height="741" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>
-            -->
             <div ng-if="vm.jcTopicBrief" class="cl-blog-naz">
                 <div ng-if="vm.jcTopic.thumbnail" class="post-thumbnail" style="max-height: 1440px">
-                    <!--
-                    <div class="single-item"></div>
-                    <div class="single-action">
-                        <span><a href="#"><i class="simple-software-pen"></i></a></span>
-                    </div>
-                    -->
                     <a id="img" href="{{::vm.jcTopic.thumbnail + '.jpg'}}"  lightboxed>
                         <img ng-src="{{::vm.jcTopic.thumbnail + '.jpg'}}" alt="">
                     </a>
                 </div>
                 <div class="cl-blog-type"><i class="{{::vm.jcTopic.staticType}}"></i></div>
-                <div class="cl-blog-name" ng-click="vm.selectTopic(vm.jcTopic.title)"><a href="#">{{::vm.jcTopic.title}}</a></div>
+                <div class="cl-blog-name" ng-click="vm.selectTopic(vm.jcTopic.title)"><a ng-href="topics/{{::vm.jcTopic.title}}.html">{{::vm.jcTopic.title}}</a></div>
                 <div class="cl-blog-detail">
                     <i class="icon-basic-clock" style="padding-right: 6px"></i>
                     <span style="padding-right: 10px">{{::vm.jcTopic.createdAt | date:"yyyy-MM-dd HH:mm:ss"}}</span>
@@ -33,6 +15,12 @@
                     <span ng-repeat="tag in ::vm.jcTopic.tags">{{::tag.name}} </span>
                 </div>
                 <h4 ng-if="vm.jcTopicBrief" class="cl-blog-text title-light">{{::vm.jcTopic.summary}} </h4>
+            </div>
+
+            <div ng-if="vm.jcTopicBrief">
+                <div class="cl-blog-read" style="margin-right: 20px"><a ng-click="vm.selectTopic(vm.jcTopic._id)" ng-href="topics/{{::vm.jcTopic._id}}.html">Read More</a></div>
+                <div ng-if="vm.isAdmin" class="cl-blog-read"><a ng-click="vm.editTopic(vm.jcTopic._id)" href="#">Edit</a></div>
+                <div class="cl-blog-line"></div>
             </div>
 
             <div ng-if="!vm.jcTopicBrief" class="cl-blog-text" ng-bind-html="vm.jcTopic.html"></div>
@@ -53,55 +41,19 @@
                     </div>
                 </div>
             </div>
-            <div ng-if="vm.jcTopicBrief">
-            <div class="cl-blog-read" style="margin-right: 20px"><a ng-click="vm.selectTopic(vm.jcTopic.title)" href="#">Read More</a></div>
-            <div class="cl-blog-read"><a ng-if="vm.isAdmin" ng-click="vm.editTopic(vm.jcTopic._id)" href="#">Edit</a></div>
-            <div class="cl-blog-line"></div>
-            </div>
         </div>
-        <!--
-        <div class="card-content" ng-class="!vm.jcTopic.featured || !vm.jcTopicBrief? 'black-text':'white-text'">
-            <div class="right">
-                <a ng-if="vm.isAdmin" ng-click="vm.editTopic(vm.jcTopic._id)" class="modal-action waves-effect waves-green btn clickable">Edit</a>
-            </div>
-            <span class="card-title activator" ng-class="!vm.jcTopic.featured || !vm.jcTopicBrief? 'cyan-text':'yellow-text'" style="margin-left:0">{{::vm.jcTopic.title}}</span>
-            <p>
-                <span>{{::vm.jcTopic.createdAt | date:"yyyy-MM-dd HH:mm:ss"}}</span>
-                <div ng-repeat="tag in vm.jcTopic.tags"  class="chip white-text {{tag.class}}">
-                    {{tag.name}}
-                </div>
-            </p>
 
-            <p ng-if="vm.jcTopicBrief">{{::vm.jcTopic.summary}}</p>
-            <div ng-if="!vm.jcTopicBrief" ng-bind-html="vm.jcTopic.html"></div>
-            <a ng-if="vm.jcTopicShare" class="clickable btn" ng-click="vm.share()">
-                WEIBO SHARE
-            </a>
-        </div>
--->
     <div ng-if="vm.jcTopic.comments.length<=0" class="cl-blog-line-com"></div>
 
     <div ng-if="!vm.jcTopicBrief && vm.jcTopic.comments && vm.jcTopic.comments.length>0">
-    <h3>{{::vm.jcTopic.comments.length}} Comments on "{{::vm.jcTopic.title}}"</h3>
-        <!--
-    <div class="comment marg25">
-        <img src="assets/images/mila.png" alt="" class="img_comm">
-        <div class="comm_name">Mila Doe <span>- 7 February 2014</span></div>
-        <p class="text_cont com_top">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati sed facere numquam accusantium ratione neque nulla veniam voluptatem officiis libero eaque expedita dignissimos aliquam alias cupiditate sunt doloribus fugit.</p>
-    </div>
-    -->
+        <h3>{{::vm.jcTopic.comments.length}} Comments on "{{::vm.jcTopic.title}}"</h3>
         <div ng-repeat="c in vm.jcTopic.comments" >
-    <div class="comment" style="padding:15px 0px 15px 0px;">
-        <img ng-if="c.user[0] && c.user[0].avatar" ng-src="{{c.user[0].avatar}}" alt="" class="img_comm">
-        <div class="comm_name">{{c.user[0] ? c.user[0].username : '阿卡林'}}</div>
-        <p class="text_cont com_top">{{c.body}}</p>
-    </div>
+            <div class="comment" style="padding:15px 0px 15px 0px;">
+                <img ng-if="c.user[0] && c.user[0].avatar" ng-src="{{c.user[0].avatar}}" alt="" class="img_comm">
+                <div class="comm_name">{{c.user[0] ? c.user[0].username : '阿卡林'}}</div>
+                <p class="text_cont com_top">{{c.body}}</p>
+            </div>
             <div class="cl-blog-line-com"></div>
-
         </div>
-
     </div>
-
-
-
-    </div>
+</div>

@@ -1,32 +1,4 @@
 <div>
-    <!--
-    <div class="top_block">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-7 col-sm-7 col-xs-6 pull-left">
-                    <div class="contant-top-block">
-                        <ul class="contact-top">
-                            <li><i class="icon-basic-home"></i> 上海市 浦东新区</li>
-                            <li><i class="icon-basic-smartphone"></i> +86 18516529428</li>
-                            <li><i class="icon-basic-mail" style="top: 5px;"></i> hzjdev@foxmail.com</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-5 col-sm-5 col-xs-6 pull-right">
-                    <ul class="social-links">
-                        <li><a href="#"><i class="ti-twitter"></i></a></li>
-                        <li><a href="#"><i class="ti-tumblr"></i></a></li>
-                        <li><a href="#"><i class="ti-dropbox"></i></a></li>
-                        <li><a href="#"><i class="ti-dribbble"></i></a></li>
-                        <li><a href="#"><i class="ti-apple"></i></a></li>
-                        <li><a href="#"><i class="ti-vimeo"></i></a></li>
-                        <li><a href="#"><i class="ti-instagram"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    -->
     <header>
         <div class="page_head classic-vers">
             <div sticky id="nav-container" class="nav-container" style="height: auto;">
@@ -36,9 +8,6 @@
                             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 pull-left">
                                 <div class="logo">
                                     <a href="index.html">
-                                        <!--
-                                        <img class="pull-left" src="assets/images/logo.png" alt="Logo">
-                                        -->
                                         <span class="pull-left logo-text classic-vers">src.moe</span>
                                     </a>
                                 </div>
@@ -49,21 +18,9 @@
                                     <div class="navbar-collapse collapse">
                                         <div class="menu-main-menu-container">
                                             <ul>
-                                                <li ng-repeat="nav in vm.navs" ng-class="nav.state === vm.state.current.name? 'current-menu-item': angular.noop">
-                                                    <a href="#" ng-click="vm.gotoState(nav.state)">{{::nav.title}}</a>
-                                                    <!--
-                                                    <ul class="sub-menu">
-                                                        <li><a href="index.html">Corporate Layout</a></li>
-                                                        <li><a href="index-business.html">Business Layout</a></li>
-                                                        <li><a href="index-agency.html">Agency Layout</a></li>
-                                                        <li><a href="index-minimal.html">Minimal Layout</a></li>
-                                                        <li><a href="index-boxed.html">Boxed Version</a></li>
-                                                    </ul>
-                                                    -->
+                                                <li ng-click="vm.gotoState(nav.state)" data-toggle="collapse" data-target=".navbar-collapse" ng-repeat="nav in vm.navs" ng-class="nav.state === vm.state.current.name? 'current-menu-item': angular.noop">
+                                                    <a ng-href="{{::nav.state}}.html">{{::nav.title}}</a>
                                                 </li>
-
-
-
                                             </ul>
                                         </div>
                                     </div>
@@ -75,30 +32,4 @@
             </div>
         </div>
     </header>
-<!--
-<nav class="card white cyan-text" style="margin: 0px;">
-    <div class="container">
-        <div class="nav-wrapper cyan-text text-darken-1">
-            <a href="/" class="brand-logo left clickable pink-text">
-                {{::vm.appTitle}}
-            </a>
-            <a class="button-collapse right clickable cyan-text" data-activates="nav-mobile" data-sidenav="right" data-menuwidth="300" data-closeonclick="true">
-                Menu
-            </a>
-            <ul class="right hide-on-med-and-down">
-                <li class="right" ng-repeat="nav in vm.navs" ng-class="nav.state === vm.state.current.name? 'active': angular.noop" >
-                    <a class="clickable cyan-text" ng-click="vm.gotoState(nav.state)">{{::nav.title}}
-                    </a>
-                </li>
-            </ul>
-            <ul id="nav-mobile" class="side-nav">
-                <li ng-repeat="nav in vm.navs" ng-class="nav.state === vm.state.current.name? 'active': angular.noop">
-                    <a class="clickable cyan-text" ng-click="vm.gotoState(nav.state)">{{::nav.title}}
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
--->
 </div>

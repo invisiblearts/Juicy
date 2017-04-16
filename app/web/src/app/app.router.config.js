@@ -3,8 +3,17 @@
   .config(routeProvider);
 function routeProvider($stateProvider,$locationProvider,$urlRouterProvider) {
   $locationProvider.html5Mode({ enabled: true});
+  $locationProvider.hashPrefix('!');
 
   $urlRouterProvider.otherwise("resume");
+
+  $urlRouterProvider.rule(function ($injector, $location) {
+    var path = $location.path(),
+      normalized = path.replace(/.html/g, "");
+    if (path !== normalized) {
+      return normalized;
+    }
+  });
 
   $stateProvider.state('tweets', {
     url: '/tweets',

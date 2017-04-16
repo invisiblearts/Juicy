@@ -1,25 +1,7 @@
-<div class="container" id="scroll-cont" resize>
-
-    <div>
-        <!--
-    <div ng-if="winWidth > 700"
-         angular-grid="vm.displayedData"
-         ag-id="cards"
-         ag-infinite-scroll-distance="70"
-         ag-infinite-scroll="vm.loadMore()"
-         ag-performant-scroll="true"
-         ag-scroll-container="#scroll-cont"
-         ag-page-size="9"
-    >
-        <div ng-repeat="data in vm.displayedData track by data._id">
-            <jc-card jc-show-utc-cn="true" jc-content="data"></jc-card>
-        </div>
-    </div>
--->
+<div class="container" id="scroll-cont">
     <div infinite-scroll-distance="2" infinite-scroll="vm.loadMore()">
         <div ng-repeat="data in vm.displayedData track by data._id">
             <jc-card jc-show-utc-cn="true" jc-content="data" jc-hide-progress="true"></jc-card>
         </div>
-    </div>
     </div>
 </div>

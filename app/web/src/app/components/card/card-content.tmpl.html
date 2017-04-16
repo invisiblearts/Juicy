@@ -1,65 +1,18 @@
-<!--
-<div class="grid">
-    <div ng-if="vm.content.image.length" class="card-image" ng-repeat="url in ::vm.content.image track by $index" ng-init="$last && vm.content.masonryInit ? vm.refreshInit() : angular.noop()">
-        <div class="progress" ng-if="!vm.hideProgress">
-            <div class="indeterminate"></div>
-        </div>
-        <img materialboxed class="materialboxed" ng-src="{{::url}}" class="grid-img" />
-    </div>
-    <div class="card-content" style="padding-bottom: 40px">
-    <span ng-if="vm.content.title" class="card-title">
-      <span>{{::vm.content.title}}</span>
-    </span>
-        <div>
-            {{::vm.content.text}}
-        </div>
-        <div ng-repeat="tag in ::vm.content.tags"  class="chip white-text {{tag.class}}">
-            {{::tag.name}}
-        </div>
-        <div style="margin-top:20px;" ng-class="vm.content.featured? 'yellow-text': noop">
-            <span ng-class="vm.content.featured ? 'left' : 'right'">{{::vm.timeMessage}}</span>
-            <div class="yellow-text right" ng-if="vm.content.featured">
-                ★Featured
-            </div>
-        </div>
-    </div>
-</div>
--->
 <div>
-    <!--
-        <div class="blog-name"><a href="#">{{::vm.content.title}}</a></div>
-        -->
-
-        <div style="padding:10px;" class="testimonials-desc">
-            <div ng-if="vm.content.image.length" ng-repeat="url in ::vm.content.image track by $index" ng-init="$last && vm.content.masonryInit ? vm.refreshInit() : angular.noop()" class="blog-images">
-                <!--
-                <div class="progress" ng-if="!vm.hideProgress">
-                    <div class="indeterminate"></div>
-                </div>
-                <img materialboxed class="materialboxed" ng-src="{{::url}}" class="grid-img" />
-                -->
-                <div class="post-thumbnail" style="max-height: 1440px">
-                    <!--
-                    <div class="single-item"></div>
-                    <div class="single-action">
-                        <span><a href="#"><i class="simple-software-pen"></i></a></span>
-                    </div>
-                    -->
-                    <a id="img" href="{{::url + '.jpg'}}"  lightboxed>
-                        <img ng-src="{{::url+ '.jpg'}}" alt="">
-                    </a>
-                </div>
+    <div style="padding:10px;" class="testimonials-desc">
+        <div ng-if="vm.content.image.length" ng-repeat="url in ::vm.content.image track by $index" ng-init="$last && vm.content.masonryInit ? vm.refreshInit() : angular.noop()" class="blog-images">
+            <div class="post-thumbnail" style="max-height: 1440px">
+                <a id="img" href="{{::url + '.jpg'}}"  lightboxed>
+                    <img ng-src="{{::url+ '.jpg'}}" alt="">
+                </a>
             </div>
-            <h3 class="title-light">{{::vm.content.text}}</h3></div>
-
-        <div class="testimonials-name">
-                <i class="icon-basic-clock" style="padding-right: 10px"></i>
-                <h4 class="title-light" style="padding-right: 10px">{{::vm.timeMessage}}</h4>
-                <i ng-if="vm.content.tags.length" class="icon-basic-signs" style="padding-right: 10px"></i>
-                <span ng-repeat="tag in ::vm.content.tags">{{::tag.name}} </span>
-
-
-
-
         </div>
+        <h3 class="title-light">{{::vm.content.text}}</h3>
+    </div>
+    <div class="testimonials-name">
+        <i class="icon-basic-clock" style="padding-right: 10px"></i>
+        <h4 class="title-light" style="padding-right: 10px">{{::vm.timeMessage}}</h4>
+        <i ng-if="vm.content.tags.length" class="icon-basic-signs" style="padding-right: 10px"></i>
+        <span ng-repeat="tag in ::vm.content.tags">{{::tag.name}} </span>
+    </div>
 </div>

@@ -18,7 +18,7 @@ function topicsDetailCtrl($scope, $http, $state, $document, appEvent,appService,
     if (!vm.topicTitle) {
       $state.go("beats");
     }
-    topicsService.fetchByTitle(vm.topicTitle).success(res=>vm.topicData = res[0]);
+    topicsService.fetchOne(vm.topicTitle).success(res=>vm.topicData = res[0]).error(res=>topicsService.fetchByTitle(vm.topicTitle).success(res=>vm.topicData = res[0]));
   }
 
   function handleEditTopic(event, id) {
@@ -27,7 +27,7 @@ function topicsDetailCtrl($scope, $http, $state, $document, appEvent,appService,
   
   function submitComment(){
     if(vm.newComment && vm.newComment.body && vm.newComment.body!=='') {
-      return topicsService.postComment(vm.topicId, vm.newComment).success(res=>vm.topicData = res);
+      return topicsService.postComment(vm.topicData._id, vm.newComment).success(res=>vm.topicData = res);
     }
   }
 

@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="page-in-name">{{::vm.topicData.title}}</div>
-                <div class="page-in-bread">{{::vm.topicData.createdAt | date:"yyyy-MM-dd HH:mm:ss"}}</div>
+                <div class="page-in-bread">{{::vm.topicData.createdAt | date:"yyyy-MM-dd HH:mm:ss"}} | <a href="/topics">作文</a> > {{::vm.topicData.title}}</div>
             </div>
         </div>
     </div>
