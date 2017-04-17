@@ -1,7 +1,7 @@
-(function() {
+(function () {
   angular.module('app', [
-  'ui.router',
-  'app.modules', 'app.components',
-   'angular-matchheight'
-]);
+    'ui.router',
+    'app.modules', 'app.components',
+    'angular-matchheight', 'updateMeta'
+  ]);
 })();

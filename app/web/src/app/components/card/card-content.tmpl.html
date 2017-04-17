@@ -2,7 +2,7 @@
     <div style="padding:10px;" class="testimonials-desc">
         <div ng-if="vm.content.image.length" ng-repeat="url in ::vm.content.image track by $index" ng-init="$last && vm.content.masonryInit ? vm.refreshInit() : angular.noop()" class="blog-images">
             <div class="post-thumbnail" style="max-height: 1440px">
-                <a id="img" href="{{::url + '.jpg'}}"  lightboxed>
+                <a id="img" href="{{::url + '.jpg'}}" lightboxed>
                     <img ng-src="{{::url+ '.jpg'}}" alt="">
                 </a>
             </div>

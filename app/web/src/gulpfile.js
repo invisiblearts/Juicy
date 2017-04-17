@@ -21,16 +21,17 @@ var cleanCSS = require('gulp-clean-css');
 
 // Dev task
 //gulp.task('dev', ['views', 'styles', 'lint', 'browserify', 'watch'], function() {});
-gulp.task('default', ['appjs','vendorjs','minify-css','views'], function() {});
+gulp.task('default', ['appjs', 'vendorjs', 'minify-css', 'views'], function () {
+});
 
 gulp.task('appjs', function () {
-  return gulp.src(['app/*.module.js','app/*.js','app/**/*.module.js','app/**/*.js'])
+  return gulp.src(['app/*.module.js', 'app/*.js', 'app/**/*.module.js', 'app/**/*.js'])
     .pipe(concat('app.js', {newLine: ';'}))
     .pipe(ngAnnotate({add: true}))
     .pipe(babel({
       presets: ['es2015']
     }))
-    .pipe(uglify({compress:{unsafe:true,hoist_vars:true}}).on('error', gutil.log))
+    .pipe(uglify({compress: {unsafe: true, hoist_vars: true}}).on('error', gutil.log))
     .pipe(gulp.dest('../static'))
 });
 
@@ -47,7 +48,7 @@ gulp.task('vendorjs', function () {
     'node_modules/angular-ui-router/release/angular-ui-router.js',
     'libs/angulargrid.js',
     'node_modules/ng-infinite-scroll/build/ng-infinite-scroll.js',
-      'libs/ne-music.js',
+    'libs/ne-music.js',
     'libs/angular-matchheight.js',
     'assets/js/waypoints.min.js',
     'assets/js/bootstrap.min.js',
@@ -57,32 +58,32 @@ gulp.task('vendorjs', function () {
 
   ])
     .pipe(concat('vendor.js'))
-    .pipe(uglify({compress:{hoist_vars:true}}).on('error', gutil.log))
+    .pipe(uglify({compress: {hoist_vars: true}}).on('error', gutil.log))
     .pipe(gulp.dest('../static'))
   /*    .pipe(closureCompiler({
-        // compilerPath is optional, since google-closure-compiler is a dependency
-        // compilerPath: 'bower_components/closure-compiler/lib/vendor/compiler.jar',
-        fileName: '../static/vendor.js',
-        compilerFlags: {
-          closure_entry_point: 'app.module.js',
-          compilation_level: 'ADVANCED_OPTIMIZATIONS',
-          define: [
-            "goog.DEBUG=false"
-          ],
+   // compilerPath is optional, since google-closure-compiler is a dependency
+   // compilerPath: 'bower_components/closure-compiler/lib/vendor/compiler.jar',
+   fileName: '../static/vendor.js',
+   compilerFlags: {
+   closure_entry_point: 'app.module.js',
+   compilation_level: 'ADVANCED_OPTIMIZATIONS',
+   define: [
+   "goog.DEBUG=false"
+   ],
 
-          only_closure_dependencies: true,
-          // .call is super important, otherwise Closure Library will not work in strict mode.
-          output_wrapper: '(function(){%output%}).call(window);',
-          warning_level: 'VERBOSE',
-          language_in: "ECMASCRIPT5"
+   only_closure_dependencies: true,
+   // .call is super important, otherwise Closure Library will not work in strict mode.
+   output_wrapper: '(function(){%output%}).call(window);',
+   warning_level: 'VERBOSE',
+   language_in: "ECMASCRIPT5"
 
-        }
-      }))*/
+   }
+   }))*/
 });
 
-gulp.task('minify-css', function() {
+gulp.task('minify-css', function () {
 
-  return gulp.src(['assets/css/style.css','assets/css/responsive.css','assets/css/nivo-lightbox.css'])
+  return gulp.src(['assets/css/style.css', 'assets/css/responsive.css', 'assets/css/nivo-lightbox.css'])
     .pipe(concatCss('bundle.css'))
     .pipe(cssMin())
     .pipe(gulp.dest('../static/styles'));
@@ -90,22 +91,22 @@ gulp.task('minify-css', function() {
 
 
 // JSLint task
-gulp.task('lint', function() {
+gulp.task('lint', function () {
   gulp.src('app/**/*.js')
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
 });
 
 // Views task
-gulp.task('views', function() {
+gulp.task('views', function () {
   // Get our index.html
- // gulp.src('app/index.html')
+  // gulp.src('app/index.html')
   // And put it in the public folder
-   // .pipe(gulp.dest('../')); //.pipe(htmlmin({collapseWhitespace: true}))
+  // .pipe(gulp.dest('../')); //.pipe(htmlmin({collapseWhitespace: true}))
 
   // Any other view files from app/views
-  gulp.src(['app/**/*.html','!app/index.html'])
+  gulp.src(['app/**/*.html', '!app/index.html'])
   // Will be put in the public/views folder
-   // .pipe(htmlmin({collapseWhitespace: true}))
+  // .pipe(htmlmin({collapseWhitespace: true}))
     .pipe(gulp.dest('../static'));
 });

@@ -1,5 +1,4 @@
-
-(function() {
+(function () {
 
   angular.module("app.components")
     .directive("lightboxed", lightboxed);
@@ -10,7 +9,7 @@
     };
     return directive;
 
-    function postLink(scope, element, attrs){
+    function postLink(scope, element, attrs) {
       $timeout(function () {
         element.nivoLightbox();
       });

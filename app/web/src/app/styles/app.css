@@ -1,31 +1,35 @@
 .date-nav .btn-flat {
     padding: 0 0.6rem;
 }
-nav .brand-logo{
-    font-family: Avenir,Tahoma, Arial,"Hiragino Sans GB", "STHeiti","Microsoft YaHei","WenQuanYi Micro Hei",SimSun,sans-serif;
+
+nav .brand-logo {
+    font-family: Avenir, Tahoma, Arial, "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, sans-serif;
     font-weight: normal;
 }
-.titre{
-    font-family: Lucida Grande,Tahoma, Arial,"Hiragino Sans GB", "STHeiti","Microsoft YaHei","WenQuanYi Micro Hei",SimSun,sans-serif;
+
+.titre {
+    font-family: Lucida Grande, Tahoma, Arial, "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, sans-serif;
     font-weight: bolder;
 }
-pre{
-    font-family: Helvetica,Tahoma, Arial,"Hiragino Sans GB", "STHeiti","Microsoft YaHei","WenQuanYi Micro Hei",SimSun,sans-serif;
+
+pre {
+    font-family: Helvetica, Tahoma, Arial, "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, sans-serif;
     font-weight: lighter;
 }
-.collection .collection-item{
+
+.collection .collection-item {
     border-bottom: 0px !important;
     border-top: 1px solid #e0e0e0 !important;
 
 }
 
-li.collection-item.featured{
+li.collection-item.featured {
     border-bottom: 0px !important;
     border-top: 1px solid #54dbec !important;
 
 }
 
-nav ul li:hover, nav ul li.active{
+nav ul li:hover, nav ul li.active {
     background-color: lightcyan !important;
 }
 
@@ -39,17 +43,19 @@ nav ul li:hover, nav ul li.active{
     width: 100%
 }
 
-#card-ctrl{
-    z-index:0;!important;
+#card-ctrl {
+    z-index: 0;
+!important;
 }
 
-.blur{
+.blur {
     -webkit-filter: blur(10px); /* Chrome, Opera */
     -moz-filter: blur(10px);
     -ms-filter: blur(10px);
     filter: blur(10px);
 }
-.chip{
+
+.chip {
     margin-right: 2px;
     display: inline-block;
     height: 20px !important;
@@ -63,31 +69,37 @@ img {
     width: 100%;
 }
 
-img.circle.content.link{
-    height:100%;
-}
-.box{
-    position: relative;
-    width: 75%;		/* desired width */
-}
-.box:before{
-    content: "";
-    display: block;
-    padding-top: 100%; 	/* initial ratio of 1:1*/
-}
-ul.collection{
-    overflow:inherit;!important;
+img.circle.content.link {
+    height: 100%;
 }
 
-.card-action.article{
-    border-top:0!important;
+.box {
+    position: relative;
+    width: 75%; /* desired width */
 }
-label{
-    padding-left: 25px!important;
+
+.box:before {
+    content: "";
+    display: block;
+    padding-top: 100%; /* initial ratio of 1:1*/
+}
+
+ul.collection {
+    overflow: inherit;
+!important;
+}
+
+.card-action.article {
+    border-top: 0 !important;
+}
+
+label {
+    padding-left: 25px !important;
     width: 140px;
 }
-.content{
-    position:  absolute;
+
+.content {
+    position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
@@ -212,7 +224,7 @@ pre {
     margin-right: 20px;
 }
 
-p{
+p {
     word-wrap: break-word;
     word-break: normal;
 }

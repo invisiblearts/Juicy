@@ -1,10 +1,9 @@
-
-(function() {
+(function () {
 
   angular.module("app.components")
     .directive("sticky", lightboxed);
 
-  
+
   function lightboxed($timeout) {
     var directive = {
       link: postLink
@@ -13,30 +12,30 @@
 
     function postLink(scope, element, attrs) {
 
-      $timeout(function(){
+      $timeout(function () {
         var nav = element.find("nav");
 
         var top_spacing = 0;
         var waypoint_offset = 0;
 
         element.waypoint({
-          handler: function(event, direction) {
+          handler: function (event, direction) {
 
             if (direction == 'down') {
               if (matchMedia('only screen and (min-width: 1000px)').matches) {
-                element.css({ 'height':nav.outerHeight() });
-                nav.stop().addClass("sticky").css("top",-nav.outerHeight()).animate({"top":top_spacing});
+                element.css({'height': nav.outerHeight()});
+                nav.stop().addClass("sticky").css("top", -nav.outerHeight()).animate({"top": top_spacing});
               }
             } else {
 
-              element.css({ 'height':'auto' });
-              nav.stop().removeClass("sticky").css("top",nav.outerHeight()+waypoint_offset).animate({"top":""}, 0);
+              element.css({'height': 'auto'});
+              nav.stop().removeClass("sticky").css("top", nav.outerHeight() + waypoint_offset).animate({"top": ""}, 0);
 
             }
 
           },
-          offset: function() {
-            return -nav.outerHeight()-waypoint_offset;
+          offset: function () {
+            return -nav.outerHeight() - waypoint_offset;
           }
         });
 
@@ -45,7 +44,7 @@
         var navigation_links = element.find("nav a");
 
         sections.waypoint({
-          handler: function(event, direction) {
+          handler: function (event, direction) {
 
             var active_section;
             active_section = element;
@@ -57,7 +56,9 @@
 
           },
           offset: '95%'
-        }, function(){ $.waypoints("refresh"); });
+        }, function () {
+          $.waypoints("refresh");
+        });
 
 
       });

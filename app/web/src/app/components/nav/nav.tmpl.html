@@ -7,7 +7,7 @@
                         <div class="row">
                             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 pull-left">
                                 <div class="logo">
-                                    <a href="index.html">
+                                    <a href="/">
                                         <span class="pull-left logo-text classic-vers">src.moe</span>
                                     </a>
                                 </div>
@@ -19,7 +19,7 @@
                                         <div class="menu-main-menu-container">
                                             <ul>
                                                 <li ng-click="vm.gotoState(nav.state)" data-toggle="collapse" data-target=".navbar-collapse" ng-repeat="nav in vm.navs" ng-class="nav.state === vm.state.current.name? 'current-menu-item': angular.noop">
-                                                    <a ng-href="{{::nav.state}}.html">{{::nav.title}}</a>
+                                                    <a ng-href="{{::nav.state}}">{{::nav.title}}</a>
                                                 </li>
                                             </ul>
                                         </div>

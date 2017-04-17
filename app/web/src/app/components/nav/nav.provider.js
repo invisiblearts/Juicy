@@ -1,26 +1,26 @@
-(function() {
+(function () {
   angular.module('app')
-  .provider('jcNav', jcNavProvider);
+    .provider('jcNav', jcNavProvider);
   /*@ngInject*/
-function jcNavProvider() {
-  var navConfig = [];
-  this.$get = function () {
-    return {
-      addMenu: addMenu,
-      navConfig: navConfig
+  function jcNavProvider() {
+    var navConfig = [];
+    this.$get = function () {
+      return {
+        addMenu: addMenu,
+        navConfig: navConfig
+      };
     };
-  };
 
-  //////////////////
+    //////////////////
 
-  function addMenu(menus) {
-    angular.forEach(menus, function (menu) {
-      pushMenu(menu);
-    });
+    function addMenu(menus) {
+      angular.forEach(menus, function (menu) {
+        pushMenu(menu);
+      });
+    }
+
+    function pushMenu(nav) {
+      navConfig.push(nav);
+    }
   }
-
-  function pushMenu(nav) {
-    navConfig.push(nav);
-  }
-}
 })();

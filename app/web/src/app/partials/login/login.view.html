@@ -1,3 +1,6 @@
+<update-title title="登录/注册 - src.moe - POJO的个站"></update-title>
+<update-meta name="description" content="登录"></update-meta>
+
 <div class="page-in">
     <div class="container">
         <div class="row">
@@ -18,26 +21,27 @@
 
         </div>
         <div>
-                <a class="btn btn-pioneer" ng-click="vm.loginOrReg()">Do It!</a>
+            <a class="btn btn-pioneer" ng-click="vm.loginOrReg()">Do It!</a>
             &nbsp;
         </div>
     </div>
 
 
     <div ng-show="vm.currentUser._id !== undefined && vm.currentUser._id !== null" class="marg75">
-            <div class="promo-border marg50"></div>
+        <div class="promo-border marg50"></div>
 
-            <div class="testimonials-photo">
-                <img ng-src="{{vm.currentUser.avatar}}" ng-if="vm.currentUser.avatar"/>
-            </div>
-            <div class="card-panel pink lighten-2 white-text card-title">{{vm.currentUser.username}} , 传个头像填个联系方式啦...</div>
-            <p>加密用的是Bcrypt,请求都走的https,请放心。</p>
-            <div flow-init
-                 flow-files-submitted="vm.upload( $files, $event, $flow )"
-                 flow-file-success="$file.msg = $message"
-                 flow-btn class="btn btn-pioneer">1.传头像 成功了会在右侧直接显示出来</div>
-            <input class="input-cont-textarea" ng-model="vm.currentUser.contact" placeholder="2.填联系方式...微博微信Telegram邮箱企鹅都可以 暂时不会展示在前端里" type="text"/>
-            <div ng-click="vm.updateUser()" class="btn btn-default">3.提交</div>
+        <div class="testimonials-photo">
+            <img ng-src="{{vm.currentUser.avatar}}" ng-if="vm.currentUser.avatar"/>
+        </div>
+        <div class="card-panel pink lighten-2 white-text card-title">{{vm.currentUser.username}} , 传个头像填个联系方式啦...</div>
+        <p>加密用的是Bcrypt,请求都走的https,请放心。</p>
+        <div flow-init
+             flow-files-submitted="vm.upload( $files, $event, $flow )"
+             flow-file-success="$file.msg = $message"
+             flow-btn class="btn btn-pioneer">1.传头像 成功了会在右侧直接显示出来
+        </div>
+        <input class="input-cont-textarea" ng-model="vm.currentUser.contact" placeholder="2.填联系方式...微博微信Telegram邮箱企鹅都可以 暂时不会展示在前端里" type="text"/>
+        <div ng-click="vm.updateUser()" class="btn btn-default">3.提交</div>
     </div>
 
 </div>

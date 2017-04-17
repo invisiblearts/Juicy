@@ -1,3 +1,6 @@
+<update-title title="作文 - src.moe - POJO的个站"></update-title>
+<update-meta name="description" content="POJO个站的博客栏目,东拉西扯，记一些小事。"></update-meta>
+
 <div>
     <div class="top-nav cyan" style="position:fixed;top:0px;width:100%;height: 288px;z-index:-1">
         <div class="nav-wrapper row">
@@ -16,16 +19,16 @@
             </div>
         </div>
     </div>
-<div>
-    <div class="container" infinite-scroll-distance="1" infinite-scroll="vm.loadMore()">
-        <div ng-repeat="top in vm.topicList track by $index">
-            <jc-topic-card
-                    class="repeated-item"
-                    jc-topic="top"
-                    jc-topic-brief="true"
-            >
-            </jc-topic-card>
+    <div>
+        <div class="container" infinite-scroll-distance="1" infinite-scroll="vm.loadMore()">
+            <div ng-repeat="top in vm.topicList track by $index">
+                <jc-topic-card
+                        class="repeated-item"
+                        jc-topic="top"
+                        jc-topic-brief="true"
+                >
+                </jc-topic-card>
+            </div>
         </div>
     </div>
-</div>
 </div>
