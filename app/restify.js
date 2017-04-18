@@ -7,23 +7,19 @@ function Restify(app) {
   var optionsComment = {
     findOneAndUpdate: false,
     preUpdate: function (req, res, next) {
-      jwt.verify(token, key, function (err, decoded) {
-        req.user = decoded.user;
-      });
 
-      if (req.erm.document.user._id !== req.user._id) {
+      if (!req.erm.document || !req.erm.document.user || req.erm.document.user._id !== req.user.id) {
+        if(req.params && req.params.id ==  req.user.id || req.user.isAdmin){
+        }else
         return res.sendStatus(401)
       }
-
+      res.sendStatus(204)
       next()
     },
     findOneAndRemove: false,
     preDelete: function (req, res, next) {
-      jwt.verify(token, key, function (err, decoded) {
-        req.user = decoded.user;
-      });
 
-      if (req.erm.document.user._id !== req.user._id) {
+      if (req.erm.document.user._id !== req.user.id) {
         return res.sendStatus(401)
       }
 
@@ -42,6 +38,7 @@ function Restify(app) {
   var options = {
     //    findOneAndUpdate: true,
     preUpdate: function (req, res, next) {
+
       if (!req.user.isAdmin) {
         return res.sendStatus(401)
       }
@@ -68,7 +65,7 @@ function Restify(app) {
   ///////////
   function run() {
     for (var key in Models) {
-      restify.serve(app, Models[key], options);
+      restify.serve(app, Models[key], optionsComment);
     }
   }
 }

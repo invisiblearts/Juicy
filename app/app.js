@@ -50,7 +50,7 @@ var path = require('path');
 
   function applyCorsMiddleWare(api) {
     api.use(function (req, res, next) {
-      res.setHeader('Access-Control-Allow-Origin', 'src.moe');
+      res.setHeader('Access-Control-Allow-Origin', 'http://localhost:7788');
       res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
       res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type,Authorization');
       res.setHeader('Access-Control-Allow-Credentials', true);

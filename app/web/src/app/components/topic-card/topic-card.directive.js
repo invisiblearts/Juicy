@@ -18,17 +18,21 @@
 
     ////////
     /*@ngInject*/
-    function TopicCardCtrl($scope, $showdown, $location, appService, appEvent) {
+    function TopicCardCtrl($scope, $showdown, $location, appService, appEvent, loginService) {
       var vm = this;
       vm.selectTopic = selectTopic;
       vm.share = share;
       vm.editTopic = editTopic;
       vm.isAdmin = appService.isAdmin();
+      vm.isUser = appService.isUser();
+      vm.checkSelf=checkSelf;
+      vm.upload = upload;
 
       init();
 
       ////////
       function init() {
+        appService.getCurrentUser().then(res=>vm.currentUser = res.data);
 
         if (vm.jcTopic !== undefined) {
           if (!vm.jcTopicBrief) {
@@ -65,6 +69,17 @@
         })(screen, document, encodeURIComponent);
       }
 
+      function upload($files, $event, $flow) {
+        appService.uploadImage($flow.files[0].file)
+          .success(data=>{
+            vm.currentUser.avatar = 'https://ws4.sinaimg.cn/large/' + data.pid;
+            loginService.updateUser(vm.currentUser).then(init());
+          });
+      }
+
+      function checkSelf(user){
+        return user && user._id && vm.currentUser && vm.currentUser._id && user._id == vm.currentUser._id;
+      }
 
       $scope.$watch('vm.jcTopic', function () {
         // Recerive new monthly Data

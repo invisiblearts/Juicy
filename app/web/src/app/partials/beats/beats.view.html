@@ -72,19 +72,29 @@
 </div>
 
 <!--评论框-->
-<div ng-if="vm.isUser" id="comment" class="modal marg75">
+<div id="comment" class="modal marg75">
     <div class="modal-content container">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Comment</h4>
+            <h4 class="modal-title">Comment <span ng-if="!vm.isUser"> + Register</span></h4>
+        </div>
+
+        <div ng-if="vm.currentUser._id == undefined || vm.currentUser._id == null">
+            <div>
+                <input placeholder="Nickname" class="input-cont-textarea" ng-model="vm.userLogin.username"/>
+                <input type="password" class="input-cont-textarea" placeholder="Password (Will be processed by BCrypt)" ng-model="vm.userLogin.password"/>
+            </div>
+        </div>
+
+        <div ng-if="vm.currentUser._id != undefined && vm.currentUser._id != null">
+            <div>
+                <input placeholder="Nickname" disabled="true" class="input-cont-textarea" ng-model="vm.currentUser.username"/>
+            </div>
         </div>
 
         <textarea name="message" ng-model="vm.newComment.body" placeholder="Message" id="message" class="input-cont-textarea" cols="40" rows="10"></textarea>
 
         <button ng-class="vm.newComment.body ? 'enabled' : 'disabled'" class="btn btn-pioneer" ng-click="vm.submitComment()" data-dismiss="modal" style="margin-bottom: 20px">SEND!</button>
-        <div ng-if="!vm.isUser" data-dismiss="modal" ng-click="vm.login()">可以匿名评论泥萌就不注册，都快变匿名版了QAQ ->
-            <button class="btn btn-pioneer modal-action modal-close"> 这就去注册！</button>
-        </div>
 
 
     </div>

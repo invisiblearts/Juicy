@@ -2,7 +2,7 @@
   angular.module('app.modules')
     .controller('beatsCtrl', beatsCtrl);
 
-  function beatsCtrl($scope, $http, $state, $document, appEvent, appService, tagsService, topicsService, jwtHelper, beatsService, angularGridInstance) {
+  function beatsCtrl($scope, $state, $document, appEvent, appService, tagsService, topicsService, beatsService, $q,loginService) {
     var vm = this;
     var beatsPerPage = 6;
     var paginationInitBeatsNum = 15;
@@ -53,7 +53,11 @@
       }
     ];
 
-    // TODO MODERATE: comment and tag function to add in further releases
+    vm.userLogin = {
+      username: "",
+      password: ""
+    };
+
     vm.getBeatOfMonth = getBeatOfMonth;
     vm.scrollTop = scrollTop;
     vm.pushBeatsPaginated = pushBeatsPaginated;
@@ -134,6 +138,7 @@
 
     function activate() {
       vm.isUser = appService.isUser();
+      appService.getCurrentUser().then(res=>vm.currentUser = res.data);
       topicsService.fetchBySkipAndLimit(0, 3).success(res=>vm.topicList = res);
       generatejcSubNavTabs().then(function (tabs) {
         vm.tabs = tabs;
@@ -147,6 +152,20 @@
           };
           vm.customRefreshEnabled = true;
           pushBeatsPaginated();
+        }
+      });
+    }
+
+    function setTokenAndPostComment(token) {
+      if (typeof token === "string") {
+        localStorage.setItem('juicy_token', token)
+      }
+      appService.getCurrentUser().then(res=>{
+        vm.currentUser = res.data;
+        var id = angular.copy(vm.newComment.beat);
+        if (vm.newComment.body && vm.newComment.body !== '') {
+          delete vm.newComment.beat;
+          return beatsService.postComment(id, vm.newComment).success(res=>appEvent.publish('card_update_' + id, res));
         }
       });
     }
@@ -276,11 +295,18 @@
     }
 
     function submitComment() {
-      var id = angular.copy(vm.newComment.beat);
-      if (vm.newComment.body && vm.newComment.body !== '') {
-        delete vm.newComment.beat;
-        return beatsService.postComment(id, vm.newComment).success(res=>appEvent.publish('card_update_' + id, res));
-      }
+        if(vm.currentUser && vm.currentUser._id){
+          doComment(vm.currentUser);
+        }else{
+          doComment(vm.userLogin);
+        }
+    }
+
+    function doComment(info){
+      loginService.login(info)
+        .success(setTokenAndPostComment)
+        .error(res=>loginService.reg(info)
+          .success(setTokenAndPostComment))
     }
 
     ///////////////////

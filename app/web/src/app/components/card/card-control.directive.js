@@ -34,6 +34,7 @@
       vm.showAllComments = false;
 
       vm.isUser = appService.isUser();
+      
       vm.isAdmin = appService.isAdmin();
       vm.appEvent = appEvent;
       vm.handleUpdate = handleUpdate;
@@ -41,6 +42,7 @@
 
         body: ""
       };
+      
       ////////////////////////////////
 
       function getName(c) {
@@ -66,11 +68,7 @@
       }
 
       function comment() {
-        if (vm.isUser) {
-          appEvent.publish('comment', vm.content);
-        } else {
-          $state.go("login");
-        }
+        appEvent.publish('comment', vm.content);
       }
 
       function submitComment() {

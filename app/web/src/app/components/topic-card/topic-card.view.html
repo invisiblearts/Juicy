@@ -7,7 +7,7 @@
                 </a>
             </div>
             <div class="cl-blog-type"><i class="{{::vm.jcTopic.staticType}}"></i></div>
-            <div class="cl-blog-name" ng-click="vm.selectTopic(vm.jcTopic.title)"><a ng-href="topics/{{::vm.jcTopic.title}}">{{::vm.jcTopic.title}}</a></div>
+            <div class="cl-blog-name" ng-click="vm.selectTopic(vm.jcTopic._id)"><a ng-href="topics/{{::vm.jcTopic._id}}">{{::vm.jcTopic.title}}</a></div>
             <div class="cl-blog-detail">
                 <i class="icon-basic-clock" style="padding-right: 6px"></i>
                 <span style="padding-right: 10px">{{::vm.jcTopic.createdAt | date:"yyyy-MM-dd HH:mm:ss"}}</span>
@@ -46,11 +46,21 @@
     <div ng-if="vm.jcTopic.comments.length<=0" class="cl-blog-line-com"></div>
 
     <div ng-if="!vm.jcTopicBrief && vm.jcTopic.comments && vm.jcTopic.comments.length>0">
-        <h3>{{::vm.jcTopic.comments.length}} Comments on "{{::vm.jcTopic.title}}"</h3>
+        <h3>{{vm.jcTopic.comments.length}} Comments on "{{::vm.jcTopic.title}}"</h3>
         <div ng-repeat="c in vm.jcTopic.comments">
             <div class="comment" style="padding:15px 0px 15px 0px;">
                 <img ng-if="c.user[0] && c.user[0].avatar" ng-src="{{c.user[0].avatar}}" alt="" class="img_comm">
-                <div class="comm_name">{{c.user[0] ? c.user[0].username : '阿卡林'}}</div>
+                <img ng-if="!c.user[0] || !c.user[0].avatar" src="https://img.moegirl.org/common/thumb/b/b7/Transparent_Akkarin.jpg/250px-Transparent_Akkarin.jpg" alt="" class="img_comm">
+                <div class="comm_name">
+                    {{c.user[0] ? c.user[0].username : '阿卡林'}}
+                    <div ng-show="vm.checkSelf(c.user[0]) && (!c.user[0] || !c.user[0].avatar)"
+                         flow-init
+                         flow-files-submitted="vm.upload( $files, $event, $flow )"
+                         flow-file-success="$file.msg = $message"
+                         flow-btn class="btn btn-pioneer btn-xxs">
+                         上传头像!
+                    </div>
+                </div>
                 <p class="text_cont com_top">{{c.body}}</p>
             </div>
             <div class="cl-blog-line-com"></div>
