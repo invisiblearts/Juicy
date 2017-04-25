@@ -18,7 +18,7 @@
                                     <div class="navbar-collapse collapse">
                                         <div class="menu-main-menu-container">
                                             <ul>
-                                                <li ng-click="vm.gotoState(nav.state)" data-toggle="collapse" data-target=".navbar-collapse" ng-repeat="nav in vm.navs" ng-class="nav.state === vm.state.current.name? 'current-menu-item': angular.noop">
+                                                <li ng-click="vm.gotoState(nav.state)" data-toggle="collapse" data-target=".navbar-collapse" ng-repeat="nav in vm.navs" ng-class="nav.state === vm.state.current.name || nav.state == 'topics' && vm.state.current.name == 'index' ? 'current-menu-item': angular.noop">
                                                     <a ng-href="{{::nav.state}}">{{::nav.title}}</a>
                                                 </li>
                                             </ul>

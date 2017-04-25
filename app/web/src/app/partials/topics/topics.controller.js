@@ -19,7 +19,6 @@
 
     function loadMore() {
       pushTopicsPaginated();
-
     }
 
     function pushTopicsPaginated() {

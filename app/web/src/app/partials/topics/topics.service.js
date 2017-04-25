@@ -28,7 +28,7 @@
     }
 
     function fetchBySkipAndLimit(skip, limit) {
-      return $http.get(APP_CONST.api + 'v1/topics?sort=-createdAt&skip=' + skip + '&limit=' + limit + '&select=_id,title,featured,createdAt,summary,content,tags,staticType&populate=tags&query={"staticType":{"$ne":"draft"}}');
+      return $http.get(APP_CONST.api + 'v1/topics?sort=-createdAt&skip=' + skip + '&limit=' + limit + '&select=_id,title,featured,createdAt,summary,content,thumbnail,tags,staticType&populate=tags&query={"staticType":{"$ne":"draft"}}');
     }
 
     function fetchBySkipAndLimitDeprecated(skip, limit) {

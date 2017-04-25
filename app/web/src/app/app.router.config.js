@@ -5,11 +5,18 @@
     $locationProvider.html5Mode({enabled: true});
     $locationProvider.hashPrefix('!');
 
-    $urlRouterProvider.otherwise("resume");
+    $urlRouterProvider.otherwise("index");
 
     $urlRouterProvider.rule(function ($injector, $location) {
       var path = $location.path(),
         normalized = path.replace(/.html/g, "");
+      var paths = path.split('/');
+      if(paths && paths[paths.length-1] && (new RegExp('([0-9])').test(paths[paths.length-1]))){
+        normalized = '/topics/'+paths[paths.length-1];
+      }
+      else if(paths && paths[1] && paths[1] == 'topics' && paths[paths.length-1] && !(new RegExp('([0-9])').test(paths[paths.length-1]))){
+        normalized = paths[paths.length-1];
+      }
       if (path !== normalized) {
         return normalized;
       }
@@ -69,6 +76,11 @@
       url: '/resume',
       templateUrl: 'partials/resume/resume.view.html',
       controller: 'resumeCtrl',
+      controllerAs: 'vm'
+    }).state('index', {
+      url: '/',
+      templateUrl: 'partials/topics/topics.view.html',
+      controller: 'topicsCtrl',
       controllerAs: 'vm'
     });
 

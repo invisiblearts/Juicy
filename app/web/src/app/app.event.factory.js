@@ -2,7 +2,7 @@
 
   angular.module("app")
 
-    .factory('appEvent', ['$rootScope', function ($rootScope) {
+    .factory('appEvent', ['$rootScope','$document','$window', function ($rootScope,$document,$window) {
       // private notification messages
       var _DATA_UPDATED_ = '_DATA_UPDATED_';
       /*
@@ -15,6 +15,21 @@
        * 	    更一般的形式是：
        *      pubSubService.publish();
        */
+      $rootScope.$on('$locationChangeSuccess',function(){
+        (function(){
+          var bp = document.createElement('script');
+          var curProtocol = window.location.protocol.split(':')[0];
+          if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+          }
+          else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+          }
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(bp, s);
+        })();
+      });
+
       var publish = function (msg, data) {
         msg = msg || _DATA_UPDATED_;
         data = data || {};

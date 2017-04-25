@@ -1,31 +1,33 @@
-<div style="margin-top:60px">
+<div ng-class="vm.jcTopicBrief ? 'marg50' : angular.noop">
     <div class="classic-blog">
-        <div ng-if="vm.jcTopicBrief" class="cl-blog-naz">
+        <div ng-if="vm.jcTopicBrief" class="cl-blog-img">
             <div ng-if="vm.jcTopic.thumbnail" class="post-thumbnail" style="max-height: 1440px">
                 <a id="img" href="{{::vm.jcTopic.thumbnail + '.jpg'}}" lightboxed>
                     <img ng-src="{{::vm.jcTopic.thumbnail + '.jpg'}}" alt="">
                 </a>
             </div>
-            <div class="cl-blog-type"><i class="{{::vm.jcTopic.staticType}}"></i></div>
-            <div class="cl-blog-name" ng-click="vm.selectTopic(vm.jcTopic._id)"><a ng-href="topics/{{::vm.jcTopic._id}}">{{::vm.jcTopic.title}}</a></div>
-            <div class="cl-blog-detail">
-                <i class="icon-basic-clock" style="padding-right: 6px"></i>
-                <span style="padding-right: 10px">{{::vm.jcTopic.createdAt | date:"yyyy-MM-dd HH:mm:ss"}}</span>
-                <i ng-if="vm.jcTopic.tags.length" class="icon-basic-signs" style="padding-right: 6px"></i>
-                <span ng-repeat="tag in ::vm.jcTopic.tags">{{::tag.name}} </span>
+            <div class="cl-blog-naz">
+                <div class="cl-blog-type"><i class="{{::vm.jcTopic.staticType}}"></i></div>
+                <div class="cl-blog-name" ng-click="vm.selectTopic(vm.jcTopic._id)"><a ng-href="/topics/{{::vm.jcTopic._id}}">{{::vm.jcTopic.title}}</a></div>
+                <div class="cl-blog-detail">
+                    <i class="icon-basic-clock" style="padding-right: 6px"></i>
+                    <span style="padding-right: 10px">{{::vm.jcTopic.createdAt | date:"yyyy-MM-dd HH:mm:ss"}}</span>
+                    <i ng-if="vm.jcTopic.tags.length" class="icon-basic-signs" style="padding-right: 6px"></i>
+                    <span ng-repeat="tag in ::vm.jcTopic.tags">{{::tag.name}} </span>
+                </div>
+                <h4 ng-if="vm.jcTopicBrief" class="cl-blog-text title-light">{{::vm.jcTopic.summary}} </h4>
             </div>
-            <h4 ng-if="vm.jcTopicBrief" class="cl-blog-text title-light">{{::vm.jcTopic.summary}} </h4>
         </div>
 
         <div ng-if="vm.jcTopicBrief">
-            <div class="cl-blog-read" style="margin-right: 20px"><a ng-click="vm.selectTopic(vm.jcTopic._id)" ng-href="topics/{{::vm.jcTopic._id}}">Read More</a></div>
+            <div class="cl-blog-read" style="margin-right: 20px"><a ng-click="vm.selectTopic(vm.jcTopic._id)" ng-href="/topics/{{::vm.jcTopic._id}}">Read More</a></div>
             <div ng-if="vm.isAdmin" class="cl-blog-read"><a ng-click="vm.editTopic(vm.jcTopic._id)" href="#">Edit</a></div>
             <div class="cl-blog-line"></div>
         </div>
 
-        <div ng-if="!vm.jcTopicBrief" class="cl-blog-text" ng-bind-html="vm.jcTopic.html"></div>
+        <div ng-if="!vm.jcTopicBrief" class="cl-blog-text cl-blog-img" ng-bind-html="vm.jcTopic.html"></div>
 
-        <div ng-if="!vm.jcTopicBrief" class="row marg50">
+        <div ng-if="!vm.jcTopicBrief" class="row">
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                 <div class="tags-blog-single">
                     <ul class="tags-blog">
