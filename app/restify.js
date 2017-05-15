@@ -18,9 +18,10 @@ function Restify(app) {
     },
     findOneAndRemove: false,
     preDelete: function (req, res, next) {
-
-      if (!req.erm.document.user || req.erm.document.user._id !== req.user.id) {
-        return res.sendStatus(401)
+      if(!req.user.isAdmin) {
+        if (!req.erm.document.user || req.erm.document.user._id !== req.user.id) {
+          return res.sendStatus(401)
+        }
       }
 
       req.erm.document.deletedAt = new Date();
