@@ -26,17 +26,20 @@ var path = require('path');
     applyMiddleWares(api);
 
     cachegoose(mongoose, {
-      engine: 'redis', 
-      port: 6379, 
+      engine: 'redis',
+      port: 6379,
       host: 'localhost'
     });
 
 
     restifyDB(api);
     applyCustomRestfulAPIs(api);
-    api.use(express.static(path.join(__dirname, 'web/static')));
-    api.use('/dev', express.static(path.join(__dirname, 'web/src')));
+    //api.use(express.static(path.join(__dirname, 'web/static')));
+    api.use(express.static(path.join(__dirname, 'web/src')));
 
+    api.all('/*', function(req, res) {
+      res.sendfile('web/src/index.html');
+    });
     http.createServer(api)
       .listen(port, successLog(port));
   }
@@ -50,7 +53,7 @@ var path = require('path');
 
   function applyCorsMiddleWare(api) {
     api.use(function (req, res, next) {
-      res.setHeader('Access-Control-Allow-Origin', 'src.moe');
+      res.setHeader('Access-Control-Allow-Origin', '*');
       res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
       res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type,Authorization');
       res.setHeader('Access-Control-Allow-Credentials', true);

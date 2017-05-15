@@ -19,7 +19,7 @@ function Restify(app) {
     findOneAndRemove: false,
     preDelete: function (req, res, next) {
 
-      if (req.erm.document.user._id !== req.user.id) {
+      if (!req.erm.document.user || req.erm.document.user._id !== req.user.id) {
         return res.sendStatus(401)
       }
 

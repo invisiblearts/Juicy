@@ -47,6 +47,8 @@ gulp.task('vendorjs', function () {
     'node_modules/angular-scroll/angular-scroll.js',
     'node_modules/angular-ui-router/release/angular-ui-router.js',
     'libs/angulargrid.js',
+    'libs/elastic.js',
+
     'node_modules/ng-infinite-scroll/build/ng-infinite-scroll.js',
     'libs/ne-music.js',
     'libs/angular-matchheight.js',
