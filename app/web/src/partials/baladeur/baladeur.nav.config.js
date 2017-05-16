@@ -5,7 +5,7 @@
   function navConfig(jcNavProvider, appServiceProvider) {
     jcNavProvider.$get().addMenu(
       [
-        {title: '♪♪', state: 'baladeur', order: 10}
+        {title: '🎸🎵', state: 'baladeur', order: 10}
       ]
     );
   }
