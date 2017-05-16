@@ -29,7 +29,7 @@
         <div ng-if="vm.currentUser._id == undefined || vm.currentUser._id == null">
             <div>
                 <input placeholder="Nickname" class="input-def-textarea" ng-model="vm.userLogin.username"/>
-                <input type="password" class="input-def-textarea" placeholder="Password (With BCrypt Protected)" ng-model="vm.userLogin.password"/>
+                <input type="password" class="input-def-textarea" placeholder="Password (BCrypt Protected)" ng-model="vm.userLogin.password"/>
             </div>
         </div>
 

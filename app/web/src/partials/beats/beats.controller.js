@@ -4,8 +4,8 @@
 
   function beatsCtrl($scope, $state, $document, appEvent, appService, tagsService, topicsService, beatsService, $q,loginService) {
     var vm = this;
-    var beatsPerPage = 6;
-    var paginationInitBeatsNum = 15;
+    var beatsPerPage = 1;
+    var paginationInitBeatsNum = 3;
     var paginationInit = true;
     vm.isAdmin = appService.isAdmin();
 

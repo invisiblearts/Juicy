@@ -34,10 +34,10 @@ var path = require('path');
 
     restifyDB(api);
     applyCustomRestfulAPIs(api);
-    api.use(express.static(path.join(__dirname, 'web/static')));
-    //api.use(express.static(path.join(__dirname, 'web/src')));
+    //api.use(express.static(path.join(__dirname, 'web/static')));
+    api.use(express.static(path.join(__dirname, 'web/src')));
 
-    //api.all('/*', function(req, res) {res.sendfile('web/src/index.html');});
+    api.all('/*', function(req, res) {res.sendfile('web/src/index.html');});
     http.createServer(api)
       .listen(port, successLog(port));
   }
