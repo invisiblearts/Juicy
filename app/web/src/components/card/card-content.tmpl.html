@@ -1,0 +1,18 @@
+<div>
+    <div style="padding:10px;" class="testimonials-desc">
+        <div ng-if="vm.content.image.length" ng-repeat="url in ::vm.content.image track by $index" ng-init="$last && vm.content.masonryInit ? vm.refreshInit() : angular.noop()" class="blog-images">
+            <div class="post-thumbnail" style="max-height: 1440px">
+                <a id="img" href="{{::url + '.jpg'}}" lightboxed>
+                    <img ng-src="{{::url+ '.jpg'}}" alt="">
+                </a>
+            </div>
+        </div>
+        <h3 class="title-light">{{::vm.content.text}}</h3>
+    </div>
+    <div class="testimonials-name">
+        <i class="icon-basic-clock" style="padding-right: 10px"></i>
+        <h4 class="title-light" style="padding-right: 10px">{{::vm.timeMessage}}</h4>
+        <i ng-if="vm.content.tags.length" class="icon-basic-signs" style="padding-right: 10px"></i>
+        <span ng-repeat="tag in ::vm.content.tags">{{::tag.name}} </span>
+    </div>
+</div>

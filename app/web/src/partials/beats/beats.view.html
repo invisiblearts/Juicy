@@ -1,0 +1,101 @@
+<update-title title="造句 - Villefranche - 自由城 - src.moe"></update-title>
+<update-meta name="description" content="不足以成文的、一时兴起的吐槽和想法"></update-meta>
+
+<div class="row">
+
+    <div class="container-color-two" style="padding: 50px">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="promo-block">
+                    <div class="page-in-name">造句</div>
+                    <div class="page-in-bread">A Rush of Blood to the Head
+                        <button ng-if="vm.isAdmin" class="btn btn-default" data-toggle="modal" data-target="#compose" href='#compose' ng-click="vm.clearCurrentBeat()">
+                            <i class="icon-basic-sheet-pencil"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="promo-border marg50"></div>
+
+        <jc-masonry-cards
+                jc-custom-refresh="vm.pushBeatsPaginated"
+                jc-custom-refresh-enabled="vm.customRefreshEnabled"
+                jc-init-num="6"
+                jc-refresh-num="3"
+                jc-data="vm.selectedBeats.beats">
+        </jc-masonry-cards>
+    </div>
+
+
+    <!-- Modal Structure -->
+    <div id="compose" class="modal container marg75">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Compose</h4>
+            </div>
+
+
+            <textarea id="new-beat" ng-model="vm.newBeat.text" placeholder="Contents goes here" class="input-cont-textarea" style="min-height:15rem;position:relative"/>
+
+            <div flow-init
+                 flow-files-submitted="vm.upload( $files, $event, $flow )"
+                 flow-file-success="$file.msg = $message"
+                 class="pull-right">
+                <input type="checkbox" ng-model="vm.newBeat.featured" class="filled-in" id="feature-box" checked="checked"/>
+                <label for="feature-box">Featured</label>
+                <button class="modal-action btn btn-default" flow-btn>Images({{vm.newBeat.image.length}})</button>
+                <button class="modal-action btn btn-default" ng-click="vm.newBeat.image=[]">KillAll</button>
+            </div>
+
+            <div ng-repeat="tag in vm.newBeat.tags" class="chip">
+                <div class="chip white-text {{tag.class}}">
+                    {{tag.name}}
+                </div>
+                <i class="material-icons" ng-click="vm.deleteTag(tag)">close</i>
+                <i class="clickable" ng-click="vm.modifyTag(tag)">edit</i>
+            </div>
+            <div class="col s8">
+                <input class="input-cont-textarea" style="width:150px" ng-model="vm.newTag.name"/>
+                <input class="input-cont-textarea" style="width:150px" ng-model="vm.newTag.class"/>
+                <button class="btn btn-default" ng-click="vm.addTag()">Add Tag</button>
+            </div>
+            <button data-dismiss="modal" class="btn btn-pioneer" ng-click="vm.submitBeat()">Submit</button>
+            <button data-dismiss="modal" href="#!" class=" btn btn-pioneer-dark">Abandon</button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!--评论框-->
+<div id="comment" class="modal marg75">
+    <div class="modal-content container">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Comment <span ng-if="!vm.isUser"> + Register</span></h4>
+        </div>
+
+        <div ng-if="vm.currentUser._id == undefined || vm.currentUser._id == null">
+            <div>
+                <input placeholder="Nickname" class="input-cont-textarea" ng-model="vm.userLogin.username"/>
+                <input type="password" class="input-cont-textarea" placeholder="Password (Will be processed by BCrypt)" ng-model="vm.userLogin.password"/>
+            </div>
+        </div>
+
+        <div ng-if="vm.currentUser._id != undefined && vm.currentUser._id != null">
+            <div>
+                <input placeholder="Nickname" disabled="true" class="input-cont-textarea" ng-model="vm.currentUser.username"/>
+            </div>
+        </div>
+
+        <textarea name="message" ng-model="vm.newComment.body" placeholder="Message" id="message" class="input-cont-textarea" cols="40" rows="10"></textarea>
+
+        <button ng-class="vm.newComment.body ? 'enabled' : 'disabled'" class="btn btn-pioneer" ng-click="vm.submitComment()" data-dismiss="modal" style="margin-bottom: 20px">SEND!</button>
+
+
+    </div>
+</div>

@@ -1,0 +1,63 @@
+<div class="container marg75">
+    <div class="row">
+        <div class="col-lg-6">
+            <input placeholder="Title goes here" ng-model="vm.newTopic.title" class="input-cont-textarea" style="margin-left:0px"/>
+            <textarea id="new-content-brief" ng-model="vm.newTopic.summary" placeholder="Summary goes here" class="input-cont-textarea"/>
+            <input id="new-content-thumb" ng-model="vm.newTopic.thumbnail" placeholder="Thumb goes here" class="input-cont-textarea"/>
+
+        <textarea msd-elastic id="new-topic" ng-model="vm.newTopic.content" placeholder="Contents goes here"
+                  onpropertychange= "this.style.posHeight=this.scrollHeight" class="input-cont-textarea" style="min-height:60rem;position:relative"/>
+        </div>
+        <div class="col-lg-6">
+                    <div class="row">
+                            <div class="page-in-name page-title">{{vm.newTopic.title}}</div>
+                            <div class="page-in-bread page-sub-title">{{vm.newTopic.createdAt | date:"yyyy-MM-dd HH:mm:ss"}} | <a href="/topics">作文</a> > {{vm.newTopic.title}}</div>
+                    </div>
+
+            <div markdown-to-html="vm.newTopic.content"></div>
+        </div>
+
+    </div>
+    <label class="right" style="padding-top:-20px" for="new-topic"><span>{{vm.newTopic.content.length}} Words in total</span></label>
+
+
+    <div class="promo-border marg50"></div>
+
+    <div class="row">
+        <div class="tags-blog-single">
+            <ul class="left tags-blog">
+
+                <li ng-repeat="tag in vm.newTopic.tags">
+                    <span class="{{tag.class}}">
+                        {{tag.name}}
+                    </span>
+                    <i class="fa fa-close clickable" ng-click="vm.deleteTag(tag)"></i>
+                    <i class="fa fa-pencil clickable" ng-click="vm.modifyTag(tag)"></i>
+                </li>
+            </ul>
+
+
+            <div flow-init
+                 flow-files-submitted="vm.upload( $files, $event, $flow )"
+                 flow-file-success="$file.msg = $message"
+                 class="right">
+                <button class="btn btn-default" flow-btn><a>Upload Images</a></button>
+                <button class="btn btn-pioneer" ng-click="vm.submitTopic()">Submit</button>
+                <button class="btn btn-pioneer-dark" ng-if="vm.newTopic._id" ng-click="vm.del(vm.newTopic._id)">Delete</button>
+            </div>
+            &nbsp;
+        </div>
+        <div class="promo-border marg50"></div>
+
+        <div>
+            <input style="width:150px" placeholder="tag-name" ng-model="vm.newTag.name"/>
+            <input style="width:150px" placeholder="tag-class" ng-model="vm.newTag.class"/>
+            <button class="btn btn-default" ng-click="vm.addTag(vm.newTopic._id)">Add Tag</button>
+            <br>
+            <input style="width:150px" placeholder="icon" ng-model="vm.newTopic.staticType"/>
+            <input style="width:150px" placeholder="createdAt" ng-model="vm.newTopic.createdAt"/>
+            <input type="checkbox" ng-model="vm.newTopic.featured" class="filled-in" id="topic-feature-box" checked="checked"/>
+            <label for="topic-feature-box">Featured</label>
+        </div>
+    </div>
+</div>

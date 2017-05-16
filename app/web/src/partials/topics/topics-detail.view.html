@@ -1,0 +1,47 @@
+<update-title title="{{::vm.topicData.title}} - 作文 - Villefranche - 自由城 - src.moe"></update-title>
+<update-meta name="description" content="{{::vm.topicData.summary}}"></update-meta>
+<update-meta name="keywords" content="{{::vm.topicData.tagText}}"></update-meta>
+
+<div>
+    <div ng-if="!vm.jcTopicBrief" class="page-in">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="page-in-name page-title">{{::vm.topicData.title}}</div>
+                    <div class="page-in-bread page-sub-title">{{::vm.topicData.createdAt | date:"yyyy-MM-dd HH:mm:ss"}} | <a href="/topics">作文</a> > {{::vm.topicData.title}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container marg50">
+        <jc-topic-card
+                jc-topic="vm.topicData"
+                jc-topic-share="true"
+        >
+        </jc-topic-card>
+        <!--
+            <p class="text_cont"><input type="text" name="name" placeholder="Name" class="input-def"></p>
+            <p class="text_cont"><input type="text" name="email" placeholder="E-mail" class="input-def"></p>
+            <p class="text_cont"><input type="text" name="subject" placeholder="Web Site" class="input-def"></p>
+            -->
+
+        <div ng-if="vm.currentUser._id == undefined || vm.currentUser._id == null">
+            <div>
+                <input placeholder="Nickname" class="input-def-textarea" ng-model="vm.userLogin.username"/>
+                <input type="password" class="input-def-textarea" placeholder="Password (With BCrypt Protected)" ng-model="vm.userLogin.password"/>
+            </div>
+        </div>
+
+        <div ng-if="vm.currentUser._id != undefined && vm.currentUser._id != null">
+            <div>
+                <input placeholder="Nickname" disabled="true" class="input-def-textarea" ng-model="vm.currentUser.username"/>
+            </div>
+        </div>
+
+        <p class="text_cont"><textarea ng-model="vm.newComment.body" name="message" placeholder="Comment" id="message" class="input-def-textarea" cols="40" rows="5"></textarea></p>
+        <p ng-click="vm.submitComment()"><input type="submit" id="send" class="btn btn-default" value="Send Comment"/></p>
+
+
+    </div>
+</div>

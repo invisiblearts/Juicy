@@ -25,7 +25,7 @@ gulp.task('default', ['appjs', 'vendorjs', 'minify-css', 'views'], function () {
 });
 
 gulp.task('appjs', function () {
-  return gulp.src(['app/*.module.js', 'app/*.js', 'app/**/*.module.js', 'app/**/*.js'])
+  return gulp.src(['*.module.js','**/*.module.js', '*.*.js', '*.*.*.js', 'components/*.js','components/**/*.js','partials/*.js','partials/**/*.js'])
     .pipe(concat('app.js', {newLine: ';'}))
     .pipe(ngAnnotate({add: true}))
     .pipe(babel({
@@ -94,7 +94,7 @@ gulp.task('minify-css', function () {
 
 // JSLint task
 gulp.task('lint', function () {
-  gulp.src('app/**/*.js')
+  gulp.src('/**/*.js')
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
 });
@@ -107,7 +107,7 @@ gulp.task('views', function () {
   // .pipe(gulp.dest('../')); //.pipe(htmlmin({collapseWhitespace: true}))
 
   // Any other view files from app/views
-  gulp.src(['app/**/*.html', '!app/index.html'])
+  gulp.src(['**/*.html', '!index.html'])
   // Will be put in the public/views folder
   // .pipe(htmlmin({collapseWhitespace: true}))
     .pipe(gulp.dest('../static'));
