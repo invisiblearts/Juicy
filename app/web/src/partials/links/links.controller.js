@@ -13,6 +13,7 @@
     vm.del = del;
     vm.isAdmin = false;
     vm.links = [];
+    vm.animateElementIn = animateElementIn;
     vm.newLink = {
       title: "New Link Title",
       description: "Site Description",
@@ -28,6 +29,11 @@
       vm.isAdmin = appService.isAdmin();
       linksService.fetchAll().success(res=>vm.links = res);
     }
+
+    function animateElementIn($el) {
+      $el.removeClass('not-visible');
+      $el.addClass('animated fadeInUp');
+    };
 
     function upload($files, $event, $flow) {
       appService.uploadImage($flow.files[0].file)

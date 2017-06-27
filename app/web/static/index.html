@@ -10,11 +10,8 @@
     <meta name="description" content="POJO的个站和Blog。POJO,坐标上海,男,94年生,Web开发转读研,法语爱好者。"/>
     <meta name="author" content="POJO">
 
-    <title>src.moe - POJO的个站</title>
+    <title>Villefranche - 自由城 - src.moe</title>
     <link rel="stylesheet" href="styles/bundle.css">
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic,700,700italic">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700">
 
 
     <script src="vendor.js"></script>
@@ -24,8 +21,20 @@
 </head>
 
 <body>
+<nav id="fh5co-main-nav" role="navigation">
+    <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle active"><i></i></a>
+    <div class="js-fullheight fh5co-table">
+        <div class="fh5co-table-cell js-fullheight">
+            <ul>
+                <li class="animated fadeInUp" ng-click="vm.gotoState(nav.state)" ng-repeat="nav in vm.navs" ng-class="nav.state === vm.state.current.name || nav.state == 'resume' && vm.state.current.name == 'index' ? 'current-menu-item': angular.noop">
+                    <a ng-href="{{::nav.state}}">{{::nav.title}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 <div>
-    <div class="wrapper multi-purp">
+    <div class="wrapper multi-purp" id="scale-range">
         <jc-nav></jc-nav>
         <div id="jc-view" ui-view autoscroll="true"></div>
         <div class="footer">
@@ -35,10 +44,9 @@
                         <div class="footer-widget">
                             <div class="footer-title">Follow Me</div>
                             <div class="text_footer">
-                                欢迎动画爱好者、计算机或软件技术爱好者一起互动。
+                                欢迎大佬们一起来玩。
                             </div>
                             <ul class="soc-footer">
-                                <li><a href="https://twitter.com/POJOrz"><i class="fa fa-twitter"></i></a></li>
                                 <li><a href="http://weibo.com/pojorz"><i class="fa fa-weibo"></i></a></li>
                                 <li><a href="https://github.com/POJOa"><i class="fa fa-github"></i></a></li>
                                 <li><a href="https://www.linkedin.com/in/%E5%AD%90%E6%9D%B0-%E9%BB%84-443761126/"><i class="fa fa-linkedin-square"></i> </a></li>

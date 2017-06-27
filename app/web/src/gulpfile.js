@@ -39,6 +39,7 @@ gulp.task('vendorjs', function () {
   return gulp.src([
     'node_modules/jquery/dist/jquery.js',
     'node_modules/angular/angular.js',
+    'node_modules/angular-scroll-animate/dist/angular-scroll-animate.js',
     'node_modules/angular-jwt/dist/angular-jwt.js',
     'node_modules/showdown/dist/showdown.js',
     'node_modules/ng-flow/dist/ng-flow-standalone.js',
@@ -51,11 +52,13 @@ gulp.task('vendorjs', function () {
 
     'node_modules/ng-infinite-scroll/build/ng-infinite-scroll.js',
     'libs/ne-music.js',
-    'libs/angular-matchheight.js',
+    //'libs/angular-matchheight.js',
+    'assets/js/jquery.easing.1.3.js',
     'assets/js/waypoints.min.js',
     'assets/js/bootstrap.min.js',
     'assets/js/retina.min.js',
-    'assets/js/jquery.bxslider.min.js',
+    //'assets/js/jquery.bxslider.min.js',
+    'assets/js/jquery.jcarousel.min.js',
     'assets/js/nivo-lightbox.min.js'
 
   ])
@@ -85,7 +88,7 @@ gulp.task('vendorjs', function () {
 
 gulp.task('minify-css', function () {
 
-  return gulp.src(['assets/css/style.css', 'assets/css/responsive.css', 'assets/css/nivo-lightbox.css'])
+  return gulp.src(['assets/css/style.css', 'assets/css/responsive.css', 'assets/css/nivo-lightbox.css', 'assets/css/animate.css'])
     .pipe(concatCss('bundle.css'))
     .pipe(cssMin())
     .pipe(gulp.dest('../static/styles'));

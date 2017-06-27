@@ -14,6 +14,7 @@
 
     <script type="text/javascript" src="../assets/js/jquery-2.2.4.min.js"></script>
     <script src="../node_modules/angular/angular.min.js"></script>
+    <script src="../node_modules/angular-scroll-animate/dist/angular-scroll-animate.js"></script>
 
     <script src="../node_modules/angular-jwt/dist/angular-jwt.min.js"></script>
     <script src="../node_modules/showdown/dist/showdown.js"></script>
@@ -43,7 +44,6 @@
 
     <script src="partials/beats/beats.service.js"></script>
     <script src="partials/links/links.service.js"></script>
-    <script src="partials/baladeur/baladeur.service.js"></script>
 
     <script src="partials/beats/beats.controller.js"></script>
 
@@ -76,7 +76,6 @@
 
     <script src="partials/baladeur/baladeur.nav.config.js"></script>
 
-    <script src="partials/analysis/analysis.controller.js"></script>
     <script src="partials/login/login.controller.js"></script>
 
     <script src="partials/login/login.service.js"></script>
@@ -101,15 +100,17 @@
     <script type="text/javascript" src="../assets/js/modernizr.custom.js"></script>
     <script type="text/javascript" src="../assets/js/isotope.pkgd.min.js"></script>
     <!-- CSS FILES -->
+    <link href="../assets/css/animate.css" media="screen" rel="stylesheet" type="text/css">
     <link href="../assets/css/style.css" media="screen" rel="stylesheet" type="text/css">
     <link href="../assets/css/responsive.css" media="screen" rel="stylesheet" type="text/css">
     <link href="../assets/css/nivo-lightbox.css" media="screen" rel="stylesheet" type="text/css">
-    <link href="../assets/css/layouts/default.css" media="screen" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="../assets/js/jquery.easing.1.3.js"></script>
     <script type="text/javascript" src="../assets/js/waypoints.min.js"></script>
     <script type="text/javascript" src="../assets/js/sticky.js"></script>
     <script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../assets/js/retina.min.js"></script>
-    <script type="text/javascript" src="../assets/js/jquery.bxslider.min.js"></script>
+    <script type="text/javascript" src="../assets/js/jquery.jcarousel.min.js"></script>
+
     <script type="text/javascript" src="../assets/js/nivo-lightbox.min.js"></script>
     <script type="text/javascript" src="../assets/js/main.js"></script>
     <!--
@@ -117,7 +118,19 @@
     -->
 </head>
 <body>
-<div class="wrapper multi-purp">
+<nav id="fh5co-main-nav" role="navigation">
+    <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle active"><i></i></a>
+    <div class="js-fullheight fh5co-table">
+        <div class="fh5co-table-cell js-fullheight">
+            <ul>
+                <li class="animated fadeInUp" ng-click="vm.gotoState(nav.state)" ng-repeat="nav in vm.navs" ng-class="nav.state === vm.state.current.name || nav.state == 'resume' && vm.state.current.name == 'index' ? 'current-menu-item': angular.noop">
+                    <a ng-href="{{::nav.state}}">{{::nav.title}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="wrapper multi-purp" id="scale-range">
     <jc-nav></jc-nav>
     <div id="jc-view" class="jc-view" ui-view autoscroll="true"></div>
     <div class="footer">

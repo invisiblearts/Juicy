@@ -1,4 +1,5 @@
 <div ng-class="vm.jcTopicBrief ? 'marg50' : angular.noop" ng-if="!vm.placeholder">
+    {{ vm.jcTopic}}
     <div class="classic-blog">
         <div ng-if="vm.jcTopicBrief" class="cl-blog-img">
             <div ng-if="vm.jcTopic.thumbnail" class="post-thumbnail" style="max-height: 1440px">
@@ -60,7 +61,7 @@
                          flow-files-submitted="vm.upload( $files, $event, $flow )"
                          flow-file-success="$file.msg = $message"
                          flow-btn class="btn btn-vf btn-xxs">
-                        上传头像!
+                         上传头像!
                     </div>
                 </div>
                 <p class="text_cont com_top">{{c.body}}</p>
@@ -70,22 +71,38 @@
     </div>
 </div>
 
-<div class="marg150" ng-if="vm.placeholder">
+<div ng-class="vm.jcTopicBrief ? 'marg50' : angular.noop" ng-if="vm.placeholder">
+    loading
     <div class="classic-blog animated-background">
-        <div class="background-masker header-left"></div>
-        <div class="background-masker header-right"></div>
-        <div class="background-masker header-bottom"></div>
-        <div class="background-masker subheader-left"></div>
-        <div class="background-masker subheader-right"></div>
-        <div class="background-masker subheader-bottom"></div>
-        <div class="background-masker content-top"></div>
-        <div class="background-masker content-second-line"></div>
-        <div class="background-masker content-second-end"></div>
-        <div class="background-masker content-third-line"></div>
-        <div class="background-masker content-third-end"></div>
+        <div ng-if="vm.jcTopicBrief" class="cl-blog-img">
+            <div ng-if="vm.jcTopic.thumbnail" class="post-thumbnail background-masker" style="max-height: 1440px"></div>
+
+            <div class="cl-blog-naz">
+                <div class="cl-blog-type background-masker"></div>
+                <div class="cl-blog-name background-masker"></div>
+                <div class="cl-blog-detail background-masker"></div>
+                <h4 ng-if="vm.jcTopicBrief" class="cl-blog-text title-light background-masker">{{::vm.jcTopic.summary}} </h4>
+            </div>
+        </div>
+
+        <div ng-if="vm.jcTopicBrief">
+            <div class="cl-blog-read background-masker" style="margin-right: 20px"></div>
+            <div class="cl-blog-line background-masker"></div>
+        </div>
+
+        <div ng-if="!vm.jcTopicBrief" class="cl-blog-text cl-blog-img background-masker" ng-bind-html="vm.jcTopic.html"></div>
+
+        <div ng-if="!vm.jcTopicBrief" class="row">
+            <div class="col-lg-11 col-md-11 hidden-sm hidden-xs">
+                <div class="tags-blog-single">
+                    <ul class="tags-blog background-masker"></ul>
+                </div>
+            </div>
+            <div ng-if="vm.jcTopicShare" class="col-lg-1 col-md-1 col-sm-12 col-xs-12 background-masker">
+                <div class="soc-blog-single">
+                    <ul class="soc-blog background-masker"></ul>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="cl-blog-read animated-background-non-fixed-height" style="margin-right: 20px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-
-    <div class="cl-blog-line"></div>
-
 </div>

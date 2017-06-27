@@ -20,6 +20,7 @@
     /*@ngInject*/
     function TopicCardCtrl($scope, $showdown, $location, $sce, appService, appEvent, loginService) {
       var vm = this;
+      vm.placeholder = vm.jcTopic === 'loading'
       vm.selectTopic = selectTopic;
       vm.share = share;
       vm.editTopic = editTopic;

@@ -6,7 +6,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 pull-left">
-                                <div class="logo animated fadeInLeft">
+                                <div class="logo">
                                     <a href="/">
                                         <span class="pull-left logo-text classic-vers">Villefranche</span>
                                     </a>
@@ -14,13 +14,14 @@
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-6 col-xs-6 pull-right">
                                 <div class="menu menu-wrapper classic-vers">
-                                    <div>
+                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"></button>
+                                    <div class="navbar-collapse collapse">
                                         <div class="menu-main-menu-container">
                                             <ul>
-                                                <li class="animated fadeInUp" ng-click="vm.gotoState(nav.state)" ng-repeat="nav in vm.navs" ng-class="nav.state === vm.state.current.name || nav.state == 'resume' && vm.state.current.name == 'index' ? 'current-menu-item': angular.noop">
+                                                <li ng-click="vm.gotoState(nav.state)" data-toggle="collapse" data-target=".navbar-collapse" ng-repeat="nav in vm.navs" ng-class="nav.state === vm.state.current.name || nav.state == 'topics' && vm.state.current.name == 'index' ? 'current-menu-item': angular.noop">
                                                     <a ng-href="{{::nav.state}}">{{::nav.title}}</a>
                                                 </li>
-                                                <li class="animated fadeInUp">
+                                                <li data-toggle="collapse" data-target=".navbar-collapse">
                                                     <a target="_blank" href="https://leyline.cc">LAB</a>
                                                 </li>
                                             </ul>
@@ -28,8 +29,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
-
                         </div>
                     </div>
                 </nav>

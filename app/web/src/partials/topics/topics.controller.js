@@ -4,18 +4,33 @@
   /*@ngInject*/
   function topicsCtrl($scope, $http, $state, $document, appEvent, topicsService) {
     var vm = this;
+    vm.loading = 'loading';
     vm.topicList = [];
     vm.start = 0;
     vm.reachedEnd = false;
     vm.lock = false;
     vm.loadMore = loadMore;
     vm.pageForCustomRefresh = 0;
+    vm.animateElementIn = animateElementIn;
+    vm.animateElementOut = animateElementOut;
+
     var paginationInit = true;
-    var paginationInitTopicsNum = 3;
-    var topicsPerPage = 3;
-    // init();
+    var paginationInitTopicsNum = 2;
+    var topicsPerPage = 1;
+    //init();
 
     /////////
+    function animateElementIn($el) {
+      $el.removeClass('not-visible');
+      $el.addClass('animated fadeInUp');
+    };
+
+
+    function animateElementOut($el) {
+      $el.addClass('not-visible');
+      $el.removeClass('animated fadeInUp');
+    };
+
 
     function loadMore() {
       pushTopicsPaginated();
@@ -56,6 +71,8 @@
     function handleEditTopic(event, id) {
       $state.go("compose-edit", id);
     }
+
+
 
     appEvent.subscribe("topicSelected", handleTopicSelected, $scope);
     appEvent.subscribe("editTopic", handleEditTopic, $scope);

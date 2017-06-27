@@ -1,0 +1,7 @@
+<div class="container" id="scroll-cont">
+    <div infinite-scroll-distance="2" infinite-scroll="vm.loadMore()">
+        <div ng-repeat="data in vm.displayedData track by data._id">
+            <jc-card jc-show-utc-cn="true" jc-content="data" jc-hide-progress="true"></jc-card>
+        </div>
+    </div>
+</div>

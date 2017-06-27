@@ -1,7 +1,8 @@
 (function () {
   angular.module('app', [
+    'angular-scroll-animate',
     'ui.router',
     'app.modules', 'app.components',
-    'angular-matchheight', 'updateMeta','monospaced.elastic'
+    'updateMeta','monospaced.elastic'
   ]);
 })();

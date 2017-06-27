@@ -1,13 +1,20 @@
 (function () {
   angular.module('app')
     .config(routeProvider);
-  function routeProvider($stateProvider, $locationProvider, $urlRouterProvider) {
+  function routeProvider($stateProvider, $locationProvider, $urlRouterProvider,$provide) {
     $locationProvider.html5Mode({enabled: true});
     $locationProvider.hashPrefix('!');
 
-    $urlRouterProvider.otherwise("topics");
+    $urlRouterProvider.otherwise("404");
 
 
+    $provide.decorator('$uiViewScroll', function ($delegate) {
+      return function (uiViewElement) {
+        jQuery('body').animate({
+          scrollTop: 0
+        }, 100);
+      };
+    });
 
     $stateProvider.state('tweets', {
       url: '/tweets',
@@ -62,13 +69,14 @@
     }).state('resume', {
       url: '/resume',
       templateUrl: 'partials/resume/resume.view.html',
-      controller: 'resumeCtrl',
-      controllerAs: 'vm'
+      //controller: 'resumeCtrl',
+      //controllerAs: 'vm'
     }).state('index', {
       url: '/',
-      templateUrl: 'partials/topics/topics.view.html',
-      controller: 'topicsCtrl',
-      controllerAs: 'vm'
+      templateUrl: 'partials/resume/resume.view.html'
+    }).state('404', {
+      url: '/404',
+      templateUrl: 'partials/pages/404.html'
     });
 
   }

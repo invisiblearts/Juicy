@@ -4,7 +4,7 @@
 
   function appService(jwtHelper, $http, APP_CONST, $q, appEvent, $rootScope) {
     var vm = this;
-    $rootScope.title = 'src.moe - POJO的个站';
+    $rootScope.title = 'Villefranche - 自由城';
     $rootScope.meta = 'POJO的个站和Blog。POJO,坐标上海,男,94年生,Web开发转读研,法语爱好者。';
 
     var service = {
